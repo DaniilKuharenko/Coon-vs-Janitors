@@ -41,3 +41,4 @@ Thumbs.db
 ### CMake and CPP files to ignore ###
 *.cmake
 *.cpp
+*.log

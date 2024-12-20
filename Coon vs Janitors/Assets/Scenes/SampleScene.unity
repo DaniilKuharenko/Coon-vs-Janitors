@@ -990,7 +990,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c60f26525cd6b9488f8637501f1b00c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _trashData: {fileID: 0}
+  _trashData: {fileID: 11400000, guid: c5394a1e2d4277b419ce7d1f7e65c11d, type: 2}
   _spawnArea: {x: 10, y: 10}
   _numberOfTrashToSpawn: 10
 --- !u!1 &1830772659

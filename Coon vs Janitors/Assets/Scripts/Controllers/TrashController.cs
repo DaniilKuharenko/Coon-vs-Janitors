@@ -10,11 +10,17 @@ namespace Raccons_House_Games
         [SerializeField] private Vector2 _spawnArea = new Vector2(10f, 10f);
         [SerializeField] private int _numberOfTrashToSpawn = 10;
         private List<GameObject> _trashDictionary = new List<GameObject>();
-        private ObjectPool _trashPool;
+        private List<ObjectPool> _trashPools = new List<ObjectPool>();
 
         private void Start()
         {
-            _trashPool = new ObjectPool(_trashData.TrashPrefabs[0], 15, 15, transform);
+            
+            foreach (var prefab in _trashData.TrashPrefabs)
+            {
+                ObjectPool pool = new ObjectPool(prefab, 15, 15, transform);
+                _trashPools.Add(pool);
+            }
+
             SpawnTrash();
         }
         
@@ -22,7 +28,10 @@ namespace Raccons_House_Games
         {
             for(int i = 0; i < _numberOfTrashToSpawn; i++)
             {
-                GameObject trash = _trashPool.Get();
+                int randomPoolIndex = Random.Range(0, _trashPools.Count);
+                ObjectPool selectedPool = _trashPools[randomPoolIndex];
+
+                GameObject trash = selectedPool.Get();
                 if(trash != null)
                 {
                     Vector3 randomPosition = new Vector3(

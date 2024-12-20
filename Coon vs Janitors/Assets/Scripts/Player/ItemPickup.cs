@@ -7,13 +7,6 @@ namespace Raccons_House_Games
         public Transform holdPoint;
         private GameObject pickedUpItem;
 
-        private void Update()
-        {
-            if (pickedUpItem != null && Input.GetKeyDown(KeyCode.E))
-            {
-                DropItem();
-            }
-        }
         private void OnTriggerEnter(Collider other)
         {
             if (other.CompareTag("Pickup") && pickedUpItem == null)
@@ -37,7 +30,7 @@ namespace Raccons_House_Games
         }
 
 
-        private void DropItem()
+        public void DropItem()
         {
             Debug.Log("DropItem() is called");
             if (pickedUpItem != null)

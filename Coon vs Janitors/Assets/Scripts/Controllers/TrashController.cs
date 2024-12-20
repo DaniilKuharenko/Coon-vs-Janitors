@@ -8,7 +8,7 @@ namespace Raccons_House_Games
     {
         [SerializeField] private GameTrash _trashData;
         [SerializeField] private Vector2 _spawnArea = new Vector2(10f, 10f);
-        [SerializeField] private int _numberOfTrashToSpawn = 10;
+        [SerializeField] private int _numberOfTrashToSpawn = 5;
         private List<GameObject> _trashDictionary = new List<GameObject>();
         private List<ObjectPool> _trashPools = new List<ObjectPool>();
 
@@ -17,7 +17,7 @@ namespace Raccons_House_Games
             
             foreach (var prefab in _trashData.TrashPrefabs)
             {
-                ObjectPool pool = new ObjectPool(prefab, 15, 15, transform);
+                ObjectPool pool = new ObjectPool(prefab, 5, 5, transform);
                 _trashPools.Add(pool);
             }
 

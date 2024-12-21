@@ -353,6 +353,21 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 7332f7edd782abf4a9b3af2e63cbdb59,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7332f7edd782abf4a9b3af2e63cbdb59,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7332f7edd782abf4a9b3af2e63cbdb59,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7332f7edd782abf4a9b3af2e63cbdb59,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.77
       objectReference: {fileID: 0}
@@ -401,6 +416,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7332f7edd782abf4a9b3af2e63cbdb59,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 7332f7edd782abf4a9b3af2e63cbdb59,
         type: 3}
       propertyPath: m_Name
@@ -414,6 +434,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 677362178}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7332f7edd782abf4a9b3af2e63cbdb59,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 677362180}
   m_SourcePrefab: {fileID: 100100000, guid: 7332f7edd782abf4a9b3af2e63cbdb59, type: 3}
 --- !u!1 &677362177 stripped
 GameObject:
@@ -443,6 +467,25 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &677362180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 677362177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e082d7849de96341b5369cfc80171fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  VisionConeMaterial: {fileID: 2100000, guid: 37524ae4594222f4f8acd7b76234f79a, type: 2}
+  VisionRange: 5
+  VisionAngle: 2
+  VisionObstructingLayer:
+    serializedVersion: 2
+    m_Bits: 192
+  VisionConeResolution: 120
 --- !u!1 &682833694
 GameObject:
   m_ObjectHideFlags: 0
@@ -855,7 +898,7 @@ GameObject:
   - component: {fileID: 1473643947}
   - component: {fileID: 1473643946}
   - component: {fileID: 1473643948}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1433,7 +1476,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1901572508}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}

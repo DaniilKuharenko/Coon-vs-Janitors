@@ -5,72 +5,53 @@ namespace Raccons_House_Games
 {
     public class ObjectPool
     {
-        [SerializeField] private int _maxCount;
-        private Queue<GameObject> _pool = new Queue<GameObject>();
-        private GameObject _prefab;
-        private Transform _parent;
+        private readonly Queue<GameObject> _pool = new Queue<GameObject>();
+        private readonly GameObject _prefab;
+        private readonly Transform _parent;
 
-        //Testing varible
-        private int _totalCreated;
-
-        public ObjectPool(GameObject prefab, int initialCount, int maxCount, Transform parent)
+        public ObjectPool(GameObject prefab, Transform parent, int initialSize)
         {
             _prefab = prefab;
             _parent = parent;
-            _maxCount = maxCount;
 
+            Debug.Log($"Initializing ObjectPool with prefab: {_prefab.name}, initial size: {initialSize}");
 
-            for(int i = 0; i < initialCount; i++)
+            for (int i = 0; i < initialSize; i++)
             {
-                GameObject PoolObject = Object.Instantiate(_prefab, _parent);
-                Debug.Log("Test Instantiate 1");
-                PoolObject.SetActive(true);
-                _pool.Enqueue(PoolObject);
+                GameObject obj = CreateObject();
+                ReturnToPool(obj);
             }
-            Debug.Log($"Pool initialized with {initialCount} objects.");
+
+            Debug.Log($"ObjectPool initialized with {_pool.Count} objects.");
         }
 
-        public GameObject Get()
+        private GameObject CreateObject()
+        {
+            GameObject obj = Object.Instantiate(_prefab, _parent);
+            obj.SetActive(false);
+            Debug.Log($"Created new object: {obj.name}");
+            return obj;
+        }
+
+        public GameObject GetFromPool()
         {
             if (_pool.Count > 0)
             {
-                GameObject poolObject = _pool.Dequeue();
-                poolObject.SetActive(true);
-                Debug.Log($"Object {poolObject.name} fetched from pool. Pool size: {_pool.Count}");
-                return poolObject;
+                GameObject obj = _pool.Dequeue();
+                obj.SetActive(true);
+                Debug.Log($"Object {obj.name} fetched from pool. Remaining objects in pool: {_pool.Count}");
+                return obj;
             }
 
-            if (_totalCreated < _maxCount)
-            {
-                _totalCreated++;
-                GameObject poolObject = Object.Instantiate(_prefab, _parent);
-                poolObject.SetActive(true);
-                Debug.Log($"Pool is empty! Creating new object. Total created: {_totalCreated}");
-                return poolObject;
-            }
-            
-            // If the limit is reached, reuse the existing object
-            GameObject reusedObject = _pool.Dequeue();
-            reusedObject.SetActive(true);
-            Debug.LogWarning($"Max pool size reached! Reusing object: {reusedObject.name}");
-            return reusedObject;
+            Debug.LogWarning("Pool is empty. Creating new object.");
+            return CreateObject();
         }
 
-        public void Return(GameObject poolObject)
+        public void ReturnToPool(GameObject obj)
         {
-            poolObject.SetActive(false);
-            if (_pool.Count < _maxCount)
-            {
-                _pool.Enqueue(poolObject);
-                Debug.Log($"Object returned to pool. Pool size: {_pool.Count}");
-            }
-            else
-            {
-                Debug.LogWarning($"Pool size exceeded max count! Destroying object: {poolObject.name}");
-                Object.Destroy(poolObject);
-            }
+            obj.SetActive(false);
+            _pool.Enqueue(obj);
+            Debug.Log($"Object {obj.name} returned to pool. Total objects in pool: {_pool.Count}");
         }
-
-
     }
 }

@@ -10,12 +10,10 @@ namespace Raccons_House_Games
         [SerializeField] private float _pickupRadius = 2.0f;
         [SerializeField] private float _circleHeight = 0f; 
         [SerializeField] private LayerMask _targetLayer;
-
-        private Transform _target;
-
-        private void Update()
-        {
-        }
+        public LayerMask TargetLayer => _targetLayer;
+        public float DetectionRadius => _detectionRadius;
+        public float PickupRadius => _pickupRadius;
+        public float CircleHeight => _circleHeight;
 
         private void OnDrawGizmosSelected()
         {

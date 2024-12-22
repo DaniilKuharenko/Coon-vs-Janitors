@@ -379,7 +379,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 7332f7edd782abf4a9b3af2e63cbdb59,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 9.2
+      value: 15.8
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7332f7edd782abf4a9b3af2e63cbdb59,
         type: 3}
@@ -437,7 +437,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7332f7edd782abf4a9b3af2e63cbdb59,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 677362180}
+      addedObject: {fileID: 677362182}
   m_SourcePrefab: {fileID: 100100000, guid: 7332f7edd782abf4a9b3af2e63cbdb59, type: 3}
 --- !u!1 &677362177 stripped
 GameObject:
@@ -467,7 +467,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &677362180
+--- !u!114 &677362182
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -476,15 +476,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 677362177}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: edec3b01d46c17449b6cbce14b6dcf7d, type: 3}
+  m_Script: {fileID: 11500000, guid: a2e8e08bbea4d0245850596c7550dd92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _detectionRadius: 10
-  _pickupRadius: 5
+  _pickupRadius: 4
   _circleHeight: 0.6
   _targetLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
 --- !u!1 &682833694
 GameObject:
   m_ObjectHideFlags: 0

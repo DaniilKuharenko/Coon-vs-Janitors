@@ -480,11 +480,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _detectionRadius: 10
-  _pickupRadius: 4
+  _pickupRadius: 3
   _circleHeight: 0.6
   _targetLayer:
     serializedVersion: 2
     m_Bits: 64
+  _moveSpeed: 7
 --- !u!1 &682833694
 GameObject:
   m_ObjectHideFlags: 0

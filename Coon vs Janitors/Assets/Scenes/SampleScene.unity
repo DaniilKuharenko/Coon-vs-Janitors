@@ -479,12 +479,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2e8e08bbea4d0245850596c7550dd92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _detectionRadius: 10
+  _detectionRadius: 11
   _pickupRadius: 3
   _circleHeight: 0.6
   _targetLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 192
   _moveSpeed: 7
 --- !u!1 &682833694
 GameObject:

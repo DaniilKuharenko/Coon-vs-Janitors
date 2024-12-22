@@ -476,19 +476,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 677362177}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e082d7849de96341b5369cfc80171fb, type: 3}
+  m_Script: {fileID: 11500000, guid: edec3b01d46c17449b6cbce14b6dcf7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 5
-  angle: 87
-  playerRef: {fileID: 1473643941}
-  targetMask:
+  _detectionRadius: 10
+  _pickupRadius: 5
+  _targetLayer:
     serializedVersion: 2
-    m_Bits: 193
-  obstructionMask:
-    serializedVersion: 2
-    m_Bits: 193
-  canSeePlayer: 0
+    m_Bits: 0
 --- !u!1 &682833694
 GameObject:
   m_ObjectHideFlags: 0
@@ -647,7 +642,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!81 &963194226
 AudioListener:
   m_ObjectHideFlags: 0

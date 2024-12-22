@@ -6,16 +6,43 @@ namespace Raccons_House_Games
 {
     public class Enemy : MonoBehaviour
     {
-        // Start is called before the first frame update
-        void Start()
+        [SerializeField] private float _detectionRadius = 5.0f;
+        [SerializeField] private float _pickupRadius = 2.0f;
+        [SerializeField] private LayerMask _targetLayer;
+
+        private Transform _target;
+
+        private void Update()
         {
-        
+            OnDrawGizmosSelected();
         }
 
-        // Update is called once per frame
-        void Update()
+        private void OnDrawGizmosSelected()
         {
-        
+            Gizmos.color = Color.green;
+            DrawCircle(transform.position, _detectionRadius, Color.yellow);
+
+            Gizmos.color = Color.yellow;
+            DrawCircle(transform.position, _pickupRadius, Color.red);
+        }
+
+        private void DrawCircle(Vector3 center, float radius, Color color)
+        {
+            int segments = 64;
+            float angleStep = 360f / segments;
+
+            Vector3 previousPoint = center + new Vector3(radius, 0, 0);
+
+            Gizmos.color = color;
+
+            for (int i = 1; i <= segments; i++)
+            {
+                float angle = i * angleStep * Mathf.Deg2Rad;
+                Vector3 nextPoint = center + new Vector3(Mathf.Cos(angle) * radius, 0, Mathf.Sin(angle) * radius);
+
+                Gizmos.DrawLine(previousPoint, nextPoint);
+                previousPoint = nextPoint;
+            }
         }
     }
 }

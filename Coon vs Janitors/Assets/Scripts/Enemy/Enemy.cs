@@ -15,7 +15,6 @@ namespace Raccons_House_Games
 
         private void Update()
         {
-            OnDrawGizmosSelected();
         }
 
         private void OnDrawGizmosSelected()

@@ -20,10 +20,10 @@ namespace Raccons_House_Games
         private void OnDrawGizmosSelected()
         {
             Gizmos.color = Color.green;
-            DrawCircle(transform.position, _detectionRadius, Color.yellow);
+            DrawCircle(transform.position, _detectionRadius, Gizmos.color);
 
             Gizmos.color = Color.yellow;
-            DrawCircle(transform.position, _pickupRadius, Color.red);
+            DrawCircle(transform.position, _pickupRadius, Gizmos.color);
         }
 
         private void DrawCircle(Vector3 center, float radius, Color color)

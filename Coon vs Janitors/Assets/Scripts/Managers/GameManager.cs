@@ -24,13 +24,13 @@ namespace Raccons_House_Games
         private void InitializePools()
         {
             // Create a pool for the player
-            _playerPool = new ObjectPool(_referenceHolder.PlayerPrefab.gameObject, _poolParent, 1);
+           // _playerPool = new ObjectPool(_referenceHolder.PlayerPrefab.gameObject, _poolParent, 1);
 
             // Create pools for the enemies
             _enemyPools = new List<ObjectPool>();
             foreach(var enemyPrefab in _referenceHolder.EnemyPrefabs)
             {
-                var pool = new ObjectPool(enemyPrefab.gameObject, _poolParent, 5);
+                var pool = new ObjectPool(enemyPrefab.gameObject, _poolParent, 3);
                 _enemyPools.Add(pool);
             }
         }
@@ -38,8 +38,8 @@ namespace Raccons_House_Games
         private void SpawnPlayer()
         {
             // Get a player from the pool
-            _playerInstance = _playerPool.GetFromPool();
-            _playerInstance.transform.position = _playerSpawnPoint.position;
+            // _playerInstance = _playerPool.GetFromPool();
+            // _playerInstance.transform.position = _playerSpawnPoint.position;
 
             // Initialize the player's state machine
             // var playerControll = _playerInstance.GetComponent<PlayerControll>();

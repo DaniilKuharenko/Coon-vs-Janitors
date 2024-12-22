@@ -479,8 +479,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edec3b01d46c17449b6cbce14b6dcf7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _detectionRadius: 10
-  _pickupRadius: 5
+  _detectionRadius: 5
+  _pickupRadius: 2
   _targetLayer:
     serializedVersion: 2
     m_Bits: 0

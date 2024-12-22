@@ -8,6 +8,7 @@ namespace Raccons_House_Games
     {
         [SerializeField] private float _detectionRadius = 5.0f;
         [SerializeField] private float _pickupRadius = 2.0f;
+        [SerializeField] private float _circleHeight = 0f; 
         [SerializeField] private LayerMask _targetLayer;
 
         private Transform _target;
@@ -19,11 +20,9 @@ namespace Raccons_House_Games
 
         private void OnDrawGizmosSelected()
         {
-            Gizmos.color = Color.green;
-            DrawCircle(transform.position, _detectionRadius, Gizmos.color);
+            DrawCircle(transform.position + Vector3.up * _circleHeight, _detectionRadius, Color.green);
 
-            Gizmos.color = Color.yellow;
-            DrawCircle(transform.position, _pickupRadius, Gizmos.color);
+            DrawCircle(transform.position + Vector3.up * _circleHeight, _pickupRadius, Color.yellow);
         }
 
         private void DrawCircle(Vector3 center, float radius, Color color)

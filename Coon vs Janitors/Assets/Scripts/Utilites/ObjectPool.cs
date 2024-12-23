@@ -39,7 +39,7 @@ namespace Raccons_House_Games
             {
                 GameObject obj = _pool.Dequeue();
                 obj.SetActive(true);
-                Debug.Log($"Object {obj.name} fetched from pool. Remaining objects in pool: {_pool.Count}");
+                //Debug.Log($"Object {obj.name} fetched from pool. Remaining objects in pool: {_pool.Count}");
                 return obj;
             }
 
@@ -51,7 +51,7 @@ namespace Raccons_House_Games
         {
             obj.SetActive(false);
             _pool.Enqueue(obj);
-            Debug.Log($"Object {obj.name} returned to pool. Total objects in pool: {_pool.Count}");
+            //Debug.Log($"Object {obj.name} returned to pool. Total objects in pool: {_pool.Count}");
         }
     }
 }

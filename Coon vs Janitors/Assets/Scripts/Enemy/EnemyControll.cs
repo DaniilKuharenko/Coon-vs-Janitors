@@ -8,24 +8,46 @@ namespace Raccons_House_Games
         [SerializeField] private Animator _animator;
         private Transform _target;
         private StateMachine _stateMachine;
-        private EnemyIdleState idleState;
+        private EnemyIdleState _idleState;
+        private EnemyWalkState _walkState;
+        private float _checkSpeed;
 
         public void InitializeStateMachine()
         {
             _stateMachine = new StateMachine();
-            idleState = new EnemyIdleState(this, _animator);
+
+            _idleState = new EnemyIdleState(this, _animator);
+            _walkState = new EnemyWalkState(this, _animator);
             
-            _stateMachine.SetState(idleState);
+            _stateMachine.AddTransition(_idleState, _walkState, new Predicate(() => _checkSpeed >= 0.5));
+            _stateMachine.AddTransition(_walkState, _idleState, new Predicate(() => _checkSpeed <= 0.5));
+
+            _stateMachine.SetState(_idleState);
         }
 
         private void Update()
         {
             _stateMachine?.Update();
+            
             DetectTargets();
+            CheckingSpeed();
+
             if(_target != null)
             {
                 MoveTowardsTarget();
                 CheckPickup();
+            }
+        }
+
+        private void CheckingSpeed()
+        {
+            if (_target != null)
+            {
+                _checkSpeed = Vector3.Distance(transform.position, _target.position);
+            }
+            else
+            {
+                _checkSpeed = Mathf.MoveTowards(_checkSpeed, 0, Time.deltaTime * _moveSpeed);
             }
         }
 

@@ -148,3 +148,4 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 192
   _moveSpeed: 7
+  _animator: {fileID: 1189819500325525920}

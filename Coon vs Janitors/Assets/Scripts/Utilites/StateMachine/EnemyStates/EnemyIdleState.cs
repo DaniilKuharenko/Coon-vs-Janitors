@@ -1,21 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Raccons_House_Games
 {
-    public class EnemyIdleState : MonoBehaviour
+    public class EnemyIdleState : EnemyBaseState
     {
-        // Start is called before the first frame update
-        void Start()
+        public EnemyIdleState(EnemyControll enemyControll, Animator animator) 
+        : base (enemyControll, animator){}
+
+        public override void OnEnter()
         {
-        
+            Debug.Log("Idle Start");
         }
 
-        // Update is called once per frame
-        void Update()
-        {
-        
-        }
     }
 }

@@ -5,10 +5,22 @@ namespace Raccons_House_Games
     public class EnemyControll : Enemy
     {
         [SerializeField] private float _moveSpeed = 3.0f;
+        [SerializeField] private Animator _animator;
         private Transform _target;
+        private StateMachine _stateMachine;
+        private EnemyIdleState idleState;
+
+        public void InitializeStateMachine()
+        {
+            _stateMachine = new StateMachine();
+            idleState = new EnemyIdleState(this, _animator);
+            
+            _stateMachine.SetState(idleState);
+        }
 
         private void Update()
         {
+            _stateMachine?.Update();
             DetectTargets();
             if(_target != null)
             {

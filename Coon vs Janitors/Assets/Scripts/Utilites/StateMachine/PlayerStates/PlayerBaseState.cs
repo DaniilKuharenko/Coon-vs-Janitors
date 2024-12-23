@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Raccons_House_Games
 {
-    public abstract class BaseState : IState
+    public abstract class PlayerBaseState : IState
     {
         protected readonly PlayerControll _playerControll;
         protected readonly Animator _animator;
@@ -12,7 +12,7 @@ namespace Raccons_House_Games
         protected static readonly int RunnHash = Animator.StringToHash("Running");
         protected const float crossFadeDuration = 0.1f;
 
-        protected BaseState(PlayerControll playerControll, Animator animator)
+        protected PlayerBaseState(PlayerControll playerControll, Animator animator)
         {
             _playerControll = playerControll;
             _animator = animator;

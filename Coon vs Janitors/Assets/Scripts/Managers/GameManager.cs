@@ -54,6 +54,8 @@ namespace Raccons_House_Games
                 var pool = _enemyPools[Random.Range(0, _enemyPools.Count)];
                 var enemyInstance = pool.GetFromPool();
                 enemyInstance.transform.position = spawnPoint.position;
+
+                // Initialize the enemys's state machine
             }
         }
     }

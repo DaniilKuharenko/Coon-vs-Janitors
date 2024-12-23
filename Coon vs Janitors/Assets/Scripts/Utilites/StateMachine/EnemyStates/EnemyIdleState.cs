@@ -9,7 +9,7 @@ namespace Raccons_House_Games
         public override void OnEnter()
         {
             Debug.Log("Idle Start");
-            animator.CrossFade(EnemyIdleHash, crossFadeDuration);
+            _animator.CrossFade(EnemyIdleHash, crossFadeDuration);
         }
 
         public override void Update()

@@ -56,6 +56,8 @@ namespace Raccons_House_Games
                 enemyInstance.transform.position = spawnPoint.position;
 
                 // Initialize the enemys's state machine
+                var enemyControl = enemyInstance.GetComponent<EnemyControll>();
+                enemyControl.InitializeStateMachine();
             }
         }
     }

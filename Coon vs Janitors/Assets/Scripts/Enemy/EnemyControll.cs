@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace Raccons_House_Games
 {
@@ -6,11 +7,26 @@ namespace Raccons_House_Games
     {
         [SerializeField] private float _moveSpeed = 3.0f;
         [SerializeField] private Animator _animator;
+        [SerializeField] private Transform[] _patrolPoints;
+        [SerializeField] private float _waitTime = 2f;
+        [SerializeField] private NavMeshAgent _agent;
+
+        public Transform Target => _target;
         private Transform _target;
+
         private StateMachine _stateMachine;
         private EnemyIdleState _idleState;
         private EnemyWalkState _walkState;
+        private PatrolState _patrolState;
+        private ChaseState _chaseState;
+
         private float _checkSpeed;
+        private int _currentPointIndex;
+
+        public void InitializeEnemyControll()
+        {
+            _agent = GetComponent<NavMeshAgent>();
+        }
 
         public void InitializeStateMachine()
         {
@@ -18,25 +34,22 @@ namespace Raccons_House_Games
 
             _idleState = new EnemyIdleState(this, _animator);
             _walkState = new EnemyWalkState(this, _animator);
+            _patrolState = new PatrolState(this, _animator, _agent, _patrolPoints, _waitTime);
+            _chaseState = new ChaseState(this, _animator, _agent);
             
             _stateMachine.AddTransition(_idleState, _walkState, new Predicate(() => _checkSpeed >= 0.5));
             _stateMachine.AddTransition(_walkState, _idleState, new Predicate(() => _checkSpeed <= 0.5));
+            _stateMachine.AddTransition(_patrolState, _chaseState, new Predicate(() => _target != null));
+            _stateMachine.AddTransition(_chaseState, _patrolState, new Predicate(() => _target == null));
 
-            _stateMachine.SetState(_idleState);
+            _stateMachine.SetState(_patrolState);
         }
 
         private void Update()
         {
-            _stateMachine?.Update();
-            
             DetectTargets();
             CheckingSpeed();
-
-            if(_target != null)
-            {
-                MoveTowardsTarget();
-                CheckPickup();
-            }
+            _stateMachine?.Update();
         }
 
         private void CheckingSpeed()
@@ -72,38 +85,6 @@ namespace Raccons_House_Games
             }
 
             _target = null;
-        }
-
-        // Moving towards the goal
-        private void MoveTowardsTarget()
-        {
-            if (_target == null) return;
-
-            Vector3 direction = new Vector3(
-                _target.position.x - transform.position.x,
-                0,
-                _target.position.z - transform.position.z
-            ).normalized;
-
-            transform.position += direction * _moveSpeed * Time.deltaTime;
-        }
-
-        // Check the pickup radius
-        private void CheckPickup()
-        {
-            if (_target == null) return;
-
-            float horizontalDistance = Vector2.Distance(
-                new Vector2(transform.position.x, transform.position.z),
-                new Vector2(_target.position.x, _target.position.z)
-            );
-
-            float heightDifference = Mathf.Abs(_target.position.y - (transform.position.y + CircleHeight));
-
-            if (horizontalDistance <= PickupRadius && heightDifference <= 1f) // Adjusting the hit height
-            {
-                Debug.Log("Hit");
-            }
         }
     }
 }

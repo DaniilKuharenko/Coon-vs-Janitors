@@ -14,11 +14,12 @@ namespace Raccons_House_Games
 
         public override void Update()
         {
+            Debug.Log("Idling");
         }
 
         public override void OnExit()
         {
-            
+            Debug.Log("Idle Exit");
         }
 
     }

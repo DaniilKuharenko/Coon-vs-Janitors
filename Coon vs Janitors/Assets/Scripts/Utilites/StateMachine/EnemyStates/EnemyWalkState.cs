@@ -14,12 +14,12 @@ namespace Raccons_House_Games
 
         public override void Update()
         {
-            base.Update();
+            Debug.Log("Walking");
         }
 
         public override void OnExit()
         {
-            base.OnExit();
+            Debug.Log("Walking Exit");
         }
     }
 }

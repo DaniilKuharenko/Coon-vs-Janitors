@@ -28,7 +28,7 @@ namespace Raccons_House_Games
             CreateRenderTexture();
             SetRTColorToWhite();
             SetMaterialTexture();
-            InvokeRepeating(nameof(AddSnowLayer), .1f, .1f);
+            InvokeRepeating(nameof(AddSnowLayer), 0.1f, 0.1f);
             ExtendBoundsofMesh();
         }
 

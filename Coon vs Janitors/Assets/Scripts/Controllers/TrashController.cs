@@ -56,5 +56,22 @@ namespace Raccons_House_Games
             }
             _activeTrash.Clear();
         }
+
+        public void ReturnTrashToPool(GameObject trash)
+        {
+            if (trash != null)
+            {
+                trash.SetActive(false);
+                foreach (var pool in _trashPools)
+                {
+                    if (pool.IsPartOfPool(trash))
+                    {
+                        pool.ReturnToPool(trash);
+                        break;
+                    }
+                }
+            }
+        }
+
     }
 }

@@ -13,6 +13,7 @@ namespace Raccons_House_Games
         [SerializeField] private Transform _holdPoint;
         [SerializeField] private Transform _trashPoint;
         [SerializeField] private LayerMask _targetLayerMask;
+        [SerializeField] private TrashController _trashController;
 
         public Transform Target => _target;
         private Transform _target;
@@ -30,6 +31,11 @@ namespace Raccons_House_Games
         public void InitializeEnemyControll()
         {
             _agent = GetComponent<NavMeshAgent>();
+
+            if (_trashController == null)
+            {
+                _trashController = FindFirstObjectByType<TrashController>();
+            }
         }
 
         public void InitializeStateMachine()
@@ -38,9 +44,10 @@ namespace Raccons_House_Games
 
             _idleState = new EnemyIdleState(this, _animator);
             _walkState = new EnemyWalkState(this, _animator);
-            _chaseState = new ChaseState(this, _animator, _agent);
+            _chaseState = new ChaseState(this, _animator, _agent, _stateMachine);
             _patrolState = new PatrolState(this, _animator, _agent, _patrolPoints, _waitTime);
-            _enemyPickupState = new EnemyPickupState(this, _animator, _agent, _holdPoint, _trashPoint, _stateMachine);
+            _enemyPickupState = new EnemyPickupState(this, _animator, _agent, _holdPoint, 
+            _trashPoint, _stateMachine, _trashController);
             
             _stateMachine.AddTransition(_idleState, _walkState, new Predicate(() => _checkSpeed >= 0.5));
             _stateMachine.AddTransition(_walkState, _idleState, new Predicate(() => _checkSpeed <= 0.5));
@@ -72,6 +79,7 @@ namespace Raccons_House_Games
         // Target detection in the horizontal plane (XZ)
         private void DetectTargets()
         {
+            
             Collider[] detectedObjects = Physics.OverlapSphere(transform.position, VisionRange, VisionObstructingLayer);
             foreach (var detected in detectedObjects)
             {
@@ -98,5 +106,22 @@ namespace Raccons_House_Games
         {
             return _patrolState;
         }
+
+        public EnemyPickupState GetPickup()
+        {
+            return _enemyPickupState;
+        }
+
+        public void TrashPickup()
+        {
+            Debug.Log("TrashPickup event triggered!");
+            _enemyPickupState?.HandleTrashPickup();
+        }
+        
+        public void SetTarget(Transform newTarget)
+        {
+            _target = newTarget;
+        }
+
     }
 }

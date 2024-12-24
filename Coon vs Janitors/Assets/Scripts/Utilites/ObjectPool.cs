@@ -53,5 +53,11 @@ namespace Raccons_House_Games
             _pool.Enqueue(obj);
             //Debug.Log($"Object {obj.name} returned to pool. Total objects in pool: {_pool.Count}");
         }
+
+        public bool IsPartOfPool(GameObject obj)
+        {
+            return _pool.Contains(obj);
+        }
+
     }
 }

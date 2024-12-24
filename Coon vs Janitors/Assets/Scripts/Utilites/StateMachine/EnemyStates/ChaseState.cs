@@ -8,12 +8,14 @@ namespace Raccons_House_Games
         private readonly EnemyControll _enemyControl;
         private readonly NavMeshAgent _agent;
         private readonly Animator _animator;
+        private StateMachine _stateMachine;
 
-        public ChaseState(EnemyControll enemyControl, Animator animator, NavMeshAgent agent)
+        public ChaseState(EnemyControll enemyControl, Animator animator, NavMeshAgent agent, StateMachine stateMachine)
         {
             _enemyControl= enemyControl;
             _animator = animator;
             _agent = agent;
+            _stateMachine = stateMachine;
         }
 
         public void OnEnter()
@@ -51,7 +53,7 @@ namespace Raccons_House_Games
 
             if (Vector3.Distance(_enemyControl.transform.position, _enemyControl.Target.position) < 2f) // attack radius
             {
-                Debug.Log("Hit");
+                _stateMachine.SetState(_enemyControl.GetPickup());
             }
         }
     }

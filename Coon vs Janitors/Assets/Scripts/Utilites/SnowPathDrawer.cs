@@ -15,7 +15,7 @@ namespace Raccons_House_Games
         private string _positionYProperty = "positionY";
         private string _spotSizeProperty = "spotSize";
 
-        private string _csMainKernel = "DrawSpot";
+        private string _drawSpotKernel = "DrawSpot";
         private Vector2Int _position = new Vector2Int(256, 256);
         
         private SnowController _snowController;
@@ -24,6 +24,20 @@ namespace Raccons_House_Games
         private void Awake()
         {
             _snowControllerObjects = GameObject.FindGameObjectsWithTag("SnowGround");
+        }
+
+        private void FixedUpdate()
+        {
+            for(int i = 0; i < _snowControllerObjects.Length; i++)
+            {
+                if(Vector3.Distance(_snowControllerObjects[i].transform.position, transform.position) > _spotSize * 5f)
+                {
+                    continue;
+                }
+
+                _snowController = _snowControllerObjects[i].GetComponent<SnowController>();
+
+            }
         }
 
         private void GetPosition()
@@ -37,6 +51,21 @@ namespace Raccons_House_Games
             int posX = _snowRT.width / 2 - (int)(((transform.position.x - snowPosX) * _snowRT.width / 2) / scaleX);
             int posY = _snowRT.width / 2 - (int)(((transform.position.z - snowPosY) * _snowRT.height / 2) / scaleY);
             _position = new Vector2Int(posX, posY);
+        }
+
+        private void DrawSpot()
+        {
+            if(_snowRT == null) return;
+            if(_snowComputerShader == null) return;
+
+            int kernel_handle = _snowComputerShader.FindKernel(_drawSpotKernel);
+            _snowComputerShader.SetTexture(kernel_handle, _snowImageProperty, _snowRT);
+            _snowComputerShader.SetFloat(_colorValueProperty, 0);
+            _snowComputerShader.SetFloat(_resolutionProperty, _snowRT.width);
+            _snowComputerShader.SetFloat(_positionXProperty, _position.x);
+            _snowComputerShader.SetFloat(_positionYProperty, _position.y);
+            _snowComputerShader.SetFloat(_spotSizeProperty, _spotSize);
+            _snowComputerShader.Dispatch(kernel_handle, _snowRT.width / 8, _snowRT.height / 8, 1);
         }
     }
 }

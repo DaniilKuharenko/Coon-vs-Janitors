@@ -44,13 +44,6 @@ namespace Raccons_House_Games
         private void CheckPickup()
         {
             if (_enemyControl.Target == null) return;
-            // float horizontalDistance = Vector2.Distance(
-            //     new Vector2(_enemyControl.transform.position.x, _enemyControl.transform.position.z),
-            //     new Vector2(_enemyControl.Target.position.x, _enemyControl.Target.position.z)
-            // );
-
-            // // float heightDifference = Mathf.Abs(_enemyControl.Target.position.y - (_enemyControl.transform.position.y + _enemyControl.CircleHeight));
-
             if (Vector3.Distance(_enemyControl.transform.position, _enemyControl.Target.position) < 2f) // attack radius
             {
                 _stateMachine.SetState(_enemyControl.GetPickup());

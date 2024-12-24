@@ -72,6 +72,7 @@ namespace Raccons_House_Games
 
         private void TrashPickup()
         {
+            if (_pickupedItem == null) return;
 
             Rigidbody rb = _pickupedItem.GetComponent<Rigidbody>();
             if (rb != null)
@@ -94,6 +95,8 @@ namespace Raccons_House_Games
         private void DropItem()
         {
             Debug.Log("DropItem is called");
+            if (_pickupedItem == null) return;
+
             if (_pickupedItem != null)
             {
                 Rigidbody rb = _pickupedItem.GetComponent<Rigidbody>();

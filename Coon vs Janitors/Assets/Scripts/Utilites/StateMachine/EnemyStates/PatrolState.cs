@@ -10,6 +10,8 @@ namespace Raccons_House_Games
         private readonly Transform[] _patrolPoints;
         protected readonly Animator _animator;
         private readonly float _waitTime;
+        protected static readonly int WalkHash = Animator.StringToHash("Walking");
+        protected const float crossFadeDuration = 0.1f;
 
         private float _waitTimer;
         private int _currentPointIndex;
@@ -26,6 +28,7 @@ namespace Raccons_House_Games
         public void OnEnter()
         {
             Debug.Log("Start Patrolling");
+            _animator.CrossFade(WalkHash, crossFadeDuration);
             if (_patrolPoints.Length > 0)
             {
                 MoveToNextPoint();

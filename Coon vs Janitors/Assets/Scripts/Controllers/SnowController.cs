@@ -9,7 +9,7 @@ namespace Raccons_House_Games
         [SerializeField] private float _colorValueToAdd;
         [SerializeField] private int _resolution = 512;
         [SerializeField] private float _spotSize = 10;
-        [SerializeField] private Vector2Int _postion = new Vector2Int(256, 256);
+        [SerializeField] private Vector2Int _position = new Vector2Int(256, 256);
 
         private string _snowImageProperty = "snowImage";
         private string _colorValueProperty = "colorValueToAdd";
@@ -28,6 +28,8 @@ namespace Raccons_House_Games
             CreateRenderTexture();
             SetRTColorToWhite();
             SetMaterialTexture();
+            InvokeRepeating(nameof(AddSnowLayer), .1f, .1f);
+            ExtendBoundsofMesh();
         }
 
         private void CreateRenderTexture()
@@ -53,6 +55,25 @@ namespace Raccons_House_Games
         {
             _meshRenderer = GetComponent<MeshRenderer>();
             _meshRenderer.material.SetTexture("_PathTexture", _snowRT);
+        }
+
+        private void AddSnowLayer()
+        {
+            int kernel_handle = _snowComputerShader.FindKernel(_csMainKernel);
+            _snowComputerShader.SetTexture(kernel_handle, _snowImageProperty, _snowRT);
+            _snowComputerShader.SetFloat(_colorValueProperty, _colorValueToAdd);
+            _snowComputerShader.SetFloat(_resolutionProperty, _resolution);
+            _snowComputerShader.SetFloat(_positionXProperty, 0);
+            _snowComputerShader.SetFloat(_positionYProperty, 0);
+            _snowComputerShader.SetFloat(_spotSizeProperty, 0);
+            _snowComputerShader.Dispatch(kernel_handle, _snowRT.width / 8, _snowRT.height / 8, 1);
+        }
+
+        private void ExtendBoundsofMesh()
+        {
+            Bounds bounds = GetComponent<MeshFilter>().mesh.bounds;
+            bounds.extents = new Vector3(2, 0, 2);
+            GetComponent<MeshFilter>().mesh.bounds = bounds;
         }
     }
 }

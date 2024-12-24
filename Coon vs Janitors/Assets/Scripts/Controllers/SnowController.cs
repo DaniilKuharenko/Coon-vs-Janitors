@@ -18,10 +18,41 @@ namespace Raccons_House_Games
         private string _positionYProperty = "positionY";
         private string _spotSizeProperty = "spotSize";
 
-        private string _csMainKernel = "";
-        private string _fillWhiteKernel = "";
+        private string _csMainKernel = "CSMain";
+        private string _fillWhiteKernel = "FillWhite";
 
         private MeshRenderer _meshRenderer;
 
+        private void Awake()
+        {
+            CreateRenderTexture();
+            SetRTColorToWhite();
+            SetMaterialTexture();
+        }
+
+        private void CreateRenderTexture()
+        {
+            _snowRT = new RenderTexture(_resolution, _resolution, 24);
+            _snowRT.enableRandomWrite = true;
+            _snowRT.Create();
+        }
+
+        private void SetRTColorToWhite()
+        {
+            int kernel_handle = _snowComputerShader.FindKernel(_fillWhiteKernel);
+            _snowComputerShader.SetTexture(kernel_handle, _snowImageProperty, _snowRT);
+            _snowComputerShader.SetFloat(_colorValueProperty, _colorValueToAdd);
+            _snowComputerShader.SetFloat(_resolutionProperty, _resolution);
+            _snowComputerShader.SetFloat(_positionXProperty, 0);
+            _snowComputerShader.SetFloat(_positionYProperty, 0);
+            _snowComputerShader.SetFloat(_spotSizeProperty, 0);
+            _snowComputerShader.Dispatch(kernel_handle, _snowRT.width / 8, _snowRT.height / 8, 1);
+        }
+
+        private void SetMaterialTexture()
+        {
+            _meshRenderer = GetComponent<MeshRenderer>();
+            _meshRenderer.material.SetTexture("_PathTexture", _snowRT);
+        }
     }
 }

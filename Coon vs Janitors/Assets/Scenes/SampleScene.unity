@@ -831,7 +831,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1228055037}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -959,6 +959,7 @@ GameObject:
   - component: {fileID: 1473643947}
   - component: {fileID: 1473643946}
   - component: {fileID: 1473643948}
+  - component: {fileID: 1473643949}
   m_Layer: 6
   m_Name: Cube
   m_TagString: Player
@@ -1109,6 +1110,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _holdPoint: {fileID: 1901572508}
+--- !u!114 &1473643949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1473643941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a294097aaa656441a578dd723df56df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _snowComputerShader: {fileID: 7200000, guid: 4e5a6ea5c3451ee47ab9c6d9110458fa, type: 3}
+  _snowRT: {fileID: 0}
+  _spotSize: 5
 --- !u!1 &1488586179
 GameObject:
   m_ObjectHideFlags: 0
@@ -1752,7 +1768,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: e3b9463556a2e374891c23dfafdc94ca,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e3b9463556a2e374891c23dfafdc94ca,
         type: 3}

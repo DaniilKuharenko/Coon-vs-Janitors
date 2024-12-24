@@ -10,6 +10,9 @@ namespace Raccons_House_Games
         [SerializeField] private Transform[] _patrolPoints;
         [SerializeField] private float _waitTime = 2f;
         [SerializeField] private NavMeshAgent _agent;
+        [SerializeField] private Transform _holdPoint;
+        [SerializeField] private Transform _trashPoint;
+        [SerializeField] private LayerMask _targetLayerMask;
 
         public Transform Target => _target;
         private Transform _target;
@@ -19,6 +22,7 @@ namespace Raccons_House_Games
         private EnemyWalkState _walkState;
         private PatrolState _patrolState;
         private ChaseState _chaseState;
+        private EnemyPickupState _enemyPickupState;
 
         private float _checkSpeed;
         private int _currentPointIndex;
@@ -34,8 +38,9 @@ namespace Raccons_House_Games
 
             _idleState = new EnemyIdleState(this, _animator);
             _walkState = new EnemyWalkState(this, _animator);
-            _patrolState = new PatrolState(this, _animator, _agent, _patrolPoints, _waitTime);
             _chaseState = new ChaseState(this, _animator, _agent);
+            _patrolState = new PatrolState(this, _animator, _agent, _patrolPoints, _waitTime);
+            _enemyPickupState = new EnemyPickupState(this, _animator, _agent, _holdPoint, _trashPoint, _stateMachine);
             
             _stateMachine.AddTransition(_idleState, _walkState, new Predicate(() => _checkSpeed >= 0.5));
             _stateMachine.AddTransition(_walkState, _idleState, new Predicate(() => _checkSpeed <= 0.5));
@@ -78,7 +83,7 @@ namespace Raccons_House_Games
                     RaycastHit hit;
                     if (Physics.Raycast(transform.position, directionToTarget, out hit, VisionRange, VisionObstructingLayer))
                     {
-                        if (hit.collider.CompareTag("Player"))
+                        if (((1 << hit.collider.gameObject.layer) & _targetLayerMask) != 0)
                         {
                             _target = hit.transform;
                             return;
@@ -87,6 +92,11 @@ namespace Raccons_House_Games
                 }
             }
             _target = null;
+        }
+
+        public PatrolState GetPatrolState()
+        {
+            return _patrolState;
         }
     }
 }

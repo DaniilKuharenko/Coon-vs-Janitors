@@ -33,4 +33,11 @@ void DrawSpot (uint3 id : SV_DispatchThreadID)
 
     value = sqrt(((x - positionX / resolution) * (x - positionX / resolution) 
     + (y - positionY / resolution) * (y - positionY / resolution))) * 190;
+
+    if(value < spotSize)
+    {
+        if(value / spotSize > snowImage[id.xy].x) return;
+
+        snowImage[id.xy] = float4(value, value, value, value) / spotSize;
+    }
 }

@@ -11,6 +11,9 @@ namespace Raccons_House_Games
         [SerializeField] private float _spotSize = 10;
         [SerializeField] private Vector2Int _position = new Vector2Int(256, 256);
 
+        public RenderTexture SnowRT => _snowRT;
+        public ComputeShader SnowComputerShader => _snowComputerShader;
+
         private string _snowImageProperty = "snowImage";
         private string _colorValueProperty = "colorValueToAdd";
         private string _resolutionProperty = "resolution";

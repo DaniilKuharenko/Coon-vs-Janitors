@@ -36,7 +36,10 @@ namespace Raccons_House_Games
                 }
 
                 _snowController = _snowControllerObjects[i].GetComponent<SnowController>();
-
+                _snowRT = _snowController.SnowRT;
+                _snowComputerShader = _snowController.SnowComputerShader;
+                GetPosition();
+                DrawSpot();
             }
         }
 

@@ -6,8 +6,8 @@ namespace Raccons_House_Games
     public class ChaseState : IState
     {
         private readonly EnemyControll _enemyControl;
-        private readonly NavMeshAgent _agent;
-        private readonly Animator _animator;
+        protected readonly NavMeshAgent _agent;
+        protected readonly Animator _animator;
 
         public ChaseState(EnemyControll enemyControl, Animator animator, NavMeshAgent agent)
         {
@@ -42,15 +42,14 @@ namespace Raccons_House_Games
         private void CheckPickup()
         {
             if (_enemyControl.Target == null) return;
+            // float horizontalDistance = Vector2.Distance(
+            //     new Vector2(_enemyControl.transform.position.x, _enemyControl.transform.position.z),
+            //     new Vector2(_enemyControl.Target.position.x, _enemyControl.Target.position.z)
+            // );
 
-            float horizontalDistance = Vector2.Distance(
-                new Vector2(_enemyControl.transform.position.x, _enemyControl.transform.position.z),
-                new Vector2(_enemyControl.Target.position.x, _enemyControl.Target.position.z)
-            );
+            // // float heightDifference = Mathf.Abs(_enemyControl.Target.position.y - (_enemyControl.transform.position.y + _enemyControl.CircleHeight));
 
-            float heightDifference = Mathf.Abs(_enemyControl.Target.position.y - (_enemyControl.transform.position.y + _enemyControl.CircleHeight));
-
-            if (horizontalDistance <= _enemyControl.PickupRadius && heightDifference <= 1f) // Adjusting the hit height
+            if (Vector3.Distance(_enemyControl.transform.position, _enemyControl.Target.position) < 2f) // attack radius
             {
                 Debug.Log("Hit");
             }

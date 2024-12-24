@@ -6,9 +6,9 @@ namespace Raccons_House_Games
     public class PatrolState : IState
     {
         private readonly EnemyControll _enemyControll;
-        private readonly NavMeshAgent _agent;
+        protected readonly NavMeshAgent _agent;
         private readonly Transform[] _patrolPoints;
-        private readonly Animator _animator;
+        protected readonly Animator _animator;
         private readonly float _waitTime;
 
         private float _waitTimer;

@@ -67,23 +67,25 @@ namespace Raccons_House_Games
         // Target detection in the horizontal plane (XZ)
         private void DetectTargets()
         {
-            Collider[] detectedObjects = Physics.OverlapSphere(transform.position, DetectionRadius, TargetLayer);
-            foreach(var detected in detectedObjects)
+            Collider[] detectedObjects = Physics.OverlapSphere(transform.position, VisionRange, VisionObstructingLayer);
+            foreach (var detected in detectedObjects)
             {
-                Vector3 horizontalDistance = new Vector3(
-                    detected.transform.position.x - transform.position.x,
-                    0,
-                    detected.transform.position.z - transform.position.z
-                );
+                Vector3 directionToTarget = detected.transform.position - transform.position;
+                float angleToTarget = Vector3.Angle(transform.forward, directionToTarget);
 
-                float heightDifference = Mathf.Abs(detected.transform.position.y - (transform.position.y + CircleHeight));
-                if (horizontalDistance.magnitude <= DetectionRadius && heightDifference <= 1f)
+                if (angleToTarget <= VisionAngle / 2)
                 {
-                    _target = detected.transform;
-                    return;
+                    RaycastHit hit;
+                    if (Physics.Raycast(transform.position, directionToTarget, out hit, VisionRange, VisionObstructingLayer))
+                    {
+                        if (hit.collider.CompareTag("Player"))
+                        {
+                            _target = hit.transform;
+                            return;
+                        }
+                    }
                 }
             }
-
             _target = null;
         }
     }

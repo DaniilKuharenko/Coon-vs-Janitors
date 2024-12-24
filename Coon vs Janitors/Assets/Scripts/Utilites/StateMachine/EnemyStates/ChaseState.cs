@@ -6,8 +6,8 @@ namespace Raccons_House_Games
     public class ChaseState : IState
     {
         private readonly EnemyControll _enemyControl;
-        protected readonly NavMeshAgent _agent;
-        protected readonly Animator _animator;
+        private readonly NavMeshAgent _agent;
+        private readonly Animator _animator;
 
         public ChaseState(EnemyControll enemyControl, Animator animator, NavMeshAgent agent)
         {

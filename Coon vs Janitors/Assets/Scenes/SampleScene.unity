@@ -1063,7 +1063,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0dced8cca9e558439dd14685c38ddfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  holdPoint: {fileID: 1901572508}
+  _holdPoint: {fileID: 1901572508}
 --- !u!1 &1488586179
 GameObject:
   m_ObjectHideFlags: 0

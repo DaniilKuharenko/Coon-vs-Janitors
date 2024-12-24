@@ -4,14 +4,14 @@ namespace Raccons_House_Games
 {
     public class ItemPickup : MonoBehaviour
     {
-        public Transform holdPoint;
-        private GameObject pickedUpItem;
+        [SerializeField] private Transform _holdPoint;
+        private GameObject _pickedUpItem;
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.CompareTag("Pickup") && pickedUpItem == null)
+            if (other.CompareTag("Pickup") && _pickedUpItem == null)
             {
-                pickedUpItem = other.gameObject;
+                _pickedUpItem = other.gameObject;
                 PickUpItem();
             }
         }
@@ -19,31 +19,31 @@ namespace Raccons_House_Games
         private void PickUpItem()
         {
 
-            Rigidbody rb = pickedUpItem.GetComponent<Rigidbody>();
+            Rigidbody rb = _pickedUpItem.GetComponent<Rigidbody>();
             if (rb != null)
             {
                 rb.isKinematic = true;
             }
 
-            pickedUpItem.transform.SetParent(holdPoint);
-            pickedUpItem.transform.localPosition = Vector3.zero;
+            _pickedUpItem.transform.SetParent(_holdPoint);
+            _pickedUpItem.transform.localPosition = Vector3.zero;
         }
 
 
         public void DropItem()
         {
             Debug.Log("DropItem() is called");
-            if (pickedUpItem != null)
+            if (_pickedUpItem != null)
             {
-                Rigidbody rb = pickedUpItem.GetComponent<Rigidbody>();
+                Rigidbody rb = _pickedUpItem.GetComponent<Rigidbody>();
                 if (rb != null)
                 {
                     rb.isKinematic = false;
                     rb.AddForce(transform.forward * 20.0f, ForceMode.Impulse);
                 }
 
-                pickedUpItem.transform.SetParent(null);
-                pickedUpItem = null;
+                _pickedUpItem.transform.SetParent(null);
+                _pickedUpItem = null;
 
                 Debug.Log("Subject dropped.");
             }

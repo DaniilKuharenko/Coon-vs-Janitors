@@ -11,7 +11,7 @@ namespace Raccons_House_Games
         protected readonly Animator _animator;
         private readonly float _waitTime;
         protected static readonly int WalkHash = Animator.StringToHash("Walking");
-        protected static readonly int LoockHash = Animator.StringToHash("LookingDown");
+        protected static readonly int LoockHash = Animator.StringToHash("Getting Up");
         protected const float crossFadeDuration = 0.1f;
 
         private float _waitTimer;

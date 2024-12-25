@@ -478,7 +478,7 @@ MonoBehaviour:
     m_Bits: 4294967295
   _visionRange: 10
   _visionAngle: 90
-  _visionConeResolution: 120
+  _visionConeResolution: 90
   _rayHeight: 0.6
   _moveSpeed: 4
   _animator: {fileID: 1189819500325525920}

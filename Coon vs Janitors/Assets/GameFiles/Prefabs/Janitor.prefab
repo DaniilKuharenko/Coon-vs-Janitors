@@ -393,6 +393,7 @@ GameObject:
   - component: {fileID: 1189819500325525920}
   - component: {fileID: 7827459979696913383}
   - component: {fileID: 2947999088477677647}
+  - component: {fileID: 4430387678879882338}
   m_Layer: 0
   m_Name: Janitor
   m_TagString: Untagged
@@ -496,6 +497,21 @@ MonoBehaviour:
     m_Bits: 128
   _trashController: {fileID: 9186920147656097403, guid: 90ee88e538da8b64885561bb92e9100c,
     type: 3}
+--- !u!114 &4430387678879882338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2897800347550976116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a294097aaa656441a578dd723df56df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _snowComputerShader: {fileID: 7200000, guid: 4e5a6ea5c3451ee47ab9c6d9110458fa, type: 3}
+  _snowRT: {fileID: 0}
+  _spotSize: 6
 --- !u!1 &3166988613269744431
 GameObject:
   m_ObjectHideFlags: 0

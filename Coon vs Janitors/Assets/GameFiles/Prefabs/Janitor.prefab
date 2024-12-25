@@ -480,7 +480,7 @@ MonoBehaviour:
   _visionAngle: 90
   _visionConeResolution: 120
   _rayHeight: 0.6
-  _moveSpeed: 3
+  _moveSpeed: 4
   _animator: {fileID: 1189819500325525920}
   _patrolPoints:
   - {fileID: 4716431547210286206, guid: bce9d146d967f1149bc20a0bac7d1b7c, type: 3}

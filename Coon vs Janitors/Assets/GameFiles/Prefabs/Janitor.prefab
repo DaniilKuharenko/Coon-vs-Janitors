@@ -494,7 +494,7 @@ MonoBehaviour:
     type: 3}
   _targetLayerMask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 0
   _trashController: {fileID: 9186920147656097403, guid: 90ee88e538da8b64885561bb92e9100c,
     type: 3}
 --- !u!114 &4430387678879882338
@@ -511,7 +511,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _snowComputerShader: {fileID: 7200000, guid: 4e5a6ea5c3451ee47ab9c6d9110458fa, type: 3}
   _snowRT: {fileID: 0}
-  _spotSize: 6
+  _spotSize: 10
 --- !u!1 &3166988613269744431
 GameObject:
   m_ObjectHideFlags: 0

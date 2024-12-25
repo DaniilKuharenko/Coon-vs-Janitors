@@ -111,7 +111,7 @@ namespace Raccons_House_Games
                 if (_currentTargetLostTime <= 0) // Time's up, lose the target
                 {
                     // After losing the target, create a temporary point
-                    GetPatrolState().CreateTempPoint(transform.position);
+                    GetPatrolState().AddTemporaryPoint(transform.position);
                     _target = null;
                 }
             }

@@ -8,25 +8,27 @@ namespace Raccons_House_Games
     {
         private readonly EnemyControll _enemyControll;
         protected readonly NavMeshAgent _agent;
-        private readonly List<Transform> _patrolPoints;
+        private readonly Transform[] _patrolPoints;
         protected readonly Animator _animator;
         private readonly float _waitTime;
         protected static readonly int WalkHash = Animator.StringToHash("Walking");
         protected static readonly int LoockHash = Animator.StringToHash("LookingDown");
         protected const float crossFadeDuration = 0.1f;
-        private readonly float _tempPointLifetime = 300.0f; // Time point lifetime
 
         private float _waitTimer;
         private bool _isWaiting;
         private int _currentPointIndex;
-        private Transform _tempPoint;
+
+        private readonly List<Vector3> _temporaryPoints = new List<Vector3>();
+        private float _temporaryPointPriority = 0.4f;
+        private readonly float _tempPointLifetime = 300.0f; // Time point lifetime
 
         public PatrolState(EnemyControll enemyControll, Animator animator, NavMeshAgent agent, Transform[] patrolPoints, float waitTime)
         {
             _enemyControll = enemyControll;
             _animator = animator;
             _agent = agent;
-            _patrolPoints = new List<Transform>(patrolPoints);
+            _patrolPoints = patrolPoints;
             _waitTime = waitTime;
         }
 
@@ -34,7 +36,7 @@ namespace Raccons_House_Games
         {
             Debug.Log("Start Patrolling");
             _animator.CrossFade(WalkHash, crossFadeDuration);
-            if (_patrolPoints.Count > 0)
+            if (_patrolPoints.Length > 0)
             {
                 MoveToNextPoint();
             }
@@ -43,6 +45,9 @@ namespace Raccons_House_Games
         public void Update()
         {
             Debug.Log("Patrolling");
+
+            RemoveExpiredTemporaryPoints();
+
             if (!_agent.pathPending && _agent.remainingDistance < 0.5f)
             {
                 // If the enemy is not waiting, start the inspection animation
@@ -63,8 +68,6 @@ namespace Raccons_House_Games
                     _animator.CrossFade(WalkHash, crossFadeDuration);
                 }
             }
-
-            RemoveTempPointIfExpired();
         }
 
         public void OnExit()
@@ -74,45 +77,40 @@ namespace Raccons_House_Games
 
         private void MoveToNextPoint()
         {
-            if (_patrolPoints.Count == 0) return;
+            Vector3 destination;
 
-            // Increase the probability of selecting a time point
-            bool useTempPoint = _tempPoint != null && Random.value < 0.5f;
-
-            if(useTempPoint)
+            // Probabilistic choice between a time point and a standard one
+            if (_temporaryPoints.Count > 0 && Random.value < _temporaryPointPriority)
             {
-                _agent.destination = _tempPoint.position;
+                destination = _temporaryPoints[Random.Range(0, _temporaryPoints.Count)];
             }
             else
             {
-                _agent.destination = _patrolPoints[_currentPointIndex].position;
-                _currentPointIndex = (_currentPointIndex + 1) % _patrolPoints.Count;
+                if (_patrolPoints.Length == 0) return;
+                destination = _patrolPoints[_currentPointIndex].position;
+                _currentPointIndex = (_currentPointIndex + 1) % _patrolPoints.Length;
             }
+
+            _agent.SetDestination(destination);
         }
         
-        public void CreateTempPoint(Vector3 position)
+        public void AddTemporaryPoint(Vector3 point)
         {
-            if(_tempPoint != null)
-            {
-                Object.Destroy(_tempPoint.gameObject);
-            }
-
-            GameObject tempPointObject = new GameObject("TempPatrolPoint");
-            tempPointObject.transform.position = position;
-            
-            // Deleting a point after a certain time
-            Object.Destroy(tempPointObject, _tempPointLifetime);
+            _temporaryPoints.Add(point);
+            Debug.Log($"Temporary point added at {point}");
         }
 
-        private void RemoveTempPointIfExpired()
+        private void RemoveExpiredTemporaryPoints()
         {
-            if(_tempPoint == null) return;
+            if (_temporaryPoints.Count == 0) return;
 
-            if(_tempPointLifetime <= 0f)
+            for (int i = _temporaryPoints.Count - 1; i >= 0; i--)
             {
-                _patrolPoints.Remove(_tempPoint);
-                Object.Destroy(_tempPoint.gameObject);
-                _tempPoint = null;
+                if (Time.time - _temporaryPoints[i].y >= _tempPointLifetime)
+                {
+                    _temporaryPoints.RemoveAt(i);
+                    Debug.Log("Temporary point expired and removed.");
+                }
             }
         }
     }

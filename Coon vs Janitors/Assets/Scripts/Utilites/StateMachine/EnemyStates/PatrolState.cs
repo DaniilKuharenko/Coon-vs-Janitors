@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.AI;
+using System.Collections.Generic;
 
 namespace Raccons_House_Games
 {
@@ -7,23 +8,25 @@ namespace Raccons_House_Games
     {
         private readonly EnemyControll _enemyControll;
         protected readonly NavMeshAgent _agent;
-        private readonly Transform[] _patrolPoints;
+        private readonly List<Transform> _patrolPoints;
         protected readonly Animator _animator;
         private readonly float _waitTime;
         protected static readonly int WalkHash = Animator.StringToHash("Walking");
-        protected static readonly int LoockHash = Animator.StringToHash("Getting Up");
+        protected static readonly int LoockHash = Animator.StringToHash("LookingDown");
         protected const float crossFadeDuration = 0.1f;
+        private readonly float _tempPointLifetime = 10f; // Time point lifetime
 
         private float _waitTimer;
         private bool _isWaiting;
         private int _currentPointIndex;
+        private Transform _tempPoint;
 
         public PatrolState(EnemyControll enemyControll, Animator animator, NavMeshAgent agent, Transform[] patrolPoints, float waitTime)
         {
             _enemyControll = enemyControll;
             _animator = animator;
             _agent = agent;
-            _patrolPoints = patrolPoints;
+            _patrolPoints = new List<Transform>(patrolPoints);
             _waitTime = waitTime;
         }
 
@@ -31,7 +34,7 @@ namespace Raccons_House_Games
         {
             Debug.Log("Start Patrolling");
             _animator.CrossFade(WalkHash, crossFadeDuration);
-            if (_patrolPoints.Length > 0)
+            if (_patrolPoints.Count > 0)
             {
                 MoveToNextPoint();
             }
@@ -60,6 +63,8 @@ namespace Raccons_House_Games
                     _animator.CrossFade(WalkHash, crossFadeDuration);
                 }
             }
+
+            RemoveTempPointIfExpired();
         }
 
         public void OnExit()
@@ -69,10 +74,46 @@ namespace Raccons_House_Games
 
         private void MoveToNextPoint()
         {
-            if (_patrolPoints.Length == 0) return;
+            if (_patrolPoints.Count == 0) return;
 
-            _agent.destination = _patrolPoints[_currentPointIndex].position;
-            _currentPointIndex = (_currentPointIndex + 1) % _patrolPoints.Length;
+            // Increase the probability of selecting a time point
+            bool useTempPoint = _tempPoint != null && Random.value < 0.5f;
+
+            if(useTempPoint)
+            {
+                _agent.destination = _tempPoint.position;
+            }
+            else
+            {
+                _agent.destination = _patrolPoints[_currentPointIndex].position;
+                _currentPointIndex = (_currentPointIndex + 1) % _patrolPoints.Count;
+            }
+        }
+        
+        public void CreateTempPoint(Vector3 position)
+        {
+            if(_tempPoint != null)
+            {
+                Object.Destroy(_tempPoint.gameObject);
+            }
+
+            GameObject tempPointObject = new GameObject("TempPatrolPoint");
+            tempPointObject.transform.position = position;
+            
+            // Deleting a point after a certain time
+            Object.Destroy(tempPointObject, _tempPointLifetime);
+        }
+
+        private void RemoveTempPointIfExpired()
+        {
+            if(_tempPoint == null) return;
+
+            if(_tempPointLifetime <= 0f)
+            {
+                _patrolPoints.Remove(_tempPoint);
+                Object.Destroy(_tempPoint.gameObject);
+                _tempPoint = null;
+            }
         }
     }
 }

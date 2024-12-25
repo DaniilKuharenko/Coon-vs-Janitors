@@ -27,6 +27,8 @@ namespace Raccons_House_Games
 
         private float _checkSpeed;
         private int _currentPointIndex;
+        private float _targetLostTime = 3.0f; // Target “memorization” time
+        private float _currentTargetLostTime;
 
         public void InitializeEnemyControll()
         {
@@ -94,12 +96,23 @@ namespace Raccons_House_Games
                         if (((1 << hit.collider.gameObject.layer) & _targetLayerMask) != 0)
                         {
                             _target = hit.transform;
+                            _currentTargetLostTime = _targetLostTime;
                             return;
                         }
                     }
                 }
             }
-            _target = null;
+            
+            // If the target is not found, start the countdown
+            if (_target != null)
+            {
+                _currentTargetLostTime -= Time.deltaTime;
+
+                if (_currentTargetLostTime <= 0) // Time's up, lose the target
+                {
+                    _target = null;
+                }
+            }
         }
 
         public PatrolState GetPatrolState()

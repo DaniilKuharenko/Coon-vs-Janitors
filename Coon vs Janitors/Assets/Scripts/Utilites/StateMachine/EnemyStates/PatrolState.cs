@@ -19,7 +19,7 @@ namespace Raccons_House_Games
         private int _currentPointIndex;
 
         private Vector3? _temporaryPoint; // Stores the current time point (if any)
-        private float _temporaryPointPriority = 0.5f;
+        private float _temporaryPointPriority = 0.4f;
         private float _tempPointLifetime = 120.0f; // the Time point lifetime
         private float _tempPointCreatedTime; // The creation time of the time point is needed to keep track of how much time has passed since it was added
 

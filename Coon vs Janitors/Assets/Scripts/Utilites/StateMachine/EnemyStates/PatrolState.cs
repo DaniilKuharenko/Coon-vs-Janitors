@@ -20,7 +20,7 @@ namespace Raccons_House_Games
         private int _currentPointIndex;
 
         private readonly List<Vector3> _temporaryPoints = new List<Vector3>();
-        private float _temporaryPointPriority = 0.4f;
+        private float _temporaryPointPriority = 0.5f;
         private readonly float _tempPointLifetime = 300.0f; // Time point lifetime
 
         public PatrolState(EnemyControll enemyControll, Animator animator, NavMeshAgent agent, Transform[] patrolPoints, float waitTime)

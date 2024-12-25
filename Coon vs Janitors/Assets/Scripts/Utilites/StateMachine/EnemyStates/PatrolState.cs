@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.AI;
-using System.Collections.Generic;
 
 namespace Raccons_House_Games
 {
@@ -19,9 +18,10 @@ namespace Raccons_House_Games
         private bool _isWaiting;
         private int _currentPointIndex;
 
-        private readonly List<Vector3> _temporaryPoints = new List<Vector3>();
+        private Vector3? _temporaryPoint; // Stores the current time point (if any)
         private float _temporaryPointPriority = 0.5f;
-        private readonly float _tempPointLifetime = 300.0f; // Time point lifetime
+        private float _tempPointLifetime = 120.0f; // the Time point lifetime
+        private float _tempPointCreatedTime; // The creation time of the time point is needed to keep track of how much time has passed since it was added
 
         public PatrolState(EnemyControll enemyControll, Animator animator, NavMeshAgent agent, Transform[] patrolPoints, float waitTime)
         {
@@ -46,7 +46,7 @@ namespace Raccons_House_Games
         {
             Debug.Log("Patrolling");
 
-            RemoveExpiredTemporaryPoints();
+            RemoveExpiredTemporaryPoint();
 
             if (!_agent.pathPending && _agent.remainingDistance < 0.5f)
             {
@@ -79,10 +79,10 @@ namespace Raccons_House_Games
         {
             Vector3 destination;
 
-            // Probabilistic choice between a time point and a standard one
-            if (_temporaryPoints.Count > 0 && Random.value < _temporaryPointPriority)
+            // the enemy is more likely to go to a time point than a normal one.
+            if (_temporaryPoint.HasValue && Random.value < _temporaryPointPriority)
             {
-                destination = _temporaryPoints[Random.Range(0, _temporaryPoints.Count)];
+                destination = _temporaryPoint.Value;
             }
             else
             {
@@ -93,24 +93,20 @@ namespace Raccons_House_Games
 
             _agent.SetDestination(destination);
         }
-        
+
         public void AddTemporaryPoint(Vector3 point)
         {
-            _temporaryPoints.Add(point);
-            Debug.Log($"Temporary point added at {point}");
+            _temporaryPoint = point;
+            _tempPointCreatedTime = Time.time;
+            Debug.Log($"Temporary point set to {point}");
         }
 
-        private void RemoveExpiredTemporaryPoints()
+        private void RemoveExpiredTemporaryPoint()
         {
-            if (_temporaryPoints.Count == 0) return;
-
-            for (int i = _temporaryPoints.Count - 1; i >= 0; i--)
+            if (_temporaryPoint.HasValue && Time.time - _tempPointCreatedTime >= _tempPointLifetime)
             {
-                if (Time.time - _temporaryPoints[i].y >= _tempPointLifetime)
-                {
-                    _temporaryPoints.RemoveAt(i);
-                    Debug.Log("Temporary point expired and removed.");
-                }
+                Debug.Log($"Temporary point expired at {_temporaryPoint.Value}");
+                _temporaryPoint = null;
             }
         }
     }

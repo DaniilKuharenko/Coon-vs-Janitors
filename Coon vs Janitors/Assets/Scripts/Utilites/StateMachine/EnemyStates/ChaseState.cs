@@ -10,6 +10,11 @@ namespace Raccons_House_Games
         private readonly Animator _animator;
         private StateMachine _stateMachine;
 
+        private bool _isAnimationComplete;
+        private float _animationDuration = 1.5f; // Animation duration (in seconds)
+        private float _animationTimer;
+        protected static readonly int ChaseHash = Animator.StringToHash("ChaseStart");
+
         public ChaseState(EnemyControll enemyControl, Animator animator, NavMeshAgent agent, StateMachine stateMachine)
         {
             _enemyControl= enemyControl;
@@ -21,11 +26,28 @@ namespace Raccons_House_Games
         public void OnEnter()
         {
             Debug.Log("Chase Start");
+
+            _isAnimationComplete = false;
+            _animationTimer = _animationDuration;
+
+            _animator.CrossFade(ChaseHash, 0.1f);
         }
 
         public void Update()
         {
             Debug.Log("Chasing");
+            
+            if (!_isAnimationComplete)
+            {
+                // Delay while the animation is running
+                _animationTimer -= Time.deltaTime;
+                if (_animationTimer <= 0f)
+                {
+                    _isAnimationComplete = true;
+                }
+                return;
+            }
+
             if(_enemyControl.Target != null)
             {
                 _agent.destination = _enemyControl.Target.position;

@@ -477,11 +477,11 @@ MonoBehaviour:
   _visionObstructingLayer:
     serializedVersion: 2
     m_Bits: 4294967295
-  _visionRange: 10
-  _visionAngle: 90
-  _visionConeResolution: 90
+  _visionRange: 9
+  _visionAngle: 50
+  _visionConeResolution: 74
   _rayHeight: 0.6
-  _moveSpeed: 7
+  _moveSpeed: 6
   _animator: {fileID: 1189819500325525920}
   _patrolPoints:
   - {fileID: 4716431547210286206, guid: bce9d146d967f1149bc20a0bac7d1b7c, type: 3}

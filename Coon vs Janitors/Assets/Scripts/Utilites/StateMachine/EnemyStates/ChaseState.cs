@@ -30,6 +30,7 @@ namespace Raccons_House_Games
             _isAnimationComplete = false;
             _animationTimer = _animationDuration;
 
+            _agent.enabled = false;
             _animator.CrossFade(ChaseHash, 0.1f);
         }
 
@@ -60,6 +61,7 @@ namespace Raccons_House_Games
         public void OnExit()
         {
             Debug.Log("Chase Exit");
+            _agent.enabled = true;
         }
         
         // Check the pickup radius

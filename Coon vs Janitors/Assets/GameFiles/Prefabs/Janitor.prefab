@@ -492,6 +492,8 @@ MonoBehaviour:
   _holdPoint: {fileID: 3086989546430509685}
   _trashPoint: {fileID: 1987026744863583733, guid: aa35f6f0e8b7bab4a97509745bc5966e,
     type: 3}
+  _shedPoint: {fileID: 6500029440361044310, guid: e21f143537e03df4cae6011cab747bac,
+    type: 3}
   _targetLayerMask:
     serializedVersion: 2
     m_Bits: 64

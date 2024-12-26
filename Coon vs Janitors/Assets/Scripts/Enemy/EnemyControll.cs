@@ -12,6 +12,7 @@ namespace Raccons_House_Games
         [SerializeField] private NavMeshAgent _agent;
         [SerializeField] private Transform _holdPoint;
         [SerializeField] private Transform _trashPoint;
+        [SerializeField] private Transform _shedPoint;
         [SerializeField] private LayerMask _targetLayerMask;
         [SerializeField] private TrashController _trashController;
 
@@ -24,9 +25,10 @@ namespace Raccons_House_Games
         private PatrolState _patrolState;
         private ChaseState _chaseState;
         private EnemyPickupState _enemyPickupState;
+        private EnemyPickupPlayerState _enemyPickupPlayerState;
 
         private float _checkSpeed;
-        private int _currentPointIndex;
+        //private int _currentPointIndex;
         private float _targetLostTime = 3.0f; // Target “memorization” time
         private float _currentTargetLostTime;
 
@@ -50,6 +52,8 @@ namespace Raccons_House_Games
             _patrolState = new PatrolState(this, _animator, _agent, _patrolPoints, _waitTime);
             _enemyPickupState = new EnemyPickupState(this, _animator, _agent, _holdPoint, 
             _trashPoint, _stateMachine, _trashController);
+            _enemyPickupPlayerState = new EnemyPickupPlayerState(this, _animator, _agent, _holdPoint, 
+            _shedPoint, _stateMachine);
             
             _stateMachine.AddTransition(_idleState, _walkState, new Predicate(() => _checkSpeed >= 0.5));
             _stateMachine.AddTransition(_walkState, _idleState, new Predicate(() => _checkSpeed <= 0.5));
@@ -126,11 +130,21 @@ namespace Raccons_House_Games
         {
             return _enemyPickupState;
         }
+        public EnemyPickupPlayerState GetPickupPlayer()
+        {
+            return _enemyPickupPlayerState;
+        }
 
         public void TrashPickup()
         {
             Debug.Log("TrashPickup event triggered!");
             _enemyPickupState?.HandleTrashPickup();
+        }
+
+        public void PlayerPickup()
+        {
+            Debug.Log("PlayerPickup event triggered!");
+            _enemyPickupPlayerState?.HandlePlayerPickup();
         }
         
         public void SetTarget(Transform newTarget)

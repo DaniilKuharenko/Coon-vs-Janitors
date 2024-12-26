@@ -3050,9 +3050,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerBody: {fileID: 1473643947}
   _movementJoystick: {fileID: 507067534}
-  _baseSpeed: 5
-  _maxSpeed: 8
-  _accelerationTime: 3
+  _baseSpeed: 6
+  _maxSpeed: 13
+  _accelerationTime: 2.5
 --- !u!54 &1473643947
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -41,6 +41,7 @@ namespace Raccons_House_Games
                 Debug.LogError("No player to pick up! Target is null or not set.");
             }
 
+            _animator.speed = 4.0f;
             _animator.CrossFade(PickupHash, crossFadeDuration);
         }
         
@@ -61,6 +62,7 @@ namespace Raccons_House_Games
         public void OnExit()
         {
             Debug.Log("PlayerDroped");
+            _animator.speed = 1.0f;
         }
         
         public void HandlePlayerPickup()

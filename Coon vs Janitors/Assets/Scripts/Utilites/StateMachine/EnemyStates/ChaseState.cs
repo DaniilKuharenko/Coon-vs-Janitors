@@ -11,7 +11,7 @@ namespace Raccons_House_Games
         private StateMachine _stateMachine;
 
         private bool _isAnimationComplete;
-        private float _animationDuration = 1.5f; // Animation duration (in seconds)
+        private float _animationDuration = 0.6f; // Animation duration (in seconds)
         private float _animationTimer;
         protected static readonly int ChaseHash = Animator.StringToHash("ChaseStart");
 

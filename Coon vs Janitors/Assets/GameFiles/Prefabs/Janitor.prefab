@@ -477,7 +477,7 @@ MonoBehaviour:
   _visionObstructingLayer:
     serializedVersion: 2
     m_Bits: 4294967295
-  _visionRange: 9
+  _visionRange: 10
   _visionAngle: 50
   _visionConeResolution: 74
   _rayHeight: 0.6
@@ -487,7 +487,7 @@ MonoBehaviour:
   - {fileID: 4716431547210286206, guid: bce9d146d967f1149bc20a0bac7d1b7c, type: 3}
   - {fileID: 1625165218005203130, guid: c75e87d0c6fb79d4ca3ac662dc818a92, type: 3}
   - {fileID: 1055226599906293295, guid: 8726f05b9c85b52408991df59d06524d, type: 3}
-  _waitTime: 1
+  _waitTime: 2
   _agent: {fileID: 7827459979696913383}
   _holdPoint: {fileID: 3086989546430509685}
   _trashPoint: {fileID: 1987026744863583733, guid: aa35f6f0e8b7bab4a97509745bc5966e,

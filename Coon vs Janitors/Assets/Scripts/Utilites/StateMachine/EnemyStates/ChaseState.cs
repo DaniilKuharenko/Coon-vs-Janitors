@@ -71,9 +71,14 @@ namespace Raccons_House_Games
 
             // attack radius
             if (Vector3.Distance(_enemyControl.transform.position, _enemyControl.Target.position) < 2f
-            && _enemyControl.Target.CompareTag("Pickup"))
-            {
+                && _enemyControl.Target.CompareTag("Pickup")) {
+
                 _stateMachine.SetState(_enemyControl.GetPickup());
+                
+            }
+            else
+            {
+                return;
             }
         }
     }

@@ -3051,7 +3051,7 @@ MonoBehaviour:
   _playerBody: {fileID: 1473643947}
   _movementJoystick: {fileID: 507067534}
   _baseSpeed: 6
-  _maxSpeed: 11
+  _maxSpeed: 10.5
   _accelerationTime: 2.5
 --- !u!54 &1473643947
 Rigidbody:

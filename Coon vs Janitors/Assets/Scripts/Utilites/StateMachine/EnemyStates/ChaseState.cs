@@ -45,6 +45,7 @@ namespace Raccons_House_Games
                 if (_animationTimer <= 0f)
                 {
                     _isAnimationComplete = true;
+                    _agent.enabled = true;
                 }
                 return;
             }
@@ -61,7 +62,6 @@ namespace Raccons_House_Games
         public void OnExit()
         {
             Debug.Log("Chase Exit");
-            _agent.enabled = true;
         }
         
         // Check the pickup radius

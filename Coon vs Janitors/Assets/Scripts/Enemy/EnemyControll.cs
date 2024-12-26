@@ -137,6 +137,5 @@ namespace Raccons_House_Games
         {
             _target = newTarget;
         }
-
     }
 }

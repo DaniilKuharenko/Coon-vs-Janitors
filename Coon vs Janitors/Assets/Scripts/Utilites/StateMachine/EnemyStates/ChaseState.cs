@@ -15,6 +15,7 @@ namespace Raccons_House_Games
         private float _animationTimer;
         private float _originalSpeed;
         private float _runSpeedMultiplier = 1.2f; // Speed multiplier for running
+        private float _maxSpeed = 10.0f; // Maximum allowed speed
         protected static readonly int ChaseHash = Animator.StringToHash("ChaseStart");
         protected static readonly int RunningHash = Animator.StringToHash("Run");
 
@@ -55,8 +56,8 @@ namespace Raccons_House_Games
                     // Switch to the Run animation
                     _animator.CrossFade(RunningHash, 0.1f);
 
-                    // Increase the agent's speed for running
-                    _agent.speed = _originalSpeed * _runSpeedMultiplier;
+                    // Increase the enemy speed for running, limited by max speed
+                    _agent.speed = Mathf.Min(_originalSpeed * _runSpeedMultiplier, _maxSpeed);
                 }
                 return;
             }

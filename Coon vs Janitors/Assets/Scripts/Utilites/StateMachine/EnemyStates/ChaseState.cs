@@ -13,7 +13,10 @@ namespace Raccons_House_Games
         private bool _isAnimationComplete;
         private float _animationDuration = 0.6f; // Animation duration (in seconds)
         private float _animationTimer;
+        private float _originalSpeed;
+        private float _runSpeedMultiplier = 1.2f; // Speed multiplier for running
         protected static readonly int ChaseHash = Animator.StringToHash("ChaseStart");
+        protected static readonly int RunningHash = Animator.StringToHash("Run");
 
         public ChaseState(EnemyControll enemyControl, Animator animator, NavMeshAgent agent, StateMachine stateMachine)
         {
@@ -29,6 +32,8 @@ namespace Raccons_House_Games
 
             _isAnimationComplete = false;
             _animationTimer = _animationDuration;
+
+            _originalSpeed = _agent.speed;
 
             _agent.enabled = false;
             _animator.CrossFade(ChaseHash, 0.1f);
@@ -46,6 +51,12 @@ namespace Raccons_House_Games
                 {
                     _isAnimationComplete = true;
                     _agent.enabled = true;
+
+                    // Switch to the Run animation
+                    _animator.CrossFade(RunningHash, 0.1f);
+
+                    // Increase the agent's speed for running
+                    _agent.speed = _originalSpeed * _runSpeedMultiplier;
                 }
                 return;
             }
@@ -53,7 +64,7 @@ namespace Raccons_House_Games
             if(_enemyControl.Target != null)
             {
                 _agent.destination = _enemyControl.Target.position;
-
+                
                 // Check if the target selection can be performed
                 CheckPickup();
             }

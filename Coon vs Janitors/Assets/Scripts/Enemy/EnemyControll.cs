@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.UIElements;
 
 namespace Raccons_House_Games
 {
@@ -16,9 +15,6 @@ namespace Raccons_House_Games
         [SerializeField] private Transform _shedPoint;
         [SerializeField] private LayerMask _targetLayerMask;
         [SerializeField] private TrashController _trashController;
-        [SerializeField] private float _hearingRadius = 10f;
-        private bool _isChasingSoundSource = false;
-        private Vector3 _soundSourcePosition;
 
         public Transform Target => _target;
         private Transform _target;
@@ -124,6 +120,40 @@ namespace Raccons_House_Games
             }
         }
 
+        public void CheckForFallenObject()
+        {
+            if (_target == null)
+            {
+                Collider[] detectedObjects = Physics.OverlapSphere(transform.position, DetectionRadius);
+                float closestDistance = float.MaxValue;
+
+                foreach (var obj in detectedObjects)
+                {
+                    if (obj.CompareTag("Stone"))
+                    {
+                        Vector3 directionToStone = obj.transform.position - transform.position;
+                        float distance = Vector3.Distance(transform.position, obj.transform.position);
+
+                        RaycastHit hit;
+                        if (Physics.Raycast(transform.position, directionToStone, out hit, DetectionRadius))
+                        {
+                            if (hit.transform == obj.transform && distance < closestDistance)
+                            {
+                                closestDistance = distance;
+                                _target = hit.transform;
+                            }
+                        }
+                    }
+                }
+
+                if (_target != null)
+                {
+                    _agent.SetDestination(_target.position);
+                }
+            }
+        }
+
+
         public PatrolState GetPatrolState()
         {
             return _patrolState;
@@ -157,18 +187,6 @@ namespace Raccons_House_Games
         public void SetTarget(Transform newTarget)
         {
             _target = newTarget;
-        }
-
-        // Set the sound source position and enable sound chasing
-        public void SetSoundSource(Vector3 soundPosition)
-        {
-            _soundSourcePosition = soundPosition;
-            _isChasingSoundSource = true;
-        }
-
-        public void StopHearingSound()
-        {
-            _isChasingSoundSource = false;
         }
     }
 }

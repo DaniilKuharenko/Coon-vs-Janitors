@@ -73,7 +73,6 @@ namespace Raccons_House_Games
         public void OnExit()
         {
             Debug.Log("Chase Exit");
-            _enemyControl.StopHearingSound();
         }
 
 

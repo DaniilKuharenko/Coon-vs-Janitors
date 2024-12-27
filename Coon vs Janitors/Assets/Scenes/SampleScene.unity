@@ -1489,7 +1489,7 @@ Transform:
   m_GameObject: {fileID: 606340796}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.88, y: 0.6, z: 8}
+  m_LocalPosition: {x: -5.04, y: 0.6, z: -2.01}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -1508,9 +1508,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _collisionSound: {fileID: 8300000, guid: 0009022070bbd9545834e32119772675, type: 3}
-  _enemyLayer:
-    serializedVersion: 2
-    m_Bits: 256
   _audioSource: {fileID: 606340804}
   _soundDetectionRadius: 300
   _minImpactVelocity: 2
@@ -1575,7 +1572,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.06
   m_Pitch: 1
   Loop: 0
   Mute: 0

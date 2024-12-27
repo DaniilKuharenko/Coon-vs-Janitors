@@ -480,7 +480,9 @@ MonoBehaviour:
   _visionRange: 10
   _visionAngle: 50
   _visionConeResolution: 74
-  _rayHeight: 0.6
+  _rayHeight: 0.3
+  _detectionRadius: 500
+  _circleHeight: 0.3
   _moveSpeed: 6
   _animator: {fileID: 1189819500325525920}
   _patrolPoints:
@@ -499,7 +501,6 @@ MonoBehaviour:
     m_Bits: 64
   _trashController: {fileID: 9186920147656097403, guid: 90ee88e538da8b64885561bb92e9100c,
     type: 3}
-  _hearingRadius: 200
 --- !u!114 &4430387678879882338
 MonoBehaviour:
   m_ObjectHideFlags: 0

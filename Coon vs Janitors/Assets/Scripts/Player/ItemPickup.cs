@@ -9,7 +9,7 @@ namespace Raccons_House_Games
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.CompareTag("Pickup") && _pickedUpItem == null)
+            if (other.CompareTag("Pickup") || other.CompareTag("Stone") && _pickedUpItem == null)
             {
                 _pickedUpItem = other.gameObject;
                 PickUpItem();

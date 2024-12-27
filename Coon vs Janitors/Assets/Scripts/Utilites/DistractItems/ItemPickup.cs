@@ -6,10 +6,16 @@ namespace Raccons_House_Games
     {
         [SerializeField] private Transform _holdPoint;
         private GameObject _pickedUpItem;
+        private StoneCollision _stone;
+
+        private void Start()
+        {
+            _stone = GetComponent<StoneCollision>();
+        }
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.CompareTag("Pickup") || other.CompareTag("Stone") && _pickedUpItem == null)
+            if (other.CompareTag("Pickup") && _pickedUpItem == null)
             {
                 _pickedUpItem = other.gameObject;
                 PickUpItem();
@@ -35,6 +41,10 @@ namespace Raccons_House_Games
             Debug.Log("DropItem() is called");
             if (_pickedUpItem != null)
             {
+                if(_stone != null)
+                {
+                    _stone.ResetState();
+                }
                 Rigidbody rb = _pickedUpItem.GetComponent<Rigidbody>();
                 if (rb != null)
                 {

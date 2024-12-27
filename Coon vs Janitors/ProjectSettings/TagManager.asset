@@ -7,6 +7,8 @@ TagManager:
   - Pickup
   - SnowGround
   - SoundItem
+  - Ground
+  - Stone
   layers:
   - Default
   - TransparentFX

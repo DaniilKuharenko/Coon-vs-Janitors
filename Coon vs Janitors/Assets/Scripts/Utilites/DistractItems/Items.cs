@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Raccons_House_Games
@@ -11,12 +9,15 @@ namespace Raccons_House_Games
         [SerializeField] private LayerMask _enemyLayer;
         private AudioSource _audioSource;
 
+        public AudioSource AudioSource => _audioSource;
+        public AudioClip CollisionSound => _collisionSound;
+
         private void Start()
         {
             _audioSource = GetComponent<AudioSource>();
         }
 
-        private void SoundPlay()
+        public void SoundPlay()
         {
             //Play Sound
             if(_audioSource != null && _collisionSound != null)

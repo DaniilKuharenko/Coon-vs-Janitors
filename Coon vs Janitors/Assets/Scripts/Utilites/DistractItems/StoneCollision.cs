@@ -1,21 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Raccons_House_Games
 {
-    public class StoneCollision : MonoBehaviour
+    public class StoneCollision : Items
     {
-        // Start is called before the first frame update
-        void Start()
+        private void OnCollisionEnter(Collision collision)
         {
-        
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-        
+            if(collision.contacts.Length > 0)
+            {
+                SoundPlay();
+            }
         }
     }
 }

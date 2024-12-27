@@ -90,7 +90,7 @@ namespace Raccons_House_Games
                 destination = _patrolPoints[_currentPointIndex].position;
                 _currentPointIndex = (_currentPointIndex + 1) % _patrolPoints.Length;
             }
-
+            _agent.enabled = true;
             _agent.SetDestination(destination);
         }
 

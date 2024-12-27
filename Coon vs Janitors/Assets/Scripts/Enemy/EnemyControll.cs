@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UIElements;
 
 namespace Raccons_House_Games
 {
@@ -15,6 +16,9 @@ namespace Raccons_House_Games
         [SerializeField] private Transform _shedPoint;
         [SerializeField] private LayerMask _targetLayerMask;
         [SerializeField] private TrashController _trashController;
+        [SerializeField] private float _hearingRadius = 10f;
+        private bool _isChasingSoundSource = false;
+        private Vector3 _soundSourcePosition;
 
         public Transform Target => _target;
         private Transform _target;
@@ -30,7 +34,6 @@ namespace Raccons_House_Games
         private float _checkSpeed;
         private float _targetLostTime = 3.0f; // Target “memorization” time
         private float _currentTargetLostTime;
-        private bool _isAlerted = false;
 
         public void InitializeEnemyControll()
         {
@@ -125,6 +128,10 @@ namespace Raccons_House_Games
         {
             return _patrolState;
         }
+        public void GetChaseState()
+        {
+            _stateMachine.SetState(_chaseState);
+        }
 
         public EnemyPickupState GetPickup()
         {
@@ -152,10 +159,16 @@ namespace Raccons_House_Games
             _target = newTarget;
         }
 
-        public void Alert(Vector3 soundPosition)
+        // Set the sound source position and enable sound chasing
+        public void SetSoundSource(Vector3 soundPosition)
         {
-            _isAlerted = true;
-            _agent.SetDestination(soundPosition);
+            _soundSourcePosition = soundPosition;
+            _isChasingSoundSource = true;
+        }
+
+        public void StopHearingSound()
+        {
+            _isChasingSoundSource = false;
         }
     }
 }

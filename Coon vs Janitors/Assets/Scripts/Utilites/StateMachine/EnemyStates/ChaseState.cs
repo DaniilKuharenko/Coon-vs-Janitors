@@ -21,7 +21,7 @@ namespace Raccons_House_Games
 
         public ChaseState(EnemyControll enemyControl, Animator animator, NavMeshAgent agent, StateMachine stateMachine)
         {
-            _enemyControl= enemyControl;
+            _enemyControl = enemyControl;
             _animator = animator;
             _agent = agent;
             _stateMachine = stateMachine;
@@ -43,7 +43,7 @@ namespace Raccons_House_Games
         public void Update()
         {
             Debug.Log("Chasing");
-            
+
             if (!_isAnimationComplete)
             {
                 // Delay while the animation is running
@@ -62,41 +62,38 @@ namespace Raccons_House_Games
                 return;
             }
 
-            if(_enemyControl.Target != null)
+            if (_enemyControl.Target != null)
             {
                 _agent.destination = _enemyControl.Target.position;
-                
-                // Check if the target selection can be performed
                 CheckPickup();
             }
         }
 
+
         public void OnExit()
         {
             Debug.Log("Chase Exit");
+            _enemyControl.StopHearingSound();
         }
-        
+
+
         // Check the pickup radius
         private void CheckPickup()
         {
             if (_enemyControl.Target == null) return;
 
             // attack radius
-            if (Vector3.Distance(_enemyControl.transform.position, _enemyControl.Target.position) < 2f) 
+            if (Vector3.Distance(_enemyControl.transform.position, _enemyControl.Target.position) < 2f)
             {
-                if(_enemyControl.Target.CompareTag("Pickup"))
+                if (_enemyControl.Target.CompareTag("Pickup"))
                 {
                     _stateMachine.SetState(_enemyControl.GetPickup());
                 }
-                
+
                 if (_enemyControl.Target.CompareTag("Player"))
                 {
                     _stateMachine.SetState(_enemyControl.GetPickupPlayer());
-                }  
-            }
-            else
-            {
-                return;
+                }
             }
         }
     }

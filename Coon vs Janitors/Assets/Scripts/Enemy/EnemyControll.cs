@@ -28,9 +28,9 @@ namespace Raccons_House_Games
         private EnemyPickupPlayerState _enemyPickupPlayerState;
 
         private float _checkSpeed;
-        //private int _currentPointIndex;
         private float _targetLostTime = 3.0f; // Target “memorization” time
         private float _currentTargetLostTime;
+        private bool _isAlerted = false;
 
         public void InitializeEnemyControll()
         {
@@ -150,6 +150,12 @@ namespace Raccons_House_Games
         public void SetTarget(Transform newTarget)
         {
             _target = newTarget;
+        }
+
+        public void Alert(Vector3 soundPosition)
+        {
+            _isAlerted = true;
+            _agent.SetDestination(soundPosition);
         }
     }
 }

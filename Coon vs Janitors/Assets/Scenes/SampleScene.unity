@@ -4306,6 +4306,8 @@ MonoBehaviour:
   _interactionTime: 2
   _exclamationImage: {fileID: 1080290661}
   _CrossImage: {fileID: 749593008}
+  _throwUpImpulse: 1
+  _throwRadiusImpulse: 1
 --- !u!65 &1585288374
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -1,14 +1,20 @@
 using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
+using DG.Tweening;
 
 namespace Raccons_House_Games
 {
     public class GarbageCanController : MonoBehaviour
     {
         [SerializeField] private float _interactionTime = 2f; // Button hold time (in seconds)
-        [SerializeField] private GameObject _exclamationImage; 
-        [SerializeField] private GameObject _CrossImage; 
+        [SerializeField] private GameObject _exclamationImage;
+        [SerializeField] private GameObject _CrossImage;
+
+        // Настройки силы импульса
+        [SerializeField] private float _throwUpImpulse = 5f;
+        [SerializeField] private float _throwRadiusImpulse = 3f; 
+
         private List<GameObject> _trashInCan;
         private bool _isPlayerInZone = false;
         private bool _isInteracting = false;
@@ -31,13 +37,13 @@ namespace Raccons_House_Games
                 // Check if there is trash in the can and activate corresponding image
                 if (_trashInCan.Count > 0)
                 {
-                    _exclamationImage.SetActive(true);
-                    _CrossImage.SetActive(false);
+                    _exclamationImage.SetActive(true); // Show the exclamation image
+                    _CrossImage.SetActive(false); // Hide the cross image
                 }
                 else
                 {
-                    _exclamationImage.SetActive(false);
-                    _CrossImage.SetActive(true);
+                    _exclamationImage.SetActive(false); // Hide the exclamation image
+                    _CrossImage.SetActive(true); // Show the cross image
                 }
             }
         }
@@ -91,8 +97,17 @@ namespace Raccons_House_Games
                 {
                     trash.transform.position = transform.position + Vector3.up; // Place it at a specific position
                     trash.SetActive(true); // Activate the object
+
+                    // Apply vertical impulse (upward force) with DOTween
+                    Vector3 targetPositionUp = transform.position + Vector3.up * _throwUpImpulse;
+                    trash.transform.DOMove(targetPositionUp, 0.5f).SetEase(Ease.OutQuad); // Aнимация движения вверх
+
+                    // Apply a random horizontal impulse (around the can) with radius control using DOTween
+                    Vector3 randomDirection = Random.insideUnitCircle * _throwRadiusImpulse;
+                    Vector3 targetPosition = transform.position + new Vector3(randomDirection.x, 0, randomDirection.y);
+                    trash.transform.DOMove(targetPosition, 0.5f).SetEase(Ease.OutQuad); // Анимация движения по радиусу
                 }
-                
+
                 // Clear the trash after it's been released
                 _trashInCan.Clear();
 

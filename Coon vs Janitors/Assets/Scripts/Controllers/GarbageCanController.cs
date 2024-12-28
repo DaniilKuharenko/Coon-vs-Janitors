@@ -87,9 +87,8 @@ namespace Raccons_House_Games
             // Check if the player held down the button and if there is garbage in the tank
             if (_isInteracting && _trashInCan.Count > 0)
             {
-                Debug.Log("The trash is coming out! :O");
+                Debug.Log("The trash is coming out sequentially!");
 
-                // Loop through all objects in the trash can and make them active
                 foreach (var trash in _trashInCan)
                 {
                     trash.transform.position = transform.position + Vector3.up; // Place it at a specific position
@@ -100,12 +99,16 @@ namespace Raccons_House_Games
                     if (rb != null)
                     {
                         // Give upward impulse
+                        rb.velocity = Vector3.zero; // Reset velocity to ensure consistent behavior
                         rb.AddForce(Vector3.up * _throwUpImpulse, ForceMode.Impulse);
 
                         // Apply a random horizontal impulse (around the can) with radius control
-                        Vector3 randomDirection = Random.insideUnitCircle * _throwRadiusImpulse;
+                        Vector2 randomDirection = Random.insideUnitCircle.normalized * _throwRadiusImpulse;
                         rb.AddForce(new Vector3(randomDirection.x, 0, randomDirection.y), ForceMode.Impulse);
                     }
+
+                    // Pause briefly before the next piece of trash is thrown
+                    yield return new WaitForSeconds(0.3f); // Adjust the delay for desired timing
                 }
 
                 // Clear the trash after it's been released
@@ -122,5 +125,6 @@ namespace Raccons_House_Games
 
             _isInteracting = false;
         }
+
     }
 }

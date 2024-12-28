@@ -1,17 +1,20 @@
 using System.Collections.Generic;
+using System.Linq; // For LINQ methods like Where
 using UnityEngine;
 
 namespace Raccons_House_Games
 {
     public class TrashController : MonoBehaviour
     {
-        [SerializeField] private GameObject _garbageCanPrefab;
+        [SerializeField] private GameObject _garbageCanPrefab; 
         [SerializeField] private GameTrash _trashData;
         [SerializeField] private Vector2 _spawnArea = new Vector2(10f, 10f);
         [SerializeField] private int _numberOfTrashToSpawn = 10; // Total amount of garbage
         [SerializeField] private int _numberOfGarbageCans = 5;
         [SerializeField] private int _trashPerCan = 5; // Trash to the tank
+        [SerializeField] private List<Transform> spawnPoints = new List<Transform>(); 
 
+        private readonly HashSet<Transform> _occupiedPoints = new HashSet<Transform>();
         private readonly List<GameObject> _activeTrash = new List<GameObject>();
         private readonly List<GameObject> _activeGarbageCans = new List<GameObject>();
         private readonly List<ObjectPool> _trashPools = new List<ObjectPool>();
@@ -19,14 +22,14 @@ namespace Raccons_House_Games
 
         private void Start()
         {
-            // Initialization of trash pools
+            // Initialize trash object pools
             foreach (var prefab in _trashData.TrashPrefabs)
             {
                 var pool = new ObjectPool(prefab, transform, 65);
                 _trashPools.Add(pool);
             }
 
-            // Initialization of the garbage pool
+            // Initialize the garbage can pool
             _garbageCanPool = new ObjectPool(_garbageCanPrefab, transform, _numberOfGarbageCans);
 
             SpawnTrash();
@@ -35,7 +38,7 @@ namespace Raccons_House_Games
 
         private void SpawnTrash()
         {
-            // Half of the garbage is spawned as separate objects
+            // Spawn half the trash as individual objects
             int trashToSpawnIndividually = _numberOfTrashToSpawn / 2;
 
             for (int i = 0; i < trashToSpawnIndividually; i++)
@@ -50,18 +53,20 @@ namespace Raccons_House_Games
 
             for (int i = 0; i < _numberOfGarbageCans; i++)
             {
+                // Find a random available spawn point
+                Transform spawnPoint = GetRandomAvailablePoint();
+                if (spawnPoint == null)
+                {
+                    Debug.LogWarning("No available spawn points for garbage cans!");
+                    break;
+                }
+
                 GameObject garbageCan = _garbageCanPool.GetFromPool();
                 if (garbageCan != null)
                 {
-                    Vector3 randomPosition = new Vector3(
-                        Random.Range(-_spawnArea.x / 2f, _spawnArea.x / 2f),
-                        0.5f, // height
-                        Random.Range(-_spawnArea.y / 2f, _spawnArea.y / 2f)
-                    );
-
-                    garbageCan.transform.position = transform.position + randomPosition;
+                    garbageCan.transform.position = spawnPoint.position;
                     garbageCan.SetActive(true);
-
+                    _occupiedPoints.Add(spawnPoint); // Mark the spawn point as occupied
                     _activeGarbageCans.Add(garbageCan);
 
                     var canController = garbageCan.GetComponent<GarbageCanController>();
@@ -69,38 +74,42 @@ namespace Raccons_House_Games
                     {
                         List<GameObject> trashForCan = new List<GameObject>();
 
-                        // Spread the garbage into the tank
+                        // Assign trash to this garbage can
                         for (int j = 0; j < _trashPerCan; j++)
                         {
                             GameObject trash = SpawnTrashAtRandomPosition(false);
                             if (trash != null)
                             {
                                 trashForCan.Add(trash);
-                                trashAssigned++; // Increase the amount of trash assigned
-                            }
-                            else
-                            {
-                                Debug.LogWarning("Failed to get the trash for the tank!");
+                                trashAssigned++;
                             }
                         }
 
-                        // Log the amount of trash the tank will receive
-                        Debug.Log($"Tank {i} received {trashForCan.Count} of garbage objects");
-
-                        // Transfer the trash to the tank
+                        Debug.Log($"Garbage can {i} received {trashForCan.Count} trash objects.");
                         canController.InitializeTrash(trashForCan);
                     }
                 }
             }
 
-            // If there is not enough trash, print a warning message
             if (trashAssigned < _numberOfTrashToSpawn)
             {
-                Debug.LogWarning($"It was not possible to assign all the trash! Assigned garbage: {trashAssigned}, total trash: {_numberOfTrashToSpawn}");
+                Debug.LogWarning($"Not all trash could be assigned! Assigned: {trashAssigned}, Total: {_numberOfTrashToSpawn}");
             }
         }
 
+        private Transform GetRandomAvailablePoint()
+        {
+            // Filter out occupied points
+            var availablePoints = spawnPoints.Where(p => !_occupiedPoints.Contains(p)).ToList();
 
+            if (availablePoints.Count == 0)
+            {
+                return null; // No available points
+            }
+
+            // Pick a random free point
+            return availablePoints[Random.Range(0, availablePoints.Count)];
+        }
 
         private GameObject SpawnTrashAtRandomPosition(bool activate = true)
         {
@@ -127,10 +136,9 @@ namespace Raccons_House_Games
             return trash;
         }
 
-
         public void ClearTrash()
         {
-            // Deactivating the trash
+            // Deactivate and return all trash to pools
             foreach (var trash in _activeTrash)
             {
                 trash.SetActive(false);
@@ -141,13 +149,14 @@ namespace Raccons_House_Games
             }
             _activeTrash.Clear();
 
-            // Deactivating the trash tank
+            // Deactivate and return all garbage cans to the pool
             foreach (var garbageCan in _activeGarbageCans)
             {
                 garbageCan.SetActive(false);
                 _garbageCanPool.ReturnToPool(garbageCan);
             }
             _activeGarbageCans.Clear();
+            _occupiedPoints.Clear(); // Clear the occupied points list
         }
 
         public void ReturnTrashToPool(GameObject trash)

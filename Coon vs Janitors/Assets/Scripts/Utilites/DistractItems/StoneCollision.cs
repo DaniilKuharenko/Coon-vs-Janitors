@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UIElements;
 
 namespace Raccons_House_Games
 {
@@ -20,16 +19,19 @@ namespace Raccons_House_Games
             {
                 if (_rigidbody != null && _rigidbody.velocity.magnitude >= _minImpactVelocity)
                 {
-                    gameObject.tag = "Stone";
-                    
-                    EnemyControll[] enemies = UnityEngine.Object.FindObjectsByType<EnemyControll>(UnityEngine.FindObjectsSortMode.None);
+                    gameObject.tag = "SoundSource";
 
+                    SoundPlay();
+                    _hasPlayedSound = true;
+
+                    EnemyControll[] enemies = UnityEngine.Object.FindObjectsByType<EnemyControll>(UnityEngine.FindObjectsSortMode.None);
                     foreach (var enemy in enemies)
                     {
                         enemy.CheckForFallenObject();
                     }
-                    SoundPlay();
-                    _hasPlayedSound = true;
+
+                    ResetState();
+
                     ResetState();
                 }
             }

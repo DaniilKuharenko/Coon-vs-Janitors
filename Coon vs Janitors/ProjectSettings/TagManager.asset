@@ -8,7 +8,7 @@ TagManager:
   - SnowGround
   - SoundItem
   - Ground
-  - Stone
+  - SoundSource
   layers:
   - Default
   - TransparentFX

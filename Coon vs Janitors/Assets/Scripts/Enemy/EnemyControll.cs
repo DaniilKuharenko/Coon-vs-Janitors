@@ -26,6 +26,7 @@ namespace Raccons_House_Games
         private ChaseState _chaseState;
         private EnemyPickupState _enemyPickupState;
         private EnemyPickupPlayerState _enemyPickupPlayerState;
+        private RunToSoundState _runToSoundState;
 
         private float _checkSpeed;
         private float _targetLostTime = 3.0f; // Target “memorization” time
@@ -122,34 +123,32 @@ namespace Raccons_House_Games
 
         public void CheckForFallenObject()
         {
-            if (_target == null)
+            // Find all objects in the detection radius
+            Collider[] detectedObjects = Physics.OverlapSphere(transform.position, DetectionRadius);
+            
+            // Variable to store the nearest object
+            Transform closestObject = null;
+            float closestDistance = float.MaxValue;
+
+            foreach (var obj in detectedObjects)
             {
-                Collider[] detectedObjects = Physics.OverlapSphere(transform.position, DetectionRadius);
-                float closestDistance = float.MaxValue;
-
-                foreach (var obj in detectedObjects)
+                if (obj.CompareTag("SoundSource"))
                 {
-                    if (obj.CompareTag("Stone"))
-                    {
-                        Vector3 directionToStone = obj.transform.position - transform.position;
-                        float distance = Vector3.Distance(transform.position, obj.transform.position);
+                    float distance = Vector3.Distance(transform.position, obj.transform.position);
 
-                        RaycastHit hit;
-                        if (Physics.Raycast(transform.position, directionToStone, out hit, DetectionRadius))
-                        {
-                            if (hit.transform == obj.transform && distance < closestDistance)
-                            {
-                                closestDistance = distance;
-                                _target = hit.transform;
-                            }
-                        }
+                    if (distance < closestDistance)
+                    {
+                        closestDistance = distance;
+                        closestObject = obj.transform;
                     }
                 }
+            }
 
-                if (_target != null)
-                {
-                    _agent.SetDestination(_target.position);
-                }
+            if (closestObject != null && closestDistance <= DetectionRadius)
+            {
+                Debug.Log($"Fallen object detected within range. Distance: {closestDistance}");
+                _runToSoundState = new RunToSoundState(this, _animator, _agent, _stateMachine, transform, closestDistance);
+                _stateMachine.SetState(_runToSoundState);
             }
         }
 

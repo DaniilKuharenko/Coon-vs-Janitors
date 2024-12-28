@@ -82,7 +82,7 @@ namespace Raccons_House_Games
                         }
 
                         // Transferring the trash to the tank
-                        canController.InitializeTrash(trashForCan, this);
+                        canController.InitializeTrash(trashForCan);
                     }
                 }
             }

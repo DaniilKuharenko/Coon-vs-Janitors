@@ -2278,7 +2278,7 @@ GameObject:
   - component: {fileID: 749593011}
   - component: {fileID: 749593010}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Cross
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2705,12 +2705,12 @@ GameObject:
   - component: {fileID: 1080290664}
   - component: {fileID: 1080290663}
   m_Layer: 5
-  m_Name: Image (1)
+  m_Name: Exclamation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1080290662
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4304,6 +4304,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _interactionTime: 2
+  _exclamation: {fileID: 1080290661}
 --- !u!65 &1585288374
 BoxCollider:
   m_ObjectHideFlags: 0

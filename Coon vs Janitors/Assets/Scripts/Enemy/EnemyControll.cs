@@ -121,7 +121,7 @@ namespace Raccons_House_Games
             }
         }
 
-        public void CheckForFallenObject()
+        public void EnemyAlert()
         {
             // Find all objects in the detection radius
             Collider[] detectedObjects = Physics.OverlapSphere(transform.position, DetectionRadius);

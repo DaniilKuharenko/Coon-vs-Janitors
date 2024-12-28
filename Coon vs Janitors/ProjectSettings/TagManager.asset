@@ -9,6 +9,7 @@ TagManager:
   - SoundItem
   - Ground
   - SoundSource
+  - Enemy
   layers:
   - Default
   - TransparentFX

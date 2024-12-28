@@ -394,9 +394,11 @@ GameObject:
   - component: {fileID: 7827459979696913383}
   - component: {fileID: 2947999088477677647}
   - component: {fileID: 4430387678879882338}
+  - component: {fileID: 9212805204111025257}
+  - component: {fileID: 7387871529570292123}
   m_Layer: 8
   m_Name: Janitor
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -481,7 +483,7 @@ MonoBehaviour:
   _visionAngle: 50
   _visionConeResolution: 74
   _rayHeight: 0.3
-  _detectionRadius: 500
+  _detectionRadius: 12
   _circleHeight: 0.3
   _moveSpeed: 6
   _animator: {fileID: 1189819500325525920}
@@ -516,6 +518,56 @@ MonoBehaviour:
   _snowComputerShader: {fileID: 7200000, guid: 4e5a6ea5c3451ee47ab9c6d9110458fa, type: 3}
   _snowRT: {fileID: 0}
   _spotSize: 10
+--- !u!136 &9212805204111025257
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2897800347550976116}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 2.3416688
+  m_Direction: 1
+  m_Center: {x: 0, y: 1.1529526, z: 0}
+--- !u!54 &7387871529570292123
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2897800347550976116}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 1
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &3166988613269744431
 GameObject:
   m_ObjectHideFlags: 0

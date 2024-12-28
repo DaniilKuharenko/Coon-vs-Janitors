@@ -27,7 +27,7 @@ namespace Raccons_House_Games
                     EnemyControll[] enemies = UnityEngine.Object.FindObjectsByType<EnemyControll>(UnityEngine.FindObjectsSortMode.None);
                     foreach (var enemy in enemies)
                     {
-                        enemy.CheckForFallenObject();
+                        enemy.EnemyAlert();
                     }
 
                     ResetState();

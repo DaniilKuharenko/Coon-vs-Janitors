@@ -76,15 +76,17 @@ namespace Raccons_House_Games
         public void OnExit()
         {
             Debug.Log("Run Exit");
+            _agent.isStopped = false;
         }
 
         private void CheckPlace()
         {
-            if (!_agent.pathPending && _agent.remainingDistance < 0.5f)
+            if (!_agent.pathPending && _agent.remainingDistance < 2.0f)
             {
                 if (!_isWaiting)
                 {
                     _animator.CrossFade(LoockHash, crossFadeDuration);
+                    _agent.isStopped = true;
                     _isWaiting = true;
                 }
 

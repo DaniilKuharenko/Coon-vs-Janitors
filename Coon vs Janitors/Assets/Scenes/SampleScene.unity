@@ -4304,7 +4304,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _interactionTime: 2
-  _exclamation: {fileID: 1080290661}
+  _exclamationImage: {fileID: 1080290661}
+  _CrossImage: {fileID: 749593008}
 --- !u!65 &1585288374
 BoxCollider:
   m_ObjectHideFlags: 0

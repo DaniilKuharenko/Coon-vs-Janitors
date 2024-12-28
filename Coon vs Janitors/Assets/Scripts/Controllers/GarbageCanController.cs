@@ -19,7 +19,6 @@ namespace Raccons_House_Games
             Debug.Log($"Initializing the trash can. In the trash can: {_trashInCan.Count} objects.");
         }
 
-
         private void OnTriggerEnter(Collider other)
         {
             if (other.CompareTag("Player"))
@@ -61,17 +60,22 @@ namespace Raccons_House_Games
             _isInteracting = true;
 
             // wait time
-            Debug.Log($"Time wait { _interactionTime } seconds...");
+            Debug.Log($"Time wait {_interactionTime} seconds...");
             yield return new WaitForSeconds(_interactionTime);
 
-            // Check if the player held down the button and if there is garbage in the tank
+            // Check if the player hold down the button and if there is garbage in the tank
             if (_isInteracting && _trashInCan.Count > 0)
             {
                 Debug.Log("The trash is coming out! :O");
-                GameObject trash = _trashInCan[0];
-                _trashInCan.RemoveAt(0);
-                trash.transform.position = transform.position + Vector3.up;
-                trash.SetActive(true);
+
+                // Loop through all objects in the trash can and make them active
+                foreach (var trash in _trashInCan)
+                {
+                    trash.transform.position = transform.position + Vector3.up; // Place it at a specific position
+                    trash.SetActive(true);
+                }
+                // Clear the trash after it's been released
+                _trashInCan.Clear();
             }
             else
             {

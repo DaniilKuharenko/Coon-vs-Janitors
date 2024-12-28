@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
-using DG.Tweening;
 
 namespace Raccons_House_Games
 {
@@ -10,11 +9,9 @@ namespace Raccons_House_Games
         [SerializeField] private float _interactionTime = 2f; // Button hold time (in seconds)
         [SerializeField] private GameObject _exclamationImage;
         [SerializeField] private GameObject _CrossImage;
-
-        // Настройки силы импульса
         [SerializeField] private float _throwUpImpulse = 5f;
-        [SerializeField] private float _throwRadiusImpulse = 3f; 
-
+        [SerializeField] private float _throwRadiusImpulse = 3f;
+        
         private List<GameObject> _trashInCan;
         private bool _isPlayerInZone = false;
         private bool _isInteracting = false;
@@ -98,14 +95,17 @@ namespace Raccons_House_Games
                     trash.transform.position = transform.position + Vector3.up; // Place it at a specific position
                     trash.SetActive(true); // Activate the object
 
-                    // Apply vertical impulse (upward force) with DOTween
-                    Vector3 targetPositionUp = transform.position + Vector3.up * _throwUpImpulse;
-                    trash.transform.DOMove(targetPositionUp, 0.5f).SetEase(Ease.OutQuad); // Aнимация движения вверх
+                    // Apply vertical impulse (upward force)
+                    Rigidbody rb = trash.GetComponent<Rigidbody>();
+                    if (rb != null)
+                    {
+                        // Give upward impulse
+                        rb.AddForce(Vector3.up * _throwUpImpulse, ForceMode.Impulse);
 
-                    // Apply a random horizontal impulse (around the can) with radius control using DOTween
-                    Vector3 randomDirection = Random.insideUnitCircle * _throwRadiusImpulse;
-                    Vector3 targetPosition = transform.position + new Vector3(randomDirection.x, 0, randomDirection.y);
-                    trash.transform.DOMove(targetPosition, 0.5f).SetEase(Ease.OutQuad); // Анимация движения по радиусу
+                        // Apply a random horizontal impulse (around the can) with radius control
+                        Vector3 randomDirection = Random.insideUnitCircle * _throwRadiusImpulse;
+                        rb.AddForce(new Vector3(randomDirection.x, 0, randomDirection.y), ForceMode.Impulse);
+                    }
                 }
 
                 // Clear the trash after it's been released

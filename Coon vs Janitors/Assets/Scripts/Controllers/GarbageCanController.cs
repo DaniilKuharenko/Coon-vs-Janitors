@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using System.Threading.Tasks;
+using System.Collections;
 using UnityEngine;
 
 namespace Raccons_House_Games
@@ -8,7 +8,7 @@ namespace Raccons_House_Games
     {
         [SerializeField] private float _interactionTime = 2f; // Button hold time (in seconds)
         private List<GameObject> _trashInCan;
-        private TrashController _trashController; 
+        private TrashController _trashController;
         private bool _isPlayerInZone = false;
         private bool _isInteracting = false;
 
@@ -41,7 +41,7 @@ namespace Raccons_House_Games
             {
                 if (!_isInteracting)
                 {
-                    StartInteraction();
+                    StartCoroutine(StartInteraction());
                 }
             }
             else if (_isInteracting && Input.GetKeyUp(KeyCode.E))
@@ -50,17 +50,17 @@ namespace Raccons_House_Games
             }
         }
 
-        private async void StartInteraction()
+        private IEnumerator StartInteraction()
         {
             _isInteracting = true;
 
             // wait time to end
-            await Task.Delay((int)(_interactionTime * 1000));
+            yield return new WaitForSeconds(_interactionTime);
 
             // Check if the player held the button all the time
             if (_isInteracting && _trashInCan.Count > 0)
             {
-                // Let the garbage out to walking Lmfao
+                // Let the garbage out to walking
                 GameObject trash = _trashInCan[0];
                 _trashInCan.RemoveAt(0);
                 trash.transform.position = transform.position + Vector3.up;

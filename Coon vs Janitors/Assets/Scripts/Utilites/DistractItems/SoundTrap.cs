@@ -23,6 +23,7 @@ namespace Raccons_House_Games
         {
             isActive = true;
             activeTimer = activeDuration;
+            gameObject.tag = "SoundSource";
             Debug.Log("Trap Activated");
         }
 
@@ -32,6 +33,7 @@ namespace Raccons_House_Games
             foreach (var enemy in enemies)
             {
                 enemy.EnemyAlert();
+                gameObject.tag = "Pickup";
             }
         }
 

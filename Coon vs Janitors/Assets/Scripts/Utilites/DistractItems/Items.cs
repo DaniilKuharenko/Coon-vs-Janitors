@@ -6,7 +6,6 @@ namespace Raccons_House_Games
     {   
         [SerializeField] private AudioClip _collisionSound;
         [SerializeField] private AudioSource _audioSource;
-        [SerializeField] private float _soundDetectionRadius = 10f;
 
         public AudioSource AudioSource => _audioSource;
         public AudioClip CollisionSound => _collisionSound;

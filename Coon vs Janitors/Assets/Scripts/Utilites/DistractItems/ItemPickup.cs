@@ -24,16 +24,18 @@ namespace Raccons_House_Games
 
         private void PickUpItem()
         {
-
             Rigidbody rb = _pickedUpItem.GetComponent<Rigidbody>();
             if (rb != null)
             {
                 rb.isKinematic = true;
+                rb.velocity = Vector3.zero;
+                rb.angularVelocity = Vector3.zero;
             }
 
             _pickedUpItem.transform.SetParent(_holdPoint);
             _pickedUpItem.transform.localPosition = Vector3.zero;
         }
+
 
 
         public void DropItem()

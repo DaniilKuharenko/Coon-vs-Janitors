@@ -46,8 +46,7 @@ namespace Raccons_House_Games
 
         private void SpawnGarbageCans()
         {
-            int remainingTrash = _numberOfTrashToSpawn / 2;
-            int trashAssigned = 0;
+            int trashAssigned = 0; // Amount of trash assigned
 
             for (int i = 0; i < _numberOfGarbageCans; i++)
             {
@@ -63,30 +62,45 @@ namespace Raccons_House_Games
                     garbageCan.transform.position = transform.position + randomPosition;
                     garbageCan.SetActive(true);
 
-                    _activeGarbageCans.Add(garbageCan); // Add the tank to the list of active tanks
+                    _activeGarbageCans.Add(garbageCan);
 
-                    // Distribution of trash into the tank
                     var canController = garbageCan.GetComponent<GarbageCanController>();
                     if (canController != null)
                     {
                         List<GameObject> trashForCan = new List<GameObject>();
 
-                        for (int j = 0; j < _trashPerCan && trashAssigned < remainingTrash; j++)
+                        // Spread the garbage into the tank
+                        for (int j = 0; j < _trashPerCan; j++)
                         {
-                            GameObject trash = SpawnTrashAtRandomPosition(false); // Получаем мусор
+                            GameObject trash = SpawnTrashAtRandomPosition(false);
                             if (trash != null)
                             {
                                 trashForCan.Add(trash);
-                                trashAssigned++;
+                                trashAssigned++; // Increase the amount of trash assigned
+                            }
+                            else
+                            {
+                                Debug.LogWarning("Failed to get the trash for the tank!");
                             }
                         }
 
-                        // Transferring the trash to the tank
+                        // Log the amount of trash the tank will receive
+                        Debug.Log($"Tank {i} received {trashForCan.Count} of garbage objects");
+
+                        // Transfer the trash to the tank
                         canController.InitializeTrash(trashForCan);
                     }
                 }
             }
+
+            // If there is not enough trash, print a warning message
+            if (trashAssigned < _numberOfTrashToSpawn)
+            {
+                Debug.LogWarning($"It was not possible to assign all the trash! Assigned garbage: {trashAssigned}, total trash: {_numberOfTrashToSpawn}");
+            }
         }
+
+
 
         private GameObject SpawnTrashAtRandomPosition(bool activate = true)
         {
@@ -112,6 +126,7 @@ namespace Raccons_House_Games
 
             return trash;
         }
+
 
         public void ClearTrash()
         {

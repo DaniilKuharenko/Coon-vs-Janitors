@@ -14,7 +14,11 @@ namespace Raccons_House_Games
         public void InitializeTrash(List<GameObject> trash)
         {
             _trashInCan = trash;
+
+            // Debugging: Check how much garbage is in the tank
+            Debug.Log($"Initializing the trash can. In the trash can: {_trashInCan.Count} objects.");
         }
+
 
         private void OnTriggerEnter(Collider other)
         {

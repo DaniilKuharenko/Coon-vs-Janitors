@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Raccons_House_Games
 {
-    public class ItemPickup : MonoBehaviour
+    public class ItemControl : MonoBehaviour
     {
         [SerializeField] private Transform _holdPoint;
         private GameObject _pickedUpItem;

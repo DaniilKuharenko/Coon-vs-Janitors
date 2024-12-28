@@ -2034,7 +2034,7 @@ MonoBehaviour:
   m_Lens:
     FieldOfView: 76
     OrthographicSize: 9
-    NearClipPlane: -20
+    NearClipPlane: -40
     FarClipPlane: 50
     Dutch: 0
     ModeOverride: 0
@@ -2357,7 +2357,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: -20
+  near clip plane: -40
   far clip plane: 50
   field of view: 76
   orthographic: 1
@@ -4375,7 +4375,7 @@ Canvas:
   serializedVersion: 3
   m_RenderMode: 1
   m_Camera: {fileID: 963194227}
-  m_PlaneDistance: -11
+  m_PlaneDistance: -15
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0

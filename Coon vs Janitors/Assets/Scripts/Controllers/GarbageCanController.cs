@@ -85,7 +85,7 @@ namespace Raccons_House_Games
             _isInteracting = true;
 
             // Start rotating the loading image
-            float rotationSpeed = 360f / _interactionTime; // 360 degrees in the interaction time
+            float rotationSpeed = -360f / _interactionTime; // 360 degrees in the interaction time
             float elapsedTime = 0f;
 
             // Activate loading image and start rotating it

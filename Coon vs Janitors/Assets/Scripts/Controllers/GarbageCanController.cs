@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI; // Для работы с UI
 
 namespace Raccons_House_Games
 {
@@ -9,9 +10,11 @@ namespace Raccons_House_Games
         [SerializeField] private float _interactionTime = 2f; // Button hold time (in seconds)
         [SerializeField] private GameObject _exclamationImage;
         [SerializeField] private GameObject _CrossImage;
+        [SerializeField] private GameObject _buttonUI;
         [SerializeField] private float _throwUpImpulse = 5f;
         [SerializeField] private float _throwRadiusImpulse = 3f;
-        
+        [SerializeField] private Button _interactionButton;
+
         private List<GameObject> _trashInCan;
         private bool _isPlayerInZone = false;
         private bool _isInteracting = false;
@@ -19,6 +22,11 @@ namespace Raccons_House_Games
         public void InitializeTrash(List<GameObject> trash)
         {
             _trashInCan = trash;
+            
+            if (_interactionButton != null)
+            {
+                _interactionButton.onClick.AddListener(OnInteractionButtonClicked);
+            }
 
             // Debugging: Check how much garbage is in the tank
             Debug.Log($"Initializing the trash can. In the trash can: {_trashInCan.Count} objects.");
@@ -35,10 +43,12 @@ namespace Raccons_House_Games
                 if (_trashInCan.Count > 0)
                 {
                     _exclamationImage.SetActive(true); // Show the exclamation image
+                    _buttonUI.SetActive(true);
                     _CrossImage.SetActive(false); // Hide the cross image
                 }
                 else
                 {
+                    _buttonUI.SetActive(false);
                     _exclamationImage.SetActive(false); // Hide the exclamation image
                     _CrossImage.SetActive(true); // Show the cross image
                 }
@@ -56,23 +66,16 @@ namespace Raccons_House_Games
                 // Hide both images when the player leaves the zone
                 _exclamationImage.SetActive(false);
                 _CrossImage.SetActive(false);
+                _buttonUI.SetActive(false);
             }
         }
 
-        private void Update()
+        private void OnInteractionButtonClicked()
         {
-            if (_isPlayerInZone && Input.GetKey(KeyCode.E)) // Test pressing the button
+            if (!_isInteracting && _isPlayerInZone)
             {
-                if (!_isInteracting)
-                {
-                    Debug.Log("The beginning of the interaction...");
-                    StartCoroutine(StartInteraction());
-                }
-            }
-            else if (_isInteracting && Input.GetKeyUp(KeyCode.E))
-            {
-                _isInteracting = false;
-                Debug.Log("The interaction has been interrupted.");
+                Debug.Log("The beginning of the interaction...");
+                StartCoroutine(StartInteraction());
             }
         }
 
@@ -116,6 +119,7 @@ namespace Raccons_House_Games
 
                 // Hide the exclamation image and show the cross image when the trash is released
                 _exclamationImage.SetActive(false);
+                _buttonUI.SetActive(false);
                 _CrossImage.SetActive(true);
             }
             else
@@ -125,6 +129,5 @@ namespace Raccons_House_Games
 
             _isInteracting = false;
         }
-
     }
 }

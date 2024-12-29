@@ -1,23 +1,23 @@
 using System.Collections.Generic;
-using System.Linq; // For LINQ methods like Where
+using System.Linq;
 using UnityEngine;
 
 namespace Raccons_House_Games
 {
     public class TrashController : MonoBehaviour
     {
-        [SerializeField] private GameObject _garbageCanPrefab; 
+        [SerializeField] private GameObject _garbageCanPrefab;
         [SerializeField] private GameTrash _trashData;
-        [SerializeField] private Vector2 _spawnArea = new Vector2(10f, 10f);
+        [SerializeField] private Vector2 _spawnArea = new Vector2(10f, 10f); 
         [SerializeField] private int _numberOfTrashToSpawn = 10; // Total amount of garbage
-        [SerializeField] private int _numberOfGarbageCans = 5;
+        [SerializeField] private int _numberOfGarbageCans = 5; 
         [SerializeField] private int _trashPerCan = 5; // Trash to the tank
         [SerializeField] private List<Transform> spawnPoints = new List<Transform>(); 
 
-        private readonly HashSet<Transform> _occupiedPoints = new HashSet<Transform>();
-        private readonly List<GameObject> _activeTrash = new List<GameObject>();
-        private readonly List<GameObject> _activeGarbageCans = new List<GameObject>();
-        private readonly List<ObjectPool> _trashPools = new List<ObjectPool>();
+        private readonly HashSet<Transform> _occupiedPoints = new HashSet<Transform>(); 
+        private readonly List<GameObject> _activeTrash = new List<GameObject>(); 
+        private readonly List<GameObject> _activeGarbageCans = new List<GameObject>(); 
+        private readonly List<ObjectPool> _trashPools = new List<ObjectPool>(); 
         private ObjectPool _garbageCanPool;
 
         private void Start()

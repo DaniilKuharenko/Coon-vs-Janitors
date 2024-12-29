@@ -90,6 +90,7 @@ namespace Raccons_House_Games
 
             // Activate loading image and start rotating it
             _loadingImage.SetActive(true);
+            _exclamationImage.SetActive(false);
 
             while (elapsedTime < _interactionTime)
             {
@@ -132,8 +133,7 @@ namespace Raccons_House_Games
                 // Clear the trash after it's been released
                 _trashInCan.Clear();
 
-                // Hide the exclamation image and show the cross image when the trash is released
-                _exclamationImage.SetActive(false);
+                // Hide the button and show the cross image when the trash is released
                 _buttonUI.SetActive(false);
                 _CrossImage.SetActive(true);
             }

@@ -1,16 +1,17 @@
 using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.UI; // Для работы с UI
+using UnityEngine.UI;
 
 namespace Raccons_House_Games
 {
     public class GarbageCanController : MonoBehaviour
     {
-        [SerializeField] private float _interactionTime = 2f; // Button hold time (in seconds)
+        [SerializeField] private float _interactionTime = 4f; // Button hold time (in seconds)
         [SerializeField] private GameObject _exclamationImage;
         [SerializeField] private GameObject _CrossImage;
         [SerializeField] private GameObject _buttonUI;
+        [SerializeField] private GameObject _loadingImage;
         [SerializeField] private float _throwUpImpulse = 5f;
         [SerializeField] private float _throwRadiusImpulse = 3f;
         [SerializeField] private Button _interactionButton;
@@ -22,7 +23,7 @@ namespace Raccons_House_Games
         public void InitializeTrash(List<GameObject> trash)
         {
             _trashInCan = trash;
-            
+
             if (_interactionButton != null)
             {
                 _interactionButton.onClick.AddListener(OnInteractionButtonClicked);
@@ -83,12 +84,26 @@ namespace Raccons_House_Games
         {
             _isInteracting = true;
 
-            // Wait time
-            Debug.Log($"Time wait {_interactionTime} seconds...");
-            yield return new WaitForSeconds(_interactionTime);
+            // Start rotating the loading image
+            float rotationSpeed = 360f / _interactionTime; // 360 degrees in the interaction time
+            float elapsedTime = 0f;
+
+            // Activate loading image and start rotating it
+            _loadingImage.SetActive(true);
+
+            while (elapsedTime < _interactionTime)
+            {
+                _loadingImage.transform.Rotate(0f, 0f, rotationSpeed * Time.deltaTime);
+                elapsedTime += Time.deltaTime;
+                yield return null;
+            }
+
+            // Stop rotation and reset angle after interaction time is over
+            _loadingImage.SetActive(false);
+            _loadingImage.transform.rotation = Quaternion.identity;
 
             // Check if the player held down the button and if there is garbage in the tank
-            if (_isInteracting && _trashInCan.Count > 0)
+            if (_trashInCan.Count > 0)
             {
                 Debug.Log("The trash is coming out sequentially!");
 

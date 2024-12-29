@@ -2715,6 +2715,7 @@ MonoBehaviour:
   _exclamationImage: {fileID: 1967532463}
   _CrossImage: {fileID: 1617809104}
   _buttonUI: {fileID: 638041101}
+  _loadingImage: {fileID: 1046929859}
   _throwUpImpulse: 5
   _throwRadiusImpulse: 3
   _interactionButton: {fileID: 1047182729}
@@ -3181,7 +3182,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 855.4622, y: -26.299908}
+  m_AnchoredPosition: {x: 785.9, y: -9}
   m_SizeDelta: {x: 160, y: 160}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1047182729

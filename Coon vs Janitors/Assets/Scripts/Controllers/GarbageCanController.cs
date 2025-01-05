@@ -7,7 +7,7 @@ namespace Raccons_House_Games
 {
     public class GarbageCanController : MonoBehaviour
     {
-        [SerializeField] private float _interactionTime = 4f; // Button hold time (in seconds)
+        [SerializeField] private float _interactionTime = 6f; // Button hold time (in seconds)
         [SerializeField] private GameObject _exclamationImage;
         [SerializeField] private GameObject _CrossImage;
         [SerializeField] private GameObject _buttonUI;
@@ -15,7 +15,6 @@ namespace Raccons_House_Games
         [SerializeField] private float _throwUpImpulse = 5f;
         [SerializeField] private float _throwRadiusImpulse = 3f;
         [SerializeField] private Button _interactionButton;
-
         private List<GameObject> _trashInCan;
         private bool _isPlayerInZone = false;
         private bool _isInteracting = false;
@@ -31,6 +30,11 @@ namespace Raccons_House_Games
 
             // Debugging: Check how much garbage is in the tank
             Debug.Log($"Initializing the trash can. In the trash can: {_trashInCan.Count} objects.");
+        }
+
+        public void ChangeInteractionTime(float time)
+        {
+            _interactionTime = time;
         }
 
         private void OnTriggerEnter(Collider other)

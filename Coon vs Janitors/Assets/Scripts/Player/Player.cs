@@ -1,21 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Raccons_House_Games
 {
     public class Player : MonoBehaviour
     {
-        // Start is called before the first frame update
-        void Start()
-        {
-        
-        }
+        [SerializeField] private ClawedGloves _clawedGloves;
 
-        // Update is called once per frame
-        void Update()
+        private void Awake()
         {
-        
+            _clawedGloves.InitializeGloves();
         }
     }
 }

@@ -7,7 +7,7 @@ namespace Raccons_House_Games
     public class TrashController : MonoBehaviour
     {
         [SerializeField] private GameObject _garbageCanPrefab;
-        [SerializeField] private GameTrash _trashData;
+        [SerializeField] private TrashData _trashData;
         [SerializeField] private Vector2 _spawnArea = new Vector2(10f, 10f); 
         [SerializeField] private int _numberOfTrashToSpawn = 10; // Total amount of garbage
         [SerializeField] private int _numberOfGarbageCans = 5; 

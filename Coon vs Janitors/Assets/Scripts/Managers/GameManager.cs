@@ -17,12 +17,15 @@ namespace Raccons_House_Games
         public void Start()
         {
             InitializePools();
+            //SpawnTrashs();
             SpawnPlayer();
             SpawnEnemies();
         }
 
         private void InitializePools()
         {
+            //CheckPlayerAbility();
+
             // Create a pool for the player
            // _playerPool = new ObjectPool(_referenceHolder.PlayerPrefab.gameObject, _poolParent, 1);
 
@@ -60,6 +63,16 @@ namespace Raccons_House_Games
                 enemyControll.InitializeStateMachine();
                 enemyControll.InitializeEnemyControll();
             }
+        }
+
+        private void SpawnTrashs()
+        {
+
+        }
+
+        private void CheckPlayerAbility()
+        {
+            
         }
     }
 }

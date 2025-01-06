@@ -8,6 +8,7 @@ namespace Raccons_House_Games
         [field: SerializeField] public string Description { get; private set; }
         [field: SerializeField] public Sprite DisplayImage { get; private set; }
         [field: SerializeField] public float DurationTime { get; private set; }
+        [field: SerializeField] public float RadiusView { get; private set; }
 
         public virtual AbilityBuilder GetBuilder() => new AbilityBuilder(this);
 

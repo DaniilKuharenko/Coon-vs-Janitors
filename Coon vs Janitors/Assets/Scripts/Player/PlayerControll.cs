@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Raccons_House_Games
 {
-    public class PlayerControll : Player
+    public class PlayerControll : MonoBehaviour
     {
         [SerializeField] private Rigidbody _playerBody;
         [SerializeField] private FixedJoystick _movementJoystick;

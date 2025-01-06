@@ -3076,7 +3076,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1473643950}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Raccons_House_Games.ClawedGloves, Assembly-CSharp
         m_MethodName: TestUseButton
         m_Mode: 1
@@ -4459,7 +4459,6 @@ GameObject:
   - component: {fileID: 1473643946}
   - component: {fileID: 1473643948}
   - component: {fileID: 1473643949}
-  - component: {fileID: 1473643950}
   m_Layer: 6
   m_Name: Cube
   m_TagString: Player
@@ -4568,7 +4567,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b49d43d1147d57b4b858c61bdab54686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _clawedGloves: {fileID: 1473643950}
   _playerBody: {fileID: 1473643947}
   _movementJoystick: {fileID: 507067534}
   _baseSpeed: 6
@@ -4629,20 +4627,6 @@ MonoBehaviour:
   _snowComputerShader: {fileID: 7200000, guid: 4e5a6ea5c3451ee47ab9c6d9110458fa, type: 3}
   _snowRT: {fileID: 8400000, guid: 4e97c8f28ca62774d9d6c72858a24f51, type: 2}
   _spotSize: 10
---- !u!114 &1473643950
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1473643941}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c19a5f101caa0f949bb8f4f243070d70, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _useGlovesButton: {fileID: 863907171}
-  _useGlovesButtonUI: {fileID: 1718028785}
 --- !u!1 &1488586179
 GameObject:
   m_ObjectHideFlags: 0

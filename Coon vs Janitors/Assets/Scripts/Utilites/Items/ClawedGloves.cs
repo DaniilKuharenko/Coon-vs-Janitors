@@ -12,16 +12,13 @@ namespace Raccons_House_Games
         public void InitializeGloves()
         {
             _garbageCanControllers = FindObjectsByType<GarbageCanController>(FindObjectsSortMode.None);
-            if(_useGlovesButton != null)
-            {
-                _useGlovesButton.onClick.AddListener(TestUseButton);
-            }
         }
 
-        private void TestUseButton()
+        public void TestUseButton()
         {
-            if (_garbageCanControllers != null)
+            if (_garbageCanControllers != null && _garbageCanControllers.Length > 0)
             {
+                Debug.Log("Changing interaction time for all garbage cans.");
                 foreach (var garbageCanController in _garbageCanControllers)
                 {
                     garbageCanController.ChangeInteractionTime(1f);

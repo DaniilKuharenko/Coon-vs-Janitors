@@ -34,7 +34,17 @@ namespace Raccons_House_Games
 
         public void ChangeInteractionTime(float time)
         {
-            _interactionTime = time;
+            if (_interactionTime != time)
+            {
+                _interactionTime = time;
+                if (_isInteracting)
+                {
+                    StopAllCoroutines();
+                    _loadingImage.SetActive(false);
+                    _loadingImage.transform.rotation = Quaternion.identity;
+                    _isInteracting = false;
+                }
+            }
         }
 
         private void OnTriggerEnter(Collider other)

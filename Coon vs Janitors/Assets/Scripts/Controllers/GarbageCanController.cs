@@ -32,21 +32,6 @@ namespace Raccons_House_Games
             Debug.Log($"Initializing the trash can. In the trash can: {_trashInCan.Count} objects.");
         }
 
-        public void ChangeInteractionTime(float time)
-        {
-            if (_interactionTime != time)
-            {
-                _interactionTime = time;
-                if (_isInteracting)
-                {
-                    StopAllCoroutines();
-                    _loadingImage.SetActive(false);
-                    _loadingImage.transform.rotation = Quaternion.identity;
-                    _isInteracting = false;
-                }
-            }
-        }
-
         private void OnTriggerEnter(Collider other)
         {
             if (other.CompareTag("Player"))

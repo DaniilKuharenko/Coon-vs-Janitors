@@ -9,6 +9,7 @@ namespace Raccons_House_Games
         public float Duration { get; private set; }
         private float _elapsedTime;
         private bool _isEffectActive;
+        private Actor _owner;
 
         public CoffeemugAbility(float speedMultiplier, float duration)
         {
@@ -16,6 +17,16 @@ namespace Raccons_House_Games
             Duration = duration;
             _elapsedTime = 0.0f;
             _isEffectActive = false;
+        }
+
+        public void SetOwner(Actor owner)
+        {
+            _owner = owner;
+        }
+
+        public override void OnEquip(Actor owner)
+        {
+            SetOwner(owner);
         }
 
         public override void OnUse()
@@ -68,7 +79,7 @@ namespace Raccons_House_Games
 
         private bool TryGetOwner(out PlayerControll playerControll)
         {
-            playerControll = null;
+            playerControll = _owner?.GetComponent<PlayerControll>();
             return playerControll != null;
         }
     }

@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Raccons_House_Games.Actor
+namespace Raccons_House_Games
 {
     public class Player : MonoBehaviour
     {

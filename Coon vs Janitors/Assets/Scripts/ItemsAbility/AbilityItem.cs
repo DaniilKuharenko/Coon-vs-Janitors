@@ -1,4 +1,4 @@
-using Raccons_House_Games.Actor;
+using Items;
 using System;
 using UnityEngine;
 using UnityEngine.UI;
@@ -42,12 +42,12 @@ namespace Raccons_House_Games
 
         public void ChangeStatus(EItemStatus status) => Status = status;
 
-        public virtual void OnEquip(Player owner) { }
+        public virtual void OnEquip(Actor owner) { }
         public virtual void OnUse() { }
-        public virtual bool CheckCondition(Player owner, Vector3 location = default) => true; // The CheckCondition method allows defining conditions under which an item can be used.
+        public virtual bool CheckCondition(Actor owner, Vector3 location = default) => true; // The CheckCondition method allows defining conditions under which an item can be used.
         public virtual void ApplyEffect() { }
         public virtual void EventTick(float deltaTick) { }
-        public virtual void OnUnequip(Player owner) { }
+        public virtual void OnUnequip(Actor owner) { }
     }
 }
 
@@ -61,7 +61,7 @@ Purpose of CheckCondition:
 
 Example Usage:
 
-public override bool CheckCondition(Player owner, Vector3 location = default)
+public override bool CheckCondition(Actor owner, Vector3 location = default)
 {
     // Example: Check if there is enough mana to use the item
     if (owner.Mana >= 20)

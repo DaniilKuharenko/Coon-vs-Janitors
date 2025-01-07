@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Raccons_House_Games
 {
@@ -9,6 +10,7 @@ namespace Raccons_House_Games
         [field: SerializeField] public string Description { get; private set; }
         [field: SerializeField] public Sprite DisplayIcon { get; private set; }
         [field: SerializeField] public float MaxDurability { get; private set; }
+        [field: SerializeField] public Button UIButton { get; private set; }
 
         public virtual AbilityItemBuilder GetBuilder() => new AbilityItemBuilder(this);
     }

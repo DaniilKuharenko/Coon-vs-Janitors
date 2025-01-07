@@ -16,6 +16,7 @@ namespace Raccons_House_Games
             {
                 _abilityItem.SetDescription(_abilityItemConfig.Title, _abilityItemConfig.Description, _abilityItemConfig.DisplayIcon);
                 _abilityItem.SetMaxDurability(_abilityItemConfig.MaxDurability);
+                _abilityItem.SetButton(_abilityItemConfig.UIButton);
                 _abilityItem.ChangeStatus(EItemStatus.Ready);
             }
         }

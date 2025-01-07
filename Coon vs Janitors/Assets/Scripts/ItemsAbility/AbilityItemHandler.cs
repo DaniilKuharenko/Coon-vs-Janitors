@@ -41,14 +41,18 @@ namespace Raccons_House_Games
             {
                 _abilityItems[i].EventTick(Time.deltaTime);
             }
+        }
 
-            if(_currentAbilityItem != null)
+        private void OnTriggerEnter(Collider other)
+        {
+            if (_currentAbilityItem != null)
             {
-                Vector3 location = Vector3.zero;
-                Actor target = null;
-                
+                Vector3 location = other.transform.position;
+                Actor target = other.GetComponent<Actor>();
+
                 if (_currentAbilityItem.CheckCondition(_ownerActor, target, location))
                 {
+                    Debug.LogError("Triger Worked");
                     _currentAbilityItem.ApplyEffect();
                     _currentAbilityItem = null;
                 }

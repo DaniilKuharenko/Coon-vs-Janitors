@@ -18,9 +18,17 @@ namespace Raccons_House_Games
             _isEffectActive = false;
         }
 
-        public override void OnEquip(Actor owner)
+        public override void OnUse()
         {
-            if(owner.TryGetComponent(out PlayerControll playerControll))
+            if(!_isEffectActive)
+            {
+                ApplyEffect();
+            }
+        }
+
+        public override void ApplyEffect()
+        {
+            if(TryGetOwner(out PlayerControll playerControll))
             {
                 playerControll.SetSpeedMultiplier(SpeedMultiplier);
                 _isEffectActive = true;

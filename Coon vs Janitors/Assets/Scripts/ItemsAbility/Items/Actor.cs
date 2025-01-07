@@ -26,7 +26,7 @@ namespace Items
 
         protected virtual void OnDied()
         {
-            Destroy(gameObject);
+            Destroy(gameObject); // At Future Change on Return to pool!
         }
     }
 }

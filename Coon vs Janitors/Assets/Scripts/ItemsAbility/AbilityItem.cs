@@ -9,7 +9,7 @@ namespace Raccons_House_Games
     {
         public event Action<float, float> EventChangeDurability;
 
-        public string Name { get; private set; }
+        public string Title { get; private set; }
         public string Description { get; private set; }
         public Sprite DisplayIcon { get; private set; }
 
@@ -20,9 +20,9 @@ namespace Raccons_House_Games
         public Button UseButton { get; private set; }
         public EItemStatus Status { get; private set; }
 
-        public void SetDescription(string name, string description, Sprite displayIcon)
+        public void SetDescription(string title, string description, Sprite displayIcon)
         {
-            Name = name;
+            Title = title;
             Description = description;
             DisplayIcon = displayIcon;
         }

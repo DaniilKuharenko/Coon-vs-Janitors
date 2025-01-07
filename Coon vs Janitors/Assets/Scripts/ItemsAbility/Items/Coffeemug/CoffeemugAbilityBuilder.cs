@@ -1,0 +1,20 @@
+using UnityEngine;
+
+namespace Raccons_House_Games
+{
+    public class CoffeemugAbilityBuilder : AbilityItemBuilder
+    {
+        private readonly CoffeemugAbilityConfig _coffeemugAbilityConfig;
+
+        public CoffeemugAbilityBuilder(CoffeemugAbilityConfig config) : base (config)
+        {
+            _coffeemugAbilityConfig = config;
+        }
+
+        public override void Make()
+        {
+            _abilityItem = new CoffeemugAbility(_coffeemugAbilityConfig.SpeedMultiplier, _coffeemugAbilityConfig.Duration);
+            base.Make();
+        }
+    }
+}

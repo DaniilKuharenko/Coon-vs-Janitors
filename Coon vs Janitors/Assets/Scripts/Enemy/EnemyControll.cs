@@ -19,7 +19,7 @@ namespace Raccons_House_Games
         public Transform Target => _target;
         private Transform _target;
 
-        private StateMachine _stateMachine;
+        public StateMachine _stateMachine;
         private EnemyIdleState _idleState;
         private EnemyWalkState _walkState;
         private PatrolState _patrolState;

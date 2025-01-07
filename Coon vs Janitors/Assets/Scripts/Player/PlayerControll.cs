@@ -18,6 +18,11 @@ namespace Raccons_House_Games
         private float _checkSpeed; 
         private Vector2 _currentInput;
 
+        public void SetSpeedMultiplier(float multiplier)
+        {
+            _currentSpeed = _baseSpeed * multiplier;
+        }
+
         private void Start()
         {
             _currentSpeed = _baseSpeed;

@@ -5,6 +5,7 @@ namespace Raccons_House_Games
         None,
         Ready,
         Equipped,
-        InUse
+        InUse,
+        Expired
     }
 }

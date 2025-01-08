@@ -19,16 +19,6 @@ namespace Raccons_House_Games
             _isEffectActive = false;
         }
 
-        public void SetOwner(Actor owner)
-        {
-            _owner = owner;
-        }
-
-        public override void OnEquip(Actor owner)
-        {
-            SetOwner(owner);
-        }
-
         public override void OnUse()
         {
             if(!_isEffectActive)

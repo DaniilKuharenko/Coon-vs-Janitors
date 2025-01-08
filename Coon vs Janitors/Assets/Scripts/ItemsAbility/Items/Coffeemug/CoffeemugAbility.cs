@@ -11,12 +11,13 @@ namespace Raccons_House_Games
         private bool _isEffectActive;
         private Actor _owner;
 
-        public CoffeemugAbility(float speedMultiplier, float duration)
+        public CoffeemugAbility(float speedMultiplier, float duration, Actor owner)
         {
             SpeedMultiplier = speedMultiplier;
             Duration = duration;
             _elapsedTime = 0.0f;
             _isEffectActive = false;
+            _owner = owner;
         }
 
         public override void OnUse()

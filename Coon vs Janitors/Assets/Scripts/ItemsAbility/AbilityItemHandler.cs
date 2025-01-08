@@ -31,6 +31,7 @@ namespace Raccons_House_Games
             {
                 case EItemStatus.Ready:
                     _currentAbilityItem = _abilityItems[itemIndex];
+                    _currentAbilityItem.OnEquip(_ownerActor);
                     Debug.LogWarning($"Current ability item set to: {_currentAbilityItem.GetType().Name}");
                     _currentAbilityItem.OnUse();
                     break;

@@ -6,6 +6,9 @@ namespace Raccons_House_Games
     {
         [SerializeField] private AbilityItem _abilityItem;
 
-        public AbilityItem GetAbilityItem() => _abilityItem;
+        public AbilityItem GetAbilityItem()
+        {
+            return _abilityItem;
+        }
     }
 }

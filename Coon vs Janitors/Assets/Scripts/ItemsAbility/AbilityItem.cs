@@ -44,6 +44,7 @@ namespace Raccons_House_Games
 
         public virtual void OnEquip(Actor owner) { }
         public virtual void OnUse() { }
+        public bool CanBeActivated() => true;
         public virtual bool CheckCondition(Actor owner, Actor target, Vector3 location = default) => false; // The CheckCondition method allows defining conditions under which an item can be used.
         public virtual void ApplyEffect() { }
         public virtual void EventTick(float deltaTick) { }

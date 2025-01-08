@@ -10,9 +10,11 @@ namespace Raccons_House_Games
         private float _elapsedTime;
         private bool _isEffectActive;
         private Actor _owner;
+        private PlayerControll _config;
 
-        public CoffeemugAbility(float speedMultiplier, float duration, Actor owner)
+        public CoffeemugAbility(float speedMultiplier, float duration, Actor owner, PlayerControll config)
         {
+            _config = config;
             SpeedMultiplier = speedMultiplier;
             Duration = duration;
             _elapsedTime = 0.0f;
@@ -22,28 +24,35 @@ namespace Raccons_House_Games
 
         public override void OnUse()
         {
-            if(!_isEffectActive)
+            Debug.LogError("ON Use Activated");
+            if (!_isEffectActive)
             {
+                Debug.LogError("Effect is not active, applying effect...");
                 ApplyEffect();
             }
         }
 
         public override void ApplyEffect()
         {
-            if(TryGetOwner(out PlayerControll playerControll))
+            if (_config != null)
             {
-                playerControll.SetSpeedMultiplier(SpeedMultiplier);
+                _config.SetSpeedMultiplier(SpeedMultiplier);
+                Debug.LogError($"Speed: {SpeedMultiplier}");
                 _isEffectActive = true;
                 _elapsedTime = 0.0f;
+            }
+            else
+            {
+                Debug.LogError("PlayerControll not found in CoffeemugAbilityConfig!");
             }
         }
 
         public override void EventTick(float deltaTick)
         {
-            if(_isEffectActive)
+            if (_isEffectActive)
             {
                 _elapsedTime += deltaTick;
-                if(_elapsedTime >= Duration)
+                if (_elapsedTime >= Duration)
                 {
                     CancelUse();
                 }
@@ -52,17 +61,11 @@ namespace Raccons_House_Games
 
         public override void CancelUse()
         {
-            if(TryGetOwner(out PlayerControll playerControll))
+            if (_config != null)
             {
-                playerControll.SetSpeedMultiplier(1.0f);
+                _config.SetSpeedMultiplier(1.0f);
             }
             _isEffectActive = false;
-        }
-
-        private bool TryGetOwner(out PlayerControll playerControll)
-        {
-            playerControll = _owner?.GetComponent<PlayerControll>();
-            return playerControll != null;
         }
     }
 }

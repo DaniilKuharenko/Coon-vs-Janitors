@@ -9,6 +9,7 @@ namespace Raccons_House_Games
     {
         [field: SerializeField] public float SpeedMultiplier { get; private set; }
         [field: SerializeField] public float Duration { get; private set; }
+        [field: SerializeField] public PlayerControll PlayerControll { get; private set; }
 
         public override AbilityItemBuilder GetBuilder()
         {

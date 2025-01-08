@@ -21,6 +21,7 @@ namespace Raccons_House_Games
         public void SetSpeedMultiplier(float multiplier)
         {
             _currentSpeed = _baseSpeed * multiplier;
+            _accelerationTimer = 0.0f;
         }
 
         private void Start()
@@ -36,13 +37,11 @@ namespace Raccons_House_Games
 
         private void HandleMove()
         {
-
             _currentInput = new Vector2(_movementJoystick.Horizontal, _movementJoystick.Vertical);
 
             if (_currentInput != Vector2.zero)
             {
                 _accelerationTimer += Time.deltaTime;
-
                 _currentSpeed = Mathf.Lerp(_baseSpeed, _maxSpeed, _accelerationTimer / _accelerationTime);
             }
             else
@@ -51,17 +50,20 @@ namespace Raccons_House_Games
                 _currentSpeed = _baseSpeed;
             }
 
+            _currentSpeed = _currentSpeed * 1.0f;
+
             Vector3 inputDirection = new Vector3(_currentInput.x, 0, _currentInput.y).normalized;
             Vector3 movement = inputDirection * _currentSpeed;
 
             _playerBody.velocity = new Vector3(movement.x, _playerBody.velocity.y, movement.z);
 
             _checkSpeed = new Vector3(_playerBody.velocity.x, 0, _playerBody.velocity.z).magnitude;
-            
+
             if (_currentInput != Vector2.zero)
             {
                 transform.rotation = Quaternion.LookRotation(new Vector3(_playerBody.velocity.x, 0, _playerBody.velocity.z));
             }
         }
+
     }
 }

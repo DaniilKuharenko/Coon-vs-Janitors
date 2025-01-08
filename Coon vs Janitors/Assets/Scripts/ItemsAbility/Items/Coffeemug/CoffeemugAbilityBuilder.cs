@@ -15,7 +15,7 @@ namespace Raccons_House_Games
 
         public override void Make()
         {
-            _abilityItem = new CoffeemugAbility(_coffeemugAbilityConfig.SpeedMultiplier, _coffeemugAbilityConfig.Duration, _actor);
+            _abilityItem = new CoffeemugAbility(_coffeemugAbilityConfig.SpeedMultiplier, _coffeemugAbilityConfig.Duration, _actor, _coffeemugAbilityConfig.PlayerControll);
             base.Make();
         }
     }

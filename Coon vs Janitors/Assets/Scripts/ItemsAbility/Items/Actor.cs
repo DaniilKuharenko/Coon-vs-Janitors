@@ -7,7 +7,7 @@ namespace Items
     public class Actor : MonoBehaviour
     {
         [field: SerializeField] public Transform SelfTansform { get; private set; }
-        [field: SerializeField] public NavMeshAgent Movement { get; private set; }
+        //[field: SerializeField] public NavMeshAgent Movement { get; private set; }
         [field: SerializeField] public CHealth Health { get; private set; }
 
         public Vector3 GetLocation() => SelfTansform != null ? SelfTansform.position : transform.position;

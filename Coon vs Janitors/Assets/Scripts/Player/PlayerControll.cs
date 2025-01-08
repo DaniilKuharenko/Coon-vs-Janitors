@@ -22,7 +22,9 @@ namespace Raccons_House_Games
         {
             _currentSpeed = _baseSpeed * multiplier;
             _accelerationTimer = 0.0f;
+            Debug.LogError($"SetSpeedMultiplier called with multiplier: {multiplier}, _currentSpeed: {_currentSpeed}");
         }
+
 
         private void Start()
         {
@@ -50,8 +52,6 @@ namespace Raccons_House_Games
                 _currentSpeed = _baseSpeed;
             }
 
-            _currentSpeed = _currentSpeed * 1.0f;
-
             Vector3 inputDirection = new Vector3(_currentInput.x, 0, _currentInput.y).normalized;
             Vector3 movement = inputDirection * _currentSpeed;
 
@@ -64,6 +64,6 @@ namespace Raccons_House_Games
                 transform.rotation = Quaternion.LookRotation(new Vector3(_playerBody.velocity.x, 0, _playerBody.velocity.z));
             }
         }
-
     }
+
 }

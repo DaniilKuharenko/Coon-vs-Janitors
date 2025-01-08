@@ -4743,8 +4743,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Raccons_House_Games.ItemPickup, Assembly-CSharp
+      - m_Target: {fileID: 1473643948}
+        m_TargetAssemblyTypeName: Raccons_House_Games.ItemControl, Assembly-CSharp
         m_MethodName: DropItem
         m_Mode: 1
         m_Arguments:

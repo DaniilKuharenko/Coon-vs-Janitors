@@ -9,11 +9,21 @@ namespace Raccons_House_Games
     {
         [field: SerializeField] public float SpeedMultiplier { get; private set; }
         [field: SerializeField] public float Duration { get; private set; }
-        [field: SerializeField] public PlayerControll PlayerControll { get; private set; }
+        public PlayerControll PlayerControll { get; private set; }
 
         public override AbilityItemBuilder GetBuilder()
         {
             return new CoffeemugAbilityBuilder(this);
+        }
+
+        public PlayerControll FindPlayerControll()
+        {
+            PlayerControll = FindFirstObjectByType<PlayerControll>();
+            if (PlayerControll == null)
+            {
+                Debug.LogError("PlayerControll not found in the scene!");
+            }
+            return PlayerControll;
         }
     }
 }

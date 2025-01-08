@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Raccons_House_Games
@@ -12,17 +9,24 @@ namespace Raccons_House_Games
         [SerializeField] private float _baseSpeed = 10.0f;
         [SerializeField] private float _maxSpeed = 10.5f;
         [SerializeField] private float _accelerationTime = 3.0f;
-
+        private float _currentDuration = 0.0f;
         private float _currentSpeed;
         private float _accelerationTimer;
         private float _checkSpeed; 
         private Vector2 _currentInput;
 
-        public void SetSpeedMultiplier(float multiplier)
+        public void SetSpeedMultiplier(float multiplier, float duration)
         {
-            _currentSpeed = _maxSpeed * multiplier;
+            _maxSpeed += multiplier;
+            _currentDuration = duration;
             _accelerationTimer = 0.0f;
             Debug.LogError($"SetSpeedMultiplier called with multiplier: {multiplier}, _currentSpeed: {_maxSpeed}");
+        }
+
+        public void ResetSpeed()
+        {
+            _maxSpeed = 10.5f;
+            _accelerationTimer = 0.0f;
         }
 
 
@@ -35,6 +39,14 @@ namespace Raccons_House_Games
         private void Update()
         {
             HandleMove();
+            if (_currentDuration > 0)
+            {
+                _currentDuration -= Time.deltaTime;
+                if (_currentDuration <= 0)
+                {
+                    ResetSpeed();
+                }
+            }
         }
 
         private void HandleMove()
@@ -45,7 +57,6 @@ namespace Raccons_House_Games
             {
                 _accelerationTimer += Time.deltaTime;
                 _currentSpeed = Mathf.Lerp(_baseSpeed, _maxSpeed, _accelerationTimer / _accelerationTime);
-                Debug.LogError($"SetSpeedMultiplier _currentSpeed: {_currentSpeed}");
             }
             else
             {

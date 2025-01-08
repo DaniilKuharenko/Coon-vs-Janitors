@@ -20,5 +20,4 @@ MonoBehaviour:
   <UIButton>k__BackingField: {fileID: 4222945937825518512, guid: 53f334e53d074f5438c870f711f442ae,
     type: 3}
   <SpeedMultiplier>k__BackingField: 800
-  <Duration>k__BackingField: 67
-  <PlayerControll>k__BackingField: {fileID: 0}
+  <Duration>k__BackingField: 20

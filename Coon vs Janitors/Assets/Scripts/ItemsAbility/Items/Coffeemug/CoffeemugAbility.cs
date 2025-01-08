@@ -36,32 +36,14 @@ namespace Raccons_House_Games
         {
             if (_config != null)
             {
-                _config.SetSpeedMultiplier(SpeedMultiplier);
+                _config.SetSpeedMultiplier(SpeedMultiplier, Duration);
                 Debug.LogError($"Speed: {SpeedMultiplier}");
                 _isEffectActive = true;
-                _elapsedTime = 0.0f;
             }
             else
             {
                 Debug.LogError("PlayerControll not found in CoffeemugAbilityConfig!");
             }
-        }
-
-        public override void EventTick(float deltaTick)
-        {
-            if (_isEffectActive)
-            {
-                _elapsedTime += deltaTick;
-                if (_elapsedTime >= Duration)
-                {
-                    CancelUse();
-                }
-            }
-        }
-
-        public override void CancelUse()
-        {
-            _isEffectActive = false;
         }
     }
 }

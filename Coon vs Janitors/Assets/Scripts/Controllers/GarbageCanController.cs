@@ -7,7 +7,7 @@ namespace Raccons_House_Games
 {
     public class GarbageCanController : MonoBehaviour
     {
-        [SerializeField] private float _interactionTime = 6f; // Button hold time (in seconds)
+        [SerializeField] private float _interactionTime = 2f; // Button hold time (in seconds)
         [SerializeField] private GameObject _exclamationImage;
         [SerializeField] private GameObject _CrossImage;
         [SerializeField] private GameObject _buttonUI;

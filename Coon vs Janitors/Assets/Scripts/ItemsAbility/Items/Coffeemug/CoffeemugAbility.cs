@@ -54,23 +54,14 @@ namespace Raccons_House_Games
                 _elapsedTime += deltaTick;
                 if(_elapsedTime >= Duration)
                 {
-                    ResetEffect();
+                    CancelUse();
                 }
             }
         }
 
-        private void ResetEffect()
+        public override void CancelUse()
         {
-            if (TryGetOwner(out PlayerControll playerControll))
-            {
-                playerControll.SetSpeedMultiplier(1.0f);
-                _isEffectActive = false;
-            }
-        }
-
-        public override void OnUnequip(Actor owner)
-        {
-            if(owner.TryGetComponent(out PlayerControll playerControll))
+            if(TryGetOwner(out PlayerControll playerControll))
             {
                 playerControll.SetSpeedMultiplier(1.0f);
             }

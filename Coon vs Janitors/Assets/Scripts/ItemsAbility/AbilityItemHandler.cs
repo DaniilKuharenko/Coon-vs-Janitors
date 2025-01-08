@@ -15,25 +15,33 @@ namespace Raccons_House_Games
         {
             _abilityItemStorage.Init();
             _abilityItems.AddRange(_abilityItemStorage.GetAbilityItems());
-            
             // at future need hook into UI or other components
         }
 
         public void OnSelectAbilityItem(int itemIndex)
         {
-            _currentAbilityItem?.OnUnequip(_ownerActor);
+            if (itemIndex < 0 || itemIndex >= _abilityItems.Count)
+            {
+                Debug.LogError($"Invalid index {itemIndex}. List count is {_abilityItems.Count}.");
+                return;
+            }
 
+            _currentAbilityItem?.CancelUse();
             switch(_abilityItems[itemIndex].Status)
             {
                 case EItemStatus.Ready:
                     _currentAbilityItem = _abilityItems[itemIndex];
-                    _currentAbilityItem.OnEquip(_ownerActor);
-                break;
+                    Debug.LogWarning($"Current ability item set to: {_currentAbilityItem.GetType().Name}");
+                    _currentAbilityItem.OnUse();
+                    break;
 
                 case EItemStatus.Expired:
-                break;
+                    Debug.LogWarning("Attempted to select an expired item.");
+                    break;
             }
         }
+
+
 
         private void Update()
         {
@@ -45,16 +53,23 @@ namespace Raccons_House_Games
 
         private void OnTriggerEnter(Collider other)
         {
-            if (_currentAbilityItem != null)
-            {
-                Vector3 location = other.transform.position;
-                Actor target = other.GetComponent<Actor>();
+            Debug.LogError($"Triggered by: {other.gameObject.name}");
 
-                if (_currentAbilityItem.CheckCondition(_ownerActor, target, location))
+            if (_abilityItems.Count == 0)
+            {
+                Debug.LogError("Ability items list is empty! Can't select an ability item.");
+                return;
+            }
+
+            Vector3 location = other.transform.position;
+            Actor target = other.GetComponent<Actor>();
+
+            if (other.CompareTag("Player"))
+            {
+                OnSelectAbilityItem(0);
+                if (_currentAbilityItem != null && _currentAbilityItem.CheckCondition(_ownerActor, target, location))
                 {
-                    Debug.LogError("Triger Worked");
-                    _currentAbilityItem.ApplyEffect();
-                    _currentAbilityItem = null;
+                    Debug.LogError("Condition met, applying effect.");
                 }
             }
         }

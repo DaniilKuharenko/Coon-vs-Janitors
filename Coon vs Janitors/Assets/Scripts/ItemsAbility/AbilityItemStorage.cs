@@ -10,13 +10,16 @@ namespace Raccons_House_Games
 
         public void Init()
         {
-            foreach(var config in _itemConfigs)
+            foreach (var config in _itemConfigs)
             {
                 var builder = config.GetBuilder();
                 builder.Make();
-                _abilityItems.Add(builder.GetResult());
+                var item = builder.GetResult();
+                _abilityItems.Add(item);
+                Debug.LogError($"Ability item added: {item.GetType().Name}");
             }
         }
+
 
         public AbilityItem[] GetAbilityItems() => _abilityItems.ToArray();
     }

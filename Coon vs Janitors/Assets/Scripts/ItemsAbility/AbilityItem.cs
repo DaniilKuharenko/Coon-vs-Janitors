@@ -47,6 +47,7 @@ namespace Raccons_House_Games
         public virtual bool CheckCondition(Actor owner, Actor target, Vector3 location = default) => false; // The CheckCondition method allows defining conditions under which an item can be used.
         public virtual void ApplyEffect() { }
         public virtual void EventTick(float deltaTick) { }
+        public virtual void CancelUse() { }
         public virtual void OnUnequip(Actor owner) { }
     }
 }

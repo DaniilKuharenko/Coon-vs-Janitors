@@ -21,5 +21,4 @@ MonoBehaviour:
     type: 3}
   <SpeedMultiplier>k__BackingField: 800
   <Duration>k__BackingField: 67
-  <PlayerControll>k__BackingField: {fileID: 4164487910599996773, guid: 55dea82635da72048be279867571b9c2,
-    type: 3}
+  <PlayerControll>k__BackingField: {fileID: 0}

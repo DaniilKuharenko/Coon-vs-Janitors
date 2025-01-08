@@ -61,10 +61,6 @@ namespace Raccons_House_Games
 
         public override void CancelUse()
         {
-            if (_config != null)
-            {
-                _config.SetSpeedMultiplier(1.0f);
-            }
             _isEffectActive = false;
         }
     }

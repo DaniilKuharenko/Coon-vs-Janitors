@@ -10,7 +10,7 @@ namespace Raccons_House_Games
         [SerializeField] private Rigidbody _playerBody;
         [SerializeField] private FixedJoystick _movementJoystick;
         [SerializeField] private float _baseSpeed = 10.0f;
-        [SerializeField] private float _maxSpeed = 20.0f;
+        [SerializeField] private float _maxSpeed = 10.5f;
         [SerializeField] private float _accelerationTime = 3.0f;
 
         private float _currentSpeed;
@@ -20,9 +20,9 @@ namespace Raccons_House_Games
 
         public void SetSpeedMultiplier(float multiplier)
         {
-            _currentSpeed = _baseSpeed * multiplier;
+            _currentSpeed = _maxSpeed * multiplier;
             _accelerationTimer = 0.0f;
-            Debug.LogError($"SetSpeedMultiplier called with multiplier: {multiplier}, _currentSpeed: {_currentSpeed}");
+            Debug.LogError($"SetSpeedMultiplier called with multiplier: {multiplier}, _currentSpeed: {_maxSpeed}");
         }
 
 
@@ -45,6 +45,7 @@ namespace Raccons_House_Games
             {
                 _accelerationTimer += Time.deltaTime;
                 _currentSpeed = Mathf.Lerp(_baseSpeed, _maxSpeed, _accelerationTimer / _accelerationTime);
+                Debug.LogError($"SetSpeedMultiplier _currentSpeed: {_currentSpeed}");
             }
             else
             {

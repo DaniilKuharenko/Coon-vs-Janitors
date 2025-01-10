@@ -1852,7 +1852,6 @@ Transform:
   - {fileID: 702229405}
   - {fileID: 1617168084454876941}
   - {fileID: 682833696}
-  - {fileID: 619682899}
   - {fileID: 1703222557}
   - {fileID: 794952111}
   - {fileID: 1119928046}
@@ -2995,6 +2994,8 @@ MonoBehaviour:
   _enemySpawnPoints:
   - {fileID: 1502162088}
   _poolParent: {fileID: 794952111}
+  _objectTypes:
+  - {fileID: 11400000, guid: ecc4b689a1d96df42a56ec08a7996fe2, type: 2}
 --- !u!4 &619682899
 Transform:
   m_ObjectHideFlags: 0
@@ -3004,11 +3005,11 @@ Transform:
   m_GameObject: {fileID: 619682897}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.304876, y: -7.856269, z: 18.29744}
+  m_LocalPosition: {x: 3.1094604, y: -3.1781406, z: 8.689848}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 394785046}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &638041101
 GameObject:
@@ -3764,7 +3765,7 @@ Transform:
   m_GameObject: {fileID: 794952110}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -17.941605, y: -12.946414, z: 18.904707}
+  m_LocalPosition: {x: -17.941605, y: -5.18, z: 18.904707}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10019,6 +10020,7 @@ Transform:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 619682899}
   - {fileID: 394785046}
   - {fileID: 369171222}
   - {fileID: 468917191}

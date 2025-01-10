@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Raccons_House_Games
@@ -9,14 +10,18 @@ namespace Raccons_House_Games
         [SerializeField] private Transform _playerSpawnPoint;
         [SerializeField] private Transform[] _enemySpawnPoints;
         [SerializeField] private Transform _poolParent;
+        [SerializeField] private ObjectsType[] _objectTypes;
+
 
         private ObjectPool _playerPool;
         private List<ObjectPool> _enemyPools;
+        private Dictionary<ItemObjects, ObjectPool> _itemObjectsPool;
         private GameObject _playerInstance;
 
         public void Start()
         {
             InitializePools();
+            SpawnObjects();
             SpawnPlayer();
             SpawnEnemies();
         }
@@ -24,7 +29,15 @@ namespace Raccons_House_Games
         private void InitializePools()
         {
             //Create a pool for the Objects
-            
+            _itemObjectsPool = new Dictionary<ItemObjects, ObjectPool>();
+            foreach (var objectType in _objectTypes)
+            {
+                if(objectType.ObjectsPrefab.Length > 0 && !_itemObjectsPool.ContainsKey(objectType.ItemObjectType))
+                {
+                    var pool = new ObjectPool(objectType.ObjectsPrefab[0], _poolParent, 50);
+                    _itemObjectsPool.Add(objectType.ItemObjectType, pool);
+                }
+            } 
 
             // Create a pool for the player
            //_playerPool = new ObjectPool(_referenceHolder.PlayerPrefab.gameObject, _poolParent, 1);
@@ -67,7 +80,24 @@ namespace Raccons_House_Games
 
         private void SpawnObjects()
         {
+            ItemObjects randomType = (ItemObjects)Random.Range(0, System.Enum.GetValues(typeof(ItemObjects)).Length);
 
+            if(_itemObjectsPool.TryGetValue(randomType, out var pool))
+            {
+                int objectCount = Random.Range(10, 51);
+
+                for(int i = 0; i < objectCount; i++)
+                {
+                    var objectInstance = pool.GetFromPool();
+                    objectInstance.transform.position = RandomPosition();
+                    objectInstance.SetActive(true);
+                }
+            }
+        }
+
+        private Vector3 RandomPosition()
+        {
+            return new Vector3(Random.Range(-10f, 10f), 0, Random.Range(-10f, 10f));
         }
     }
 }

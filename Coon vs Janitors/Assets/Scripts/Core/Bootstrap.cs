@@ -5,6 +5,7 @@ namespace Raccons_House_Games
 {
     public class Bootstrap : MonoBehaviour
     {
+        [SerializeField] private GameManager _gameManager;
         private void Awake()
         {
             StartCoroutine(Run());
@@ -13,6 +14,7 @@ namespace Raccons_House_Games
         private IEnumerator Run()
         {
             yield return new WaitForSeconds(1.2f);
+            _gameManager.StartGame();
         }
     }
 }

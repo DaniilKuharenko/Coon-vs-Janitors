@@ -20,7 +20,7 @@ namespace Raccons_House_Games
         private readonly List<ObjectPool> _trashPools = new List<ObjectPool>(); 
         private ObjectPool _garbageCanPool;
 
-        private void Start()
+        public void TrashInitialize()
         {
             // Initialize trash object pools
             foreach (var prefab in _trashData.TrashPrefabs)

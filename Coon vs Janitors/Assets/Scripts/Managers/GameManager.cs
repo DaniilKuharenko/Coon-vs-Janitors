@@ -6,6 +6,7 @@ namespace Raccons_House_Games
 {
     public class GameManager : MonoBehaviour
     {
+        [SerializeField] private TrashController _trashControl;
         [SerializeField] private ReferenceHolder _referenceHolder;
         [SerializeField] private Transform _playerSpawnPoint;
         [SerializeField] private Transform[] _enemySpawnPoints;
@@ -18,10 +19,11 @@ namespace Raccons_House_Games
         private Dictionary<ItemObjects, ObjectPool> _itemObjectsPool;
         private GameObject _playerInstance;
 
-        public void Start()
+        public void StartGame()
         {
             InitializePools();
             SpawnObjects();
+            _trashControl.TrashInitialize();
             SpawnPlayer();
             SpawnEnemies();
         }

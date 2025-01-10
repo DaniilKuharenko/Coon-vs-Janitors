@@ -1824,6 +1824,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 394785046}
+  - component: {fileID: 394785047}
   m_Layer: 0
   m_Name: Game
   m_TagString: Untagged
@@ -1866,6 +1867,19 @@ Transform:
   - {fileID: 505032139}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &394785047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 394785045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afe520647ee0569478ac72df93b2bd92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameManager: {fileID: 619682898}
 --- !u!1001 &436793583
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2989,6 +3003,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a97311837543904197780125a75da94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _trashControl: {fileID: 1617168084454876942}
   _referenceHolder: {fileID: 11400000, guid: 4519203a8b54984458d03f9b82f4c55e, type: 2}
   _playerSpawnPoint: {fileID: 0}
   _enemySpawnPoints:
@@ -9656,6 +9671,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1617168084454876940}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1617168084454876942 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9186920147656097403, guid: 90ee88e538da8b64885561bb92e9100c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1617168084454876940}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c60f26525cd6b9488f8637501f1b00c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2490749192601572817
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -69,10 +69,5 @@ namespace Raccons_House_Games
         {
 
         }
-
-        private void CheckPlayerAbility()
-        {
-            
-        }
     }
 }

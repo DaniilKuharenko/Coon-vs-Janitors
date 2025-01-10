@@ -2996,6 +2996,8 @@ MonoBehaviour:
   _poolParent: {fileID: 794952111}
   _objectTypes:
   - {fileID: 11400000, guid: ecc4b689a1d96df42a56ec08a7996fe2, type: 2}
+  - {fileID: 11400000, guid: 29fc37b7645dc284eb70263079382df1, type: 2}
+  - {fileID: 11400000, guid: da4382f5a3afd43469d324467e7c44ae, type: 2}
 --- !u!4 &619682899
 Transform:
   m_ObjectHideFlags: 0

@@ -24,7 +24,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 23116
+  controlID: 23316
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -116,6 +116,11 @@ MonoBehaviour:
     \"d6a878dd08454b1f96eef49038203fe4\"\n                },\n                \"m_SlotId\":
     0\n            },\n            \"m_InputSlot\": {\n                \"m_Node\":
     {\n                    \"m_Id\": \"4f738d51c93f49f3a2bda827995fab42\"\n               
+    },\n                \"m_SlotId\": 0\n            }\n        },\n        {\n           
+    \"m_OutputSlot\": {\n                \"m_Node\": {\n                    \"m_Id\":
+    \"f4945a5476b64a5db98327a8b2b2c6a4\"\n                },\n                \"m_SlotId\":
+    1\n            },\n            \"m_InputSlot\": {\n                \"m_Node\":
+    {\n                    \"m_Id\": \"dfa4a0eb92a2459a8506a36382561577\"\n               
     },\n                \"m_SlotId\": 0\n            }\n        }\n    ],\n    \"m_VertexContext\":
     {\n        \"m_Position\": {\n            \"x\": 0.0,\n            \"y\": 0.0\n       
     },\n        \"m_Blocks\": [\n            {\n                \"m_Id\": \"47b9e20dc15b4b068803f9f5519b9bf2\"\n           
@@ -407,7 +412,7 @@ MonoBehaviour:
     {\n            \"m_Id\": \"b56828af44ef4fbe8b9a7a6c2e0b7813\"\n        }\n   
     ],\n    \"synonyms\": [],\n    \"m_Precision\": 0,\n    \"m_PreviewExpanded\":
     true,\n    \"m_DismissedVersion\": 0,\n    \"m_PreviewMode\": 0,\n    \"m_CustomColors\":
-    {\n        \"m_SerializableColors\": []\n    },\n    \"m_ScreenSpaceType\": 0\n}\n\n{\n   
+    {\n        \"m_SerializableColors\": []\n    },\n    \"m_ScreenSpaceType\": 1\n}\n\n{\n   
     \"m_SGVersion\": 0,\n    \"m_Type\": \"UnityEditor.ShaderGraph.BlockNode\",\n   
     \"m_ObjectId\": \"dfa4a0eb92a2459a8506a36382561577\",\n    \"m_Group\": {\n       
     \"m_Id\": \"\"\n    },\n    \"m_Name\": \"SurfaceDescription.BaseColor\",\n   
@@ -469,7 +474,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 23117
+  controlID: 23317
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -494,7 +499,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 50}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 23118
+  controlID: 23318
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -1237,9 +1242,9 @@ MonoBehaviour:
   m_AudioPlay: 0
   m_DebugDrawModesUseInteractiveLightBakingData: 0
   m_Position:
-    m_Target: {x: 183.63905, y: -83.128334, z: 24.099365}
+    m_Target: {x: 185.68051, y: -96.412155, z: 44.525806}
     speed: 2
-    m_Value: {x: 183.63905, y: -83.128334, z: 24.099365}
+    m_Value: {x: 185.68051, y: -96.412155, z: 44.525806}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1285,13 +1290,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.15803444, y: 0.64528966, z: -0.1382532, w: 0.7348219}
+    m_Target: {x: 0.17893696, y: 0.6089086, z: -0.1429109, w: 0.7597631}
     speed: 2
-    m_Value: {x: 0.1591002, y: 0.6449361, z: -0.1391901, w: 0.7344186}
+    m_Value: {x: 0.18209308, y: 0.6092592, z: -0.14589146, w: 0.75786614}
   m_Size:
     m_Target: 96.99525
     speed: 2
-    m_Value: 92.81842
+    m_Value: 96.99525
   m_Ortho:
     m_Target: 0
     speed: 2

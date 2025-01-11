@@ -500,7 +500,7 @@ MonoBehaviour:
     type: 3}
   _targetLayerMask:
     serializedVersion: 2
-    m_Bits: 2112
+    m_Bits: 0
   _trashController: {fileID: 9186920147656097403, guid: 90ee88e538da8b64885561bb92e9100c,
     type: 3}
 --- !u!114 &4430387678879882338

@@ -11,6 +11,9 @@
         },
         {
             "m_Id": "39079cecf05a413389274d0ff2fdd149"
+        },
+        {
+            "m_Id": "83bcd55bd8d4463b9246ef8ef950927a"
         }
     ],
     "m_Keywords": [],
@@ -2822,6 +2825,34 @@
 }
 
 {
+    "m_SGVersion": 1,
+    "m_Type": "UnityEditor.ShaderGraph.Internal.Vector3ShaderProperty",
+    "m_ObjectId": "83bcd55bd8d4463b9246ef8ef950927a",
+    "m_Guid": {
+        "m_GuidSerialized": "d2d844cc-ee9d-42fc-a473-a07e35f7c45b"
+    },
+    "m_Name": "Vector3",
+    "m_DefaultRefNameVersion": 1,
+    "m_RefNameGeneratedByDisplayName": "Vector3",
+    "m_DefaultReferenceName": "_Vector3",
+    "m_OverrideReferenceName": "",
+    "m_GeneratePropertyBlock": false,
+    "m_UseCustomSlotLabel": false,
+    "m_CustomSlotLabel": "",
+    "m_DismissedVersion": 0,
+    "m_Precision": 0,
+    "overrideHLSLDeclaration": false,
+    "hlslDeclarationOverride": 2,
+    "m_Hidden": false,
+    "m_Value": {
+        "x": 1.600000023841858,
+        "y": 1.9299999475479127,
+        "z": 0.09000000357627869,
+        "w": 0.0
+    }
+}
+
+{
     "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
     "m_ObjectId": "84cbbc567f134c2d8a6f15dd2c4a8d91",
@@ -3816,6 +3847,9 @@
         },
         {
             "m_Id": "39079cecf05a413389274d0ff2fdd149"
+        },
+        {
+            "m_Id": "83bcd55bd8d4463b9246ef8ef950927a"
         }
     ]
 }

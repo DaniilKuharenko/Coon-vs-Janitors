@@ -111,12 +111,6 @@ namespace Raccons_House_Games
                                 _currentTargetLostTime = _targetLostTime;
                             }
                         }
-                        // if (((1 << hit.collider.gameObject.layer) & _targetLayerMask) != 0)
-                        // {
-                        //     _target = hit.transform;
-                        //     _currentTargetLostTime = _targetLostTime;
-                        //     return;
-                        // }
                     }
                 }
             }

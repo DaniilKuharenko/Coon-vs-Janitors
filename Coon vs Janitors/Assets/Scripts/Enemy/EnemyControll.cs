@@ -97,12 +97,26 @@ namespace Raccons_House_Games
                     RaycastHit hit;
                     if (Physics.Raycast(transform.position, directionToTarget, out hit, VisionRange, VisionObstructingLayer))
                     {
-                        if (((1 << hit.collider.gameObject.layer) & _targetLayerMask) != 0)
+                        int hitLayer = hit.collider.gameObject.layer;
+                        if(((1 << hitLayer) & _targetLayerMask) != 0)
                         {
-                            _target = hit.transform;
-                            _currentTargetLostTime = _targetLostTime;
-                            return;
+                            if(hitLayer == LayerMask.NameToLayer("HiddenLayer"))
+                            {
+                                GetPatrolState().AddTemporaryPoint(transform.position);
+                                _target = null;
+                            }
+                            else
+                            {
+                                _target = hit.transform;
+                                _currentTargetLostTime = _targetLostTime;
+                            }
                         }
+                        // if (((1 << hit.collider.gameObject.layer) & _targetLayerMask) != 0)
+                        // {
+                        //     _target = hit.transform;
+                        //     _currentTargetLostTime = _targetLostTime;
+                        //     return;
+                        // }
                     }
                 }
             }

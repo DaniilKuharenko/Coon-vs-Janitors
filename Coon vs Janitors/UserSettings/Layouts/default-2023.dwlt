@@ -338,7 +338,7 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 73
+    y: 19
     width: 222
     height: 380
   m_SerializedDataModeController:
@@ -355,8 +355,8 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: cefaffff
-      m_LastClickedID: -1330
+      m_SelectedIDs: 
+      m_LastClickedID: 0
       m_ExpandedIDs: cefaffff6ca50000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
@@ -471,8 +471,8 @@ MonoBehaviour:
     m_TextWithWhitespace: "Scene\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 223
-    y: 73
+    x: 224
+    y: 19
     width: 823
     height: 380
   m_SerializedDataModeController:
@@ -1003,7 +1003,7 @@ MonoBehaviour:
   m_Position:
     m_Target: {x: 17.959124, y: 8.815749, z: -7.3958807}
     speed: 2
-    m_Value: {x: 37.89553, y: -4.0109606, z: 29.402699}
+    m_Value: {x: 17.959124, y: 8.815749, z: -7.3958807}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1051,11 +1051,11 @@ MonoBehaviour:
   m_Rotation:
     m_Target: {x: 0.27014017, y: -0.47242916, z: 0.15465263, w: 0.8247075}
     speed: 2
-    m_Value: {x: 0.15316242, y: 0.6354274, z: -0.13080658, w: 0.7454281}
+    m_Value: {x: -0.27014017, y: 0.4724292, z: -0.15465264, w: -0.8247075}
   m_Size:
     m_Target: 3.4124055
     speed: 2
-    m_Value: 12.439035
+    m_Value: 3.4124055
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -1214,7 +1214,7 @@ MonoBehaviour:
   m_UseMipMap: 0
   m_SimulatorState:
     controlPanelVisible: 0
-    controlPanelWidth: 0
+    controlPanelWidth: NaN
     controlPanelFoldoutKeys:
     - UnityEditor.AdaptivePerformance.Editor.AdaptivePerformanceUIExtension
     - UnityEditor.AdaptivePerformance.Samsung.Android.Editor.AdaptivePerformanceGoogleUIExtension
@@ -1228,7 +1228,7 @@ MonoBehaviour:
     - '{"m_SerializationStates":{"thermalFoldout":false,"performanceFoldout":false,"developerFoldout":false,"indexerFoldout":false,"scalersFoldout":false,"deviceSettingsFoldout":false}}'
     - '{"m_SerializationStates":{"androidSystemFoldout":false}}'
     - '{}'
-    scale: 31
+    scale: 10
     fitToScreenEnabled: 1
     rotationDegree: 270
     highlightSafeAreaEnabled: 0
@@ -1259,7 +1259,7 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 474
+    y: 420
     width: 1047
     height: 205
   m_SerializedDataModeController:
@@ -1303,7 +1303,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 519}
     m_SelectedIDs: f4aa0000
     m_LastClickedID: 43764
-    m_ExpandedIDs: 000000001eaa000020aa000022aa000024aa000026aa000028aa00002aaa00002caa00002eaa000030aa000032aa000034aa000036aa000038aa00003aaa00003caa00003eaa000040aa000042aa000044aa000046aa000048aa00004aaa00004caa00004eaa000050aa000052aa000054aa000056aa000058aa00005aaa0000bcaa000000ca9a3b
+    m_ExpandedIDs: 0000000054aa000056aa000058aa00005aaa00005caa00005eaa000060aa000062aa000064aa000066aa000068aa00006aaa00006caa00006eaa000070aa000072aa000074aa000076aa000078aa00007aaa00007caa00007eaa000080aa000082aa000084aa000086aa000088aa00008aaa00008caa00008eaa000090aa0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1332,7 +1332,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000001eaa000020aa000022aa000024aa000026aa000028aa00002aaa00002caa00002eaa000030aa000032aa000034aa000036aa000038aa00003aaa00003caa00003eaa000040aa000042aa000044aa000046aa000048aa00004aaa00004caa00004eaa000050aa000052aa000054aa000056aa000058aa00005aaa0000
+    m_ExpandedIDs: 0000000054aa000056aa000058aa00005aaa00005caa00005eaa000060aa000062aa000064aa000066aa000068aa00006aaa00006caa00006eaa000070aa000072aa000074aa000076aa000078aa00007aaa00007caa00007eaa000080aa000082aa000084aa000086aa000088aa00008aaa00008caa00008eaa000090aa0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1412,8 +1412,8 @@ MonoBehaviour:
     m_TextWithWhitespace: "Inspector\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 1048
-    y: 73
+    x: 1049
+    y: 19
     width: 311
     height: 606
   m_SerializedDataModeController:

@@ -1524,7 +1524,7 @@ MonoBehaviour:
   m_TargetMovementOnly: 1
   m_ScreenX: 0.5
   m_ScreenY: 0.5
-  m_CameraDistance: 10
+  m_CameraDistance: 12
   m_DeadZoneWidth: 0
   m_DeadZoneHeight: 0
   m_DeadZoneDepth: 0
@@ -3478,10 +3478,10 @@ MonoBehaviour:
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 1473643945}
   m_Lens:
-    FieldOfView: 75.6
+    FieldOfView: 64.73
     OrthographicSize: 9.5
     NearClipPlane: 1
-    FarClipPlane: 42
+    FarClipPlane: 41
     Dutch: 0
     ModeOverride: 2
     LensShift: {x: 0, y: 0}
@@ -3504,14 +3504,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 682833694}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.36617678, y: -0.35134196, z: 0.15167537, w: 0.8482146}
-  m_LocalPosition: {x: -4.960072, y: 3.3495998, z: 4.713532}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0.33860296, y: -0.3560554, z: 0.14025393, w: 0.8595938}
+  m_LocalPosition: {x: -3.603797, y: 4.2558517, z: 3.3572583}
+  m_LocalScale: {x: 1.851491, y: 0.90277, z: 0.7020752}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 282165112}
   m_Father: {fileID: 394785046}
-  m_LocalEulerAnglesHint: {x: 46.7, y: -45, z: 0}
+  m_LocalEulerAnglesHint: {x: 43, y: -45, z: 0}
 --- !u!1001 &693008071
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4521,8 +4521,8 @@ Camera:
     width: 1
     height: 1
   near clip plane: 1
-  far clip plane: 42
-  field of view: 75.6
+  far clip plane: 41
+  field of view: 64.73
   orthographic: 0
   orthographic size: 9.5
   m_Depth: -1
@@ -4548,13 +4548,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.36617678, y: -0.35134196, z: 0.15167537, w: 0.8482146}
-  m_LocalPosition: {x: -4.960072, y: 3.3495998, z: 4.713532}
+  m_LocalRotation: {x: 0.33860296, y: -0.3560554, z: 0.14025393, w: 0.8595938}
+  m_LocalPosition: {x: -3.603797, y: 4.2558517, z: 3.3572583}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 394785046}
-  m_LocalEulerAnglesHint: {x: 25, y: -10, z: 0}
+  m_LocalEulerAnglesHint: {x: 47, y: -45, z: 0}
 --- !u!114 &963194229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4568,7 +4568,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ShowDebugText: 0
-  m_ShowCameraFrustum: 1
+  m_ShowCameraFrustum: 0
   m_IgnoreTimeScale: 0
   m_WorldUpOverride: {fileID: 0}
   m_UpdateMethod: 2
@@ -4602,17 +4602,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_RenderShadows: 1
-  m_RequiresDepthTextureOption: 2
-  m_RequiresOpaqueTextureOption: 2
+  m_RequiresDepthTextureOption: 1
+  m_RequiresOpaqueTextureOption: 1
   m_CameraType: 0
   m_Cameras: []
-  m_RendererIndex: -1
+  m_RendererIndex: 0
   m_VolumeLayerMask:
     serializedVersion: 2
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -12371,7 +12371,7 @@ Transform:
   m_GameObject: {fileID: 1547923189}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.9, z: 53.6}
+  m_LocalPosition: {x: 0, y: 1.9, z: 40.4}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -14485,8 +14485,8 @@ Light:
   m_Enabled: 1
   serializedVersion: 11
   m_Type: 1
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
+  m_Color: {r: 0.91764706, g: 0.91764706, b: 0.91764706, a: 1}
+  m_Intensity: 1.5
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208

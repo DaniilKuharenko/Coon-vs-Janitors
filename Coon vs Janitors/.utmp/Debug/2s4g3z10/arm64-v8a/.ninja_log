@@ -1,11 +1,11 @@
 # ninja log v5
-107	1240	7584144465132483	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	313a1e41ac7409d4
-1252	2302	7584144473737424	C:/Users/limon/Documents/GitHub/Coon-vs-Janitors/Coon vs Janitors/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/Debug/2s4g3z10/obj/arm64-v8a/libswappywrapper.so	1c26f5d1ba8f7e06
-85	3322	7584144486025082	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	589b528d647dcac2
-44	3327	7584144485989167	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	9ed28d640142c82a
-30	3331	7584144485989167	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	5a728ceb11e911ca
-2	3480	7584144487696378	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	4b45a03f2ad1d057
-57	3600	7584144488873182	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	64212c54052cd623
-20	3646	7584144489424741	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	e54f27aac5d8efde
-11	3755	7584144490478456	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	85eb8c842f6d0d32
-3756	4085	7584144492688449	C:/Users/limon/Documents/GitHub/Coon-vs-Janitors/Coon vs Janitors/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/Debug/2s4g3z10/obj/arm64-v8a/libgame.so	938f015e7d3c3e50
+142	1120	7584278090515934	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	313a1e41ac7409d4
+1179	2289	7584278096191612	C:/Users/limon/Documents/GitHub/Coon-vs-Janitors/Coon vs Janitors/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/Debug/2s4g3z10/obj/arm64-v8a/libswappywrapper.so	1c26f5d1ba8f7e06
+36	2745	7584278106459573	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	9ed28d640142c82a
+93	2802	7584278106939532	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	5a728ceb11e911ca
+126	2804	7584278107280287	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	589b528d647dcac2
+25	2822	7584278107472033	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	4b45a03f2ad1d057
+1	2866	7584278108232661	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	e54f27aac5d8efde
+107	3062	7584278110179869	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	64212c54052cd623
+13	3164	7584278111202188	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	85eb8c842f6d0d32
+3164	3415	7584278113015136	C:/Users/limon/Documents/GitHub/Coon-vs-Janitors/Coon vs Janitors/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/Debug/2s4g3z10/obj/arm64-v8a/libgame.so	938f015e7d3c3e50

@@ -11,32 +11,42 @@ namespace Raccons_House_Games
         [SerializeField] private TMP_Text _timerText;
         [SerializeField] private int _duration;
         private int _remainingDuration;
-        private bool _pause;
+        private bool _pause = false;
+        private Coroutine _timerCoroutine;
 
-        private void Start() // temporary use of Start later it will need to be removed
+        private void Start() // Temporarily using Start, can be removed later
         {
-            Begin(_duration);
+            StartTimer(_duration);
         }
 
-        private void Begin(int second)
+        public void StartTimer(int seconds)
         {
-            _remainingDuration = second;
-            StartCoroutine(TimerTick());
-        }
-
-        private IEnumerator TimerTick()
-        {
-            while(_remainingDuration >= 0)
+            if (_timerCoroutine != null)
             {
-                if(!_pause)
+                StopCoroutine(_timerCoroutine);
+            }
+            _timerCoroutine = StartCoroutine(TimerCoroutine(seconds));
+        }
+
+        private IEnumerator TimerCoroutine(int seconds)
+        {
+            _remainingDuration = seconds;
+            while (_remainingDuration >= 0) // Counts down to 0
+            {
+                if (!_pause)
                 {
-                    _timerText.text = $"{_remainingDuration / 60:00} : {_remainingDuration % 60:00}";
-                    _circleFill.fillAmount = Mathf.InverseLerp(0, _duration, _remainingDuration);
-                    yield return new WaitForSeconds(1f);
+                    UpdateTimerUI();
+                    _remainingDuration--;
                 }
-                yield return null;
+                yield return new WaitForSeconds(1f);
             }
             OnEndTime();
+        }
+
+        private void UpdateTimerUI()
+        {
+            _timerText.text = $"{_remainingDuration / 60:00} : {_remainingDuration % 60:00}";
+            _circleFill.fillAmount = Mathf.InverseLerp(0, _duration, _remainingDuration);
         }
 
         private void OnEndTime()

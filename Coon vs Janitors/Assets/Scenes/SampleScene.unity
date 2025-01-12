@@ -3476,7 +3476,7 @@ MonoBehaviour:
   m_Priority: 12
   m_StandbyUpdate: 0
   m_LookAt: {fileID: 0}
-  m_Follow: {fileID: 0}
+  m_Follow: {fileID: 1473643945}
   m_Lens:
     FieldOfView: 75.6
     OrthographicSize: 9.5
@@ -3505,7 +3505,7 @@ Transform:
   m_GameObject: {fileID: 682833694}
   serializedVersion: 2
   m_LocalRotation: {x: 0.36617678, y: -0.35134196, z: 0.15167537, w: 0.8482146}
-  m_LocalPosition: {x: 1.0751324, y: 5.9296007, z: 24.168125}
+  m_LocalPosition: {x: -4.960072, y: 3.3495998, z: 4.713532}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4549,7 +4549,7 @@ Transform:
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
   m_LocalRotation: {x: 0.36617678, y: -0.35134196, z: 0.15167537, w: 0.8482146}
-  m_LocalPosition: {x: 1.0751324, y: 5.9296007, z: 24.168125}
+  m_LocalPosition: {x: -4.960072, y: 3.3495998, z: 4.713532}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10502,7 +10502,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1228055037}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1

@@ -99,7 +99,7 @@ namespace Raccons_House_Games
 
         private Vector3 RandomPosition()
         {
-            return new Vector3(Random.Range(-10f, 10f), 0, Random.Range(-10f, 10f));
+            return new Vector3(Random.Range(-30f, 30f), 0, Random.Range(-30f, 30f));
         }
     }
 }

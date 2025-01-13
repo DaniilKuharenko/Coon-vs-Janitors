@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Raccons_House_Games
 {
@@ -12,6 +13,7 @@ namespace Raccons_House_Games
         [SerializeField] private Transform[] _enemySpawnPoints;
         [SerializeField] private Transform _poolParent;
         [SerializeField] private ObjectsType[] _objectTypes;
+        [SerializeField] private Image _uiImage;
 
 
         private ObjectPool _playerPool;
@@ -93,6 +95,12 @@ namespace Raccons_House_Games
                     var objectInstance = pool.GetFromPool();
                     objectInstance.transform.position = RandomPosition();
                     objectInstance.SetActive(true);
+                }
+                
+                ObjectsType selectedType = System.Array.Find(_objectTypes, t => t.ItemObjectType == randomType);
+                if (selectedType != null && selectedType.ItemObjectImage != null)
+                {
+                    _uiImage.sprite = selectedType.ItemObjectImage;
                 }
             }
         }

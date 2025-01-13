@@ -6,6 +6,7 @@ namespace Raccons_House_Games
     public class ObjectsType : ScriptableObject
     {
         [field: SerializeField] public ItemObjects ItemObjectType { get; private set; }
+        [field: SerializeField] public Sprite ItemObjectImage { get; private set; }
         public GameObject[] ObjectsPrefab;
     }
 }

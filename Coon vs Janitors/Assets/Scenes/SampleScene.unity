@@ -10516,6 +10516,7 @@ GameObject:
   - component: {fileID: 1228055038}
   - component: {fileID: 1228055042}
   - component: {fileID: 1228055043}
+  - component: {fileID: 1228055044}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Ground
@@ -10665,6 +10666,18 @@ MonoBehaviour:
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: adce277d585a46d43931a1b657fef269, type: 2}
   m_BuildHeightMesh: 0
+--- !u!114 &1228055044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1228055037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a1d364e9afe12d48a3932b6a3bc9eb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1237562965
 GameObject:
   m_ObjectHideFlags: 0
@@ -14007,6 +14020,7 @@ GameObject:
   - component: {fileID: 1855365583}
   - component: {fileID: 1855365582}
   - component: {fileID: 1855365585}
+  - component: {fileID: 1855365586}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Pickup
@@ -14057,7 +14071,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 7dc0839ba7b7e82419519b11ed3f66f0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -14262,6 +14276,18 @@ MonoBehaviour:
   _collisionSound: {fileID: 8300000, guid: c4e1ff89f28c16f4cb7ce5f232db317f, type: 3}
   _audioSource: {fileID: 1855365584}
   _minImpactVelocity: 2
+--- !u!114 &1855365586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1855365577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a1d364e9afe12d48a3932b6a3bc9eb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1874632107
 GameObject:
   m_ObjectHideFlags: 0

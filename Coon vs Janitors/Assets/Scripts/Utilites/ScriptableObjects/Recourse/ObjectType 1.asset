@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: ObjectType 1
   m_EditorClassIdentifier: 
   <ItemObjectType>k__BackingField: 1
+  <ItemObjectImage>k__BackingField: {fileID: 21300000, guid: b18cde815fc3faf419d45f17185596a5,
+    type: 3}
   ObjectsPrefab:
   - {fileID: 4674489808867134715, guid: 303e1d304435ea7409f2a1ff3841275e, type: 3}

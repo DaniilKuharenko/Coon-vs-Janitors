@@ -6,11 +6,8 @@ namespace Raccons_House_Games
     public class Bootstrap : MonoBehaviour
     {
         [SerializeField] private GameManager _gameManager;
-        private GpuInctancingEnabler _gpuInctancingEnabler;
         private void Awake()
         {
-            _gpuInctancingEnabler = new GpuInctancingEnabler();
-            _gpuInctancingEnabler.GpuInctancEnable();
             StartCoroutine(Run());
         }
 

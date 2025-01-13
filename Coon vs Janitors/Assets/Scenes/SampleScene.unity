@@ -3800,6 +3800,7 @@ GameObject:
   - component: {fileID: 746929047}
   - component: {fileID: 746929050}
   - component: {fileID: 746929051}
+  - component: {fileID: 746929052}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -3937,6 +3938,18 @@ MonoBehaviour:
   _throwUpImpulse: 5
   _throwRadiusImpulse: 3
   _interactionButton: {fileID: 1047182729}
+--- !u!114 &746929052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 746929045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a1d364e9afe12d48a3932b6a3bc9eb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &753316711
 GameObject:
   m_ObjectHideFlags: 0
@@ -13167,7 +13180,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 1
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0

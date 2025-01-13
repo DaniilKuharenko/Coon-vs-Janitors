@@ -14,6 +14,7 @@ namespace Raccons_House_Games
         [SerializeField] private Transform _poolParent;
         [SerializeField] private ObjectsType[] _objectTypes;
         [SerializeField] private Image _uiImage;
+        private GpuInctancingEnabler _gpuInctancingEnabler;
 
 
         private ObjectPool _playerPool;

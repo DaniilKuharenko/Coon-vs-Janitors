@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 62823718594247189}
   - component: {fileID: 8782040528044463869}
   - component: {fileID: 4901131420048428104}
+  - component: {fileID: 1158143483810131606}
   m_Layer: 6
   m_Name: Cube
   m_TagString: Player
@@ -184,6 +185,18 @@ MonoBehaviour:
   _snowComputerShader: {fileID: 7200000, guid: 4e5a6ea5c3451ee47ab9c6d9110458fa, type: 3}
   _snowRT: {fileID: 8400000, guid: 4e97c8f28ca62774d9d6c72858a24f51, type: 2}
   _spotSize: 10
+--- !u!114 &1158143483810131606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 563503503519440286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a1d364e9afe12d48a3932b6a3bc9eb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5836032348293906204
 GameObject:
   m_ObjectHideFlags: 0

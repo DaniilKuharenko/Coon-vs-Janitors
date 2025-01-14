@@ -8,6 +8,8 @@ namespace Raccons_House_Games
         [SerializeField] private GameManager _gameManager;
         private void Awake()
         {
+            QualitySettings.vSyncCount = 0;
+            Application.targetFrameRate = 600;
             StartCoroutine(Run());
         }
 

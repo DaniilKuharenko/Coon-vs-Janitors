@@ -9,10 +9,11 @@ namespace Raccons_House_Games
         [SerializeField] private float _baseSpeed = 10.0f;
         [SerializeField] private float _maxSpeed = 10.5f;
         [SerializeField] private float _accelerationTime = 3.0f;
+
         private float _currentDuration = 0.0f;
         private float _currentSpeed;
         private float _accelerationTimer;
-        private float _checkSpeed; 
+        private float _checkSpeed;
         private Vector2 _currentInput;
 
         public void SetSpeedMultiplier(float multiplier, float duration)
@@ -29,7 +30,6 @@ namespace Raccons_House_Games
             _accelerationTimer = 0.0f;
         }
 
-
         private void Start()
         {
             _currentSpeed = _baseSpeed;
@@ -38,7 +38,16 @@ namespace Raccons_House_Games
 
         private void Update()
         {
+            HandleSpeedReset();
+        }
+
+        private void FixedUpdate()
+        {
             HandleMove();
+        }
+
+        private void HandleSpeedReset()
+        {
             if (_currentDuration > 0)
             {
                 _currentDuration -= Time.deltaTime;
@@ -65,17 +74,18 @@ namespace Raccons_House_Games
             }
 
             Vector3 inputDirection = new Vector3(_currentInput.x, 0, _currentInput.y).normalized;
-            Vector3 movement = inputDirection * _currentSpeed;
-
-            _playerBody.velocity = new Vector3(movement.x, _playerBody.velocity.y, movement.z);
-
-            _checkSpeed = new Vector3(_playerBody.velocity.x, 0, _playerBody.velocity.z).magnitude;
+            Vector3 movement = inputDirection * _currentSpeed * Time.fixedDeltaTime;
 
             if (_currentInput != Vector2.zero)
             {
-                transform.rotation = Quaternion.LookRotation(new Vector3(_playerBody.velocity.x, 0, _playerBody.velocity.z));
+                Vector3 targetPosition = _playerBody.position + movement;
+                _playerBody.MovePosition(targetPosition);
+
+                Quaternion targetRotation = Quaternion.LookRotation(new Vector3(inputDirection.x, 0, inputDirection.z));
+                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.fixedDeltaTime * 10);
             }
+            
+            _checkSpeed = new Vector3(_playerBody.velocity.x, 0, _playerBody.velocity.z).magnitude;
         }
     }
-
 }

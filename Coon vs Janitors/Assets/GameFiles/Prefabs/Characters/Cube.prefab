@@ -153,7 +153,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerBody: {fileID: 3806504250211314311}
-  _movementJoystick: {fileID: 0}
+  _movementJoystick: {fileID: 4889243894246487056, guid: e7d0af75cd6510941a068c2be434ce9c,
+    type: 3}
   _baseSpeed: 6
   _maxSpeed: 10.5
   _accelerationTime: 2.5

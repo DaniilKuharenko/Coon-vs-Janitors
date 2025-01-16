@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 8782040528044463869}
   - component: {fileID: 4901131420048428104}
   - component: {fileID: 1158143483810131606}
+  - component: {fileID: 9156406957532876284}
   m_Layer: 6
   m_Name: Cube
   m_TagString: Player
@@ -155,6 +156,7 @@ MonoBehaviour:
   _playerBody: {fileID: 3806504250211314311}
   _movementJoystick: {fileID: 4889243894246487056, guid: e7d0af75cd6510941a068c2be434ce9c,
     type: 3}
+  _camera: {fileID: 0}
   _baseSpeed: 6
   _maxSpeed: 10.5
   _accelerationTime: 2.5
@@ -196,6 +198,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3a1d364e9afe12d48a3932b6a3bc9eb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &9156406957532876284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 563503503519440286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 367fdffbb48a8ec4baaf6e77db9933d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &5836032348293906204

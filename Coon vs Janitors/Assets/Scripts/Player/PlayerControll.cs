@@ -6,6 +6,7 @@ namespace Raccons_House_Games
     {
         [SerializeField] private Rigidbody _playerBody;
         [SerializeField] private FixedJoystick _movementJoystick;
+        [SerializeField] private Camera _camera;
         [SerializeField] private float _baseSpeed = 10.0f;
         [SerializeField] private float _maxSpeed = 10.5f;
         [SerializeField] private float _accelerationTime = 3.0f;
@@ -73,15 +74,21 @@ namespace Raccons_House_Games
                 _currentSpeed = _baseSpeed;
             }
 
+            // camera rotation angle along the Y axis
+            float cameraAngle = _camera.transform.eulerAngles.y;
+
             Vector3 inputDirection = new Vector3(_currentInput.x, 0, _currentInput.y).normalized;
-            Vector3 movement = inputDirection * _currentSpeed * Time.fixedDeltaTime;
+            Quaternion rotation = Quaternion.Euler(0, cameraAngle, 0);
+            Vector3 movementDirection = rotation * inputDirection;
+
+            Vector3 movement = movementDirection * _currentSpeed * Time.fixedDeltaTime;
 
             if (_currentInput != Vector2.zero)
             {
                 Vector3 targetPosition = _playerBody.position + movement;
                 _playerBody.MovePosition(targetPosition);
 
-                Quaternion targetRotation = Quaternion.LookRotation(new Vector3(inputDirection.x, 0, inputDirection.z));
+                Quaternion targetRotation = Quaternion.LookRotation(new Vector3(movementDirection.x, 0, movementDirection.z));
                 transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.fixedDeltaTime * 10);
             }
             

@@ -15,19 +15,24 @@ namespace Raccons_House_Games
         public void InitializePointerManager() 
         {
             _pointerPrefab.InitializePointerIcon();
-            if (Instance == null) {
+            if (Instance == null) 
+            {
                 Instance = this;
-            } else {
+            } 
+            else 
+            {
                 Destroy(this);
             }
         }
 
-        public void AddToList(ObjectPointer objectPointer) {
+        public void AddToList(ObjectPointer objectPointer) 
+        {
             PointerIcon newPointer = Instantiate(_pointerPrefab, transform);
             _dictionary.Add(objectPointer, newPointer);
         }
 
-        public void RemoveFromList(ObjectPointer objectPointer) {
+        public void RemoveFromList(ObjectPointer objectPointer) 
+        {
             Destroy(_dictionary[objectPointer].gameObject);
             _dictionary.Remove(objectPointer);
         }
@@ -50,9 +55,12 @@ namespace Raccons_House_Games
                 float rayMinDistance = Mathf.Infinity;
                 int index = 0;
 
-                for (int p = 0; p < 4; p++) {
-                    if (planes[p].Raycast(ray, out float distance)) {
-                        if (distance < rayMinDistance) {
+                for (int p = 0; p < 4; p++) 
+                {
+                    if (planes[p].Raycast(ray, out float distance)) 
+                    {
+                        if (distance < rayMinDistance) 
+                        {
                             rayMinDistance = distance;
                             index = p;
                         }
@@ -64,9 +72,12 @@ namespace Raccons_House_Games
                 Vector3 position = _camera.WorldToScreenPoint(worldPosition);
                 Quaternion rotation = GetIconRotation(index);
 
-                if (toEnemy.magnitude > rayMinDistance) {
+                if (toEnemy.magnitude > rayMinDistance) 
+                {
                     pointerIcon.Show();
-                } else {
+                } 
+                else 
+                {
                     pointerIcon.Hide();
                 }
 

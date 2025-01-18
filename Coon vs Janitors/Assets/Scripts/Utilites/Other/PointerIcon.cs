@@ -15,39 +15,55 @@ namespace Raccons_House_Games
             _isShown = false;
         }
 
-        public void SetIconPosition(Vector3 position, Quaternion rotation) {
+        public void SetIconPosition(Vector3 position, Quaternion rotation) 
+        {
             transform.position = position;
             transform.rotation = rotation;
         }
 
-        public void Show() {
-            if (_isShown) return;
+        public void Show() 
+        {
+            if (_isShown)
+            {
+                return;
+            }
+            
             _isShown = true;
             StopAllCoroutines();
             StartCoroutine(ShowProcess());
         }
 
-        public void Hide() {
-            if (!_isShown) return;
+        public void Hide() 
+        {
+            if (!_isShown)
+            {
+                return;
+            }
+
             _isShown = false;
 
             StopAllCoroutines();
             StartCoroutine(HideProcess());
         }
 
-        IEnumerator ShowProcess() {
+        IEnumerator ShowProcess() 
+        {
             _image.enabled = true;
             transform.localScale = Vector3.zero;
-            for (float t = 0; t < 1f; t += Time.deltaTime * 4f) {
+
+            for (float t = 0; t < 1f; t += Time.deltaTime * 4f) 
+            {
                 transform.localScale = Vector3.one * t;
                 yield return null;
             }
+
             transform.localScale = Vector3.one;
         }
 
-        IEnumerator HideProcess() {
-
-            for (float t = 0; t < 1f; t += Time.deltaTime * 4f) {
+        IEnumerator HideProcess() 
+        {
+            for (float t = 0; t < 1f; t += Time.deltaTime * 4f) 
+            {
                 transform.localScale = Vector3.one * (1f - t);
                 yield return null;
             }

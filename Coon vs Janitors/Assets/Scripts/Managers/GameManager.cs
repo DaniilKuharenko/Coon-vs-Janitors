@@ -15,6 +15,8 @@ namespace Raccons_House_Games
         [SerializeField] private Image _uiImage;
         [SerializeField] private PointerManager _pointerManager;
         [SerializeField] private ObjectPointer _objectPointer;
+        [SerializeField] private ObjectivesManager _objectivesManager;
+        [SerializeField] private Objective _objective;
         private GpuInctancingEnabler _gpuInctancingEnabler;
 
 
@@ -27,6 +29,8 @@ namespace Raccons_House_Games
         {
             _pointerManager.InitializePointerManager();
             _objectPointer.StartPointer();
+            _objectivesManager.InitializeObjectiveManager();
+            _objective.InitializeObjective();
             InitializePools();
             SpawnObjects();
             _trashControl.TrashInitialize();

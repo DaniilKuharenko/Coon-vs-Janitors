@@ -13,9 +13,19 @@ namespace Raccons_House_Games
         public string Description => _description;
         public bool IsCompleted { get; private set; }
 
-        protected virtual void Start()
+        public void InitializeObjective()
         {
-            _completeUi.enabled = false;
+            StartObjective();
+        }
+
+        protected virtual void StartObjective()
+        {
+            if (ObjectivesManager.Instance == null)
+            {
+                Debug.LogError("ObjectivesManager не найден на сцене!");
+                return;
+            }
+            IsCompleted = false;
             ObjectivesManager.Instance.AddObjective(this);
         }
 
@@ -35,6 +45,7 @@ namespace Raccons_House_Games
             {
                 IsCompleted = true;
                 _completeUi.enabled = true;
+                Debug.LogError("dddddddddddddddddddddddad");
                 ObjectivesManager.Instance.SetObjectiveCompleted(this);
             }
         }

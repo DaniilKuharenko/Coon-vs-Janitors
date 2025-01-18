@@ -7,7 +7,6 @@ namespace Raccons_House_Games
     {
         [SerializeField] private string _title;
         [SerializeField] private string _description;
-        [SerializeField] private Image _completeUi;
 
         public string Title => _title;
         public string Description => _description;
@@ -25,6 +24,7 @@ namespace Raccons_House_Games
                 Debug.LogError("ObjectivesManager Not found!");
                 return;
             }
+            
             IsCompleted = false;
             ObjectivesManager.Instance.AddObjective(this);
         }
@@ -44,7 +44,6 @@ namespace Raccons_House_Games
             if(IsObjectiveCompleted())
             {
                 IsCompleted = true;
-                _completeUi.enabled = true;
                 ObjectivesManager.Instance.SetObjectiveCompleted(this);
             }
         }

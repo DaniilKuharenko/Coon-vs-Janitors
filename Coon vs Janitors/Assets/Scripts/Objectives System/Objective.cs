@@ -22,7 +22,7 @@ namespace Raccons_House_Games
         {
             if (ObjectivesManager.Instance == null)
             {
-                Debug.LogError("ObjectivesManager не найден на сцене!");
+                Debug.LogError("ObjectivesManager Not found!");
                 return;
             }
             IsCompleted = false;

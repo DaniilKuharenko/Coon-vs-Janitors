@@ -45,7 +45,6 @@ namespace Raccons_House_Games
             {
                 IsCompleted = true;
                 _completeUi.enabled = true;
-                Debug.LogError("dddddddddddddddddddddddad");
                 ObjectivesManager.Instance.SetObjectiveCompleted(this);
             }
         }

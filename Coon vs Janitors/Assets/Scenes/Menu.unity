@@ -200,7 +200,7 @@ GameObject:
   - component: {fileID: 796309043}
   - component: {fileID: 796309042}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Play
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -454,6 +454,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 852677551}
+  - component: {fileID: 852677552}
   m_Layer: 0
   m_Name: MainMenu
   m_TagString: Untagged
@@ -479,6 +480,21 @@ Transform:
   - {fileID: 832548248}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &852677552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 852677550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9727b352db334584bb08931a90cc98fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playButton: {fileID: 796309042}
+  _settingsButton: {fileID: 1825144297}
+  _shopButton: {fileID: 1296662588}
 --- !u!1 &1115941111
 GameObject:
   m_ObjectHideFlags: 0
@@ -704,7 +720,7 @@ GameObject:
   - component: {fileID: 1296662589}
   - component: {fileID: 1296662588}
   m_Layer: 5
-  m_Name: Button (2)
+  m_Name: Shop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1205,7 +1221,7 @@ GameObject:
   - component: {fileID: 1825144298}
   - component: {fileID: 1825144297}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: Settings
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

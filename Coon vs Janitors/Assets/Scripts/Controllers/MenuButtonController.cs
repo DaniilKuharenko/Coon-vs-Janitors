@@ -20,6 +20,7 @@ namespace Raccons_House_Games
         private void OnPlayButtonClicked()
         {
             Debug.Log("Play button was clicked!");
+            SceneManager.LoadScene("DefaultGame");
         }
 
         private void OnSettingsButtonClicked()

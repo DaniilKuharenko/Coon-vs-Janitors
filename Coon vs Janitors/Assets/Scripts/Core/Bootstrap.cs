@@ -18,7 +18,7 @@ namespace Raccons_House_Games
         {
             _loadingScreen.SetActive(true);
 
-            yield return new WaitForSeconds(4.2f);
+            yield return new WaitForSeconds(1.2f);
             _gameManager.StartGame();
 
             _loadingScreen.SetActive(false);

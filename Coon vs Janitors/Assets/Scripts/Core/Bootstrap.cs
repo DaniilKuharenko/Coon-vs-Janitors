@@ -6,6 +6,7 @@ namespace Raccons_House_Games
     public class Bootstrap : MonoBehaviour
     {
         [SerializeField] private GameManager _gameManager;
+        [SerializeField] private GameObject _loadingScreen;
         private void Awake()
         {
             QualitySettings.vSyncCount = 0;
@@ -15,8 +16,12 @@ namespace Raccons_House_Games
 
         private IEnumerator Run()
         {
-            yield return new WaitForSeconds(1.2f);
+            _loadingScreen.SetActive(true);
+
+            yield return new WaitForSeconds(4.2f);
             _gameManager.StartGame();
+
+            _loadingScreen.SetActive(false);
         }
     }
 }

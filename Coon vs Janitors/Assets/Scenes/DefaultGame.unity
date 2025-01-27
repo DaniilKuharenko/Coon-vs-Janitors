@@ -3887,7 +3887,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _title: Test
   _description: Need go to Trash can
-  _playerTransform: {fileID: 1473643945}
+  _playerTransform: {fileID: 1218832257}
   _completionDistance: 3
 --- !u!114 &924503911
 MonoBehaviour:
@@ -10178,7 +10178,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 112
@@ -11232,18 +11232,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 7581421545991840876}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1473643948 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8782040528044463869, guid: 656b89b689def7f49840b019497afeb2,
-    type: 3}
-  m_PrefabInstance: {fileID: 7581421545991840876}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0dced8cca9e558439dd14685c38ddfd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1488586179
 GameObject:
   m_ObjectHideFlags: 0
@@ -11327,7 +11315,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1473643948}
+      - m_Target: {fileID: 1218832267}
         m_TargetAssemblyTypeName: Raccons_House_Games.ItemControl, Assembly-CSharp
         m_MethodName: DropItem
         m_Mode: 1
@@ -12194,7 +12182,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pointerPrefab: {fileID: 337009823}
-  _playerTransform: {fileID: 1473643945}
+  _playerTransform: {fileID: 1218832257}
   _camera: {fileID: 963194227}
 --- !u!1001 &1798326723
 PrefabInstance:
@@ -13929,7 +13917,7 @@ Transform:
   m_GameObject: {fileID: 2103248095}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0.006, y: 0.505, z: -1.132}
+  m_LocalPosition: {x: -0.006, y: 0.505, z: -1.749}
   m_LocalScale: {x: 0.7142856, y: 0.71428573, z: 0.7142856}
   m_ConstrainProportionsScale: 0
   m_Children: []

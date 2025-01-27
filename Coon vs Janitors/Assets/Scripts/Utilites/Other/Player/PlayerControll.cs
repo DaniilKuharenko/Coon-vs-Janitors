@@ -87,8 +87,8 @@ namespace Raccons_House_Games
             {
                 Vector3 targetPosition = _playerBody.position + movement;
                 _playerBody.MovePosition(targetPosition);
-
-                Quaternion targetRotation = Quaternion.LookRotation(new Vector3(movementDirection.x, 0, movementDirection.z));
+                
+                Quaternion targetRotation = Quaternion.LookRotation(new Vector3(-movementDirection.x, 0, -movementDirection.z));
                 transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.fixedDeltaTime * 10);
             }
             

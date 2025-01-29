@@ -10003,7 +10003,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 7c2be9eff092daf4d8dfdd95f90e16a0,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4230225888908216819, guid: 7c2be9eff092daf4d8dfdd95f90e16a0,
         type: 3}
@@ -10048,6 +10048,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1218832268}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7c2be9eff092daf4d8dfdd95f90e16a0,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1218832269}
     - targetCorrespondingSourceObject: {fileID: 8700725330082129686, guid: 7c2be9eff092daf4d8dfdd95f90e16a0,
         type: 3}
       insertIndex: -1
@@ -10224,6 +10228,21 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 2
   m_Center: {x: 0, y: 0.78, z: 0.1}
+--- !u!114 &1218832269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1218832261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a294097aaa656441a578dd723df56df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _snowComputerShader: {fileID: 0}
+  _snowRT: {fileID: 0}
+  _spotSize: 5
 --- !u!1 &1228055037
 GameObject:
   m_ObjectHideFlags: 0
@@ -14619,7 +14638,7 @@ PrefabInstance:
     - target: {fileID: 563503503519440286, guid: 656b89b689def7f49840b019497afeb2,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3560198811713366769, guid: 656b89b689def7f49840b019497afeb2,
         type: 3}

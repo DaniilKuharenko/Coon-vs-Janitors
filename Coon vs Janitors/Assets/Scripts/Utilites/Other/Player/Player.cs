@@ -24,7 +24,6 @@ namespace Raccons_House_Games
         private void Update()
         {
             _stateMachine?.Update();
-            Debug.LogError($"Speeed {_playerControll.CheckSpeed}");
         }
     }
 }

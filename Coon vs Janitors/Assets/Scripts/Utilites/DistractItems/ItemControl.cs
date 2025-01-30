@@ -51,7 +51,7 @@ namespace Raccons_House_Games
                 if (rb != null)
                 {
                     rb.isKinematic = false;
-                    rb.AddForce(transform.forward * 10.0f, ForceMode.Impulse);
+                    rb.AddForce(-transform.forward * 10.0f, ForceMode.Impulse);
                 }
 
                 _pickedUpItem.transform.SetParent(null);

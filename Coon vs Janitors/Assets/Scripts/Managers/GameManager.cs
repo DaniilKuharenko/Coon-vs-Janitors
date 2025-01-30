@@ -12,14 +12,22 @@ namespace Raccons_House_Games
         [SerializeField] private Transform[] _enemySpawnPoints;
         [SerializeField] private Transform _poolParent;
         [SerializeField] private ObjectsType[] _objectTypes;
+        
         [SerializeField] private Image _uiImage;
+        
+        [Header("Pointer")]
         [SerializeField] private PointerManager _pointerManager;
         [SerializeField] private ObjectPointer _objectPointer;
+
+        [Header("Objective")]
         [SerializeField] private ObjectivesManager _objectivesManager;
         [SerializeField] private Objective _objective;
+        
+        [Header("Player")]
+        [SerializeField] private PlayerControll _playerControll;
+        [SerializeField] private Player _player;
+
         private GpuInctancingEnabler _gpuInctancingEnabler;
-
-
         private ObjectPool _playerPool;
         private List<ObjectPool> _enemyPools;
         private Dictionary<ItemObjects, ObjectPool> _itemObjectsPool;
@@ -65,6 +73,8 @@ namespace Raccons_House_Games
 
         private void SpawnPlayer()
         {
+            _playerControll.StartPlayer();
+            _player.InitializeStateMachine();
             // Get a player from the pool
             // _playerInstance = _playerPool.GetFromPool();
             // _playerInstance.transform.position = _playerSpawnPoint.position;

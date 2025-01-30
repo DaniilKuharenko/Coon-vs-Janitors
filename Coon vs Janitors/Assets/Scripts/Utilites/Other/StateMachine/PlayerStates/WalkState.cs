@@ -1,21 +1,25 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Raccons_House_Games
 {
-    public class WalkState : MonoBehaviour
+    public class WalkState : PlayerBaseState
     {
-        // Start is called before the first frame update
-        void Start()
+        public WalkState(PlayerControll playerControll, Animator animator) : base (playerControll, animator){}
+
+        public override void OnEnter()
         {
-        
+            Debug.Log("Walk Enemy Start");
+            _animator.CrossFade(WalkHash, crossFadeDuration);
         }
 
-        // Update is called once per frame
-        void Update()
+        public override void Update()
         {
-        
+            Debug.Log("Walking");
+        }
+
+        public override void OnExit()
+        {
+            Debug.Log("Walking Exit");
         }
     }
 }

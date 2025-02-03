@@ -271,8 +271,8 @@ MonoBehaviour:
     y: 0
     width: 289
     height: 627
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 71}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 19}
   m_Panes:
   - {fileID: 19}
@@ -343,7 +343,7 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 73
+    y: 19
     width: 245
     height: 397
   m_SerializedDataModeController:
@@ -360,8 +360,8 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: b471f0ff
-      m_LastClickedID: -1019468
+      m_SelectedIDs: 
+      m_LastClickedID: 0
       m_ExpandedIDs: f673f0ff5c64f8ff7064f8ff4e65f8ff6865f8ff6e65f8ff8465f8ffded0f8ffbaa5fffff4e6fffff8e6fffffce6ffffcefaffff5ca500007aa500006aa60000faa6000052a700008aa70000689c01008e9c0100fc9c0100589d0100729d0100ea9d0100429e0100ce9e010020f8010062f80100
       m_RenameOverlay:
         m_UserAcceptedRename: 0
@@ -1026,11 +1026,11 @@ MonoBehaviour:
   m_Rotation:
     m_Target: {x: -0.049533136, y: -0.022907313, z: -0.0009311966, w: -0.99898624}
     speed: 2
-    m_Value: {x: -0.0495109, y: -0.024394149, z: -0.00085648795, w: -0.99847525}
+    m_Value: {x: -0.049533136, y: -0.022907311, z: -0.00093119656, w: -0.9989862}
   m_Size:
     m_Target: 1.4054321
     speed: 2
-    m_Value: 1.3449111
+    m_Value: 1.4054321
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -1213,7 +1213,7 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 491
+    y: 437
     width: 1070
     height: 188
   m_SerializedDataModeController:
@@ -1257,7 +1257,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 824}
     m_SelectedIDs: 2aad0000
     m_LastClickedID: 44330
-    m_ExpandedIDs: 0000000038ab00003aab00003cab00003eab000040ab000042ab000044ab000046ab000048ab00004aab00004cab00004eab000050ab000052ab000054ab000056ab000058ab00005aab00005cab00005eab000060ab000062ab000064ab000066ab000068ab00006aab00006cab00006eab000070ab000072ab000074ab000076ab000078ab00007aab00007cab00007eab000080ab000082ab000084ab000086ab000088ab00008aab00008cab000090ab000092ab000094ab0000c8ac000000ca9a3b
+    m_ExpandedIDs: 0000000096a6000098a600009aa600009ca600009ea60000a0a60000a2a60000a4a60000a6a60000a8a60000aaa60000aca60000aea60000b0a60000b2a60000b4a60000b6a60000b8a60000baa60000bca60000bea60000c0a60000c2a60000c4a60000c6a60000c8a60000caa60000cca60000cea60000d0a60000d2a60000d4a60000d6a60000d8a60000daa60000dca60000dea60000e0a60000e2a60000e4a60000e6a60000e8a60000eaa60000eca60000eea60000f0a60000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1286,7 +1286,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000038ab00003aab00003cab00003eab000040ab000042ab000044ab000046ab000048ab00004aab00004cab00004eab000050ab000052ab000054ab000056ab000058ab00005aab00005cab00005eab000060ab000062ab000064ab000066ab000068ab00006aab00006cab00006eab000070ab000072ab000074ab000076ab000078ab00007aab00007cab00007eab000080ab000082ab000084ab000086ab000088ab00008aab00008cab00008eab000090ab000092ab000094ab0000
+    m_ExpandedIDs: 0000000096a6000098a600009aa600009ca600009ea60000a0a60000a2a60000a4a60000a6a60000a8a60000aaa60000aca60000aea60000b0a60000b2a60000b4a60000b6a60000b8a60000baa60000bca60000bea60000c0a60000c2a60000c4a60000c6a60000c8a60000caa60000cca60000cea60000d0a60000d2a60000d4a60000d6a60000d8a60000daa60000dca60000dea60000e0a60000e2a60000e4a60000e6a60000e8a60000eaa60000eca60000eea60000f0a60000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1366,8 +1366,8 @@ MonoBehaviour:
     m_TextWithWhitespace: "Inspector\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 1071
-    y: 73
+    x: 1072
+    y: 19
     width: 288
     height: 606
   m_SerializedDataModeController:
@@ -1453,8 +1453,8 @@ MonoBehaviour:
     m_TextWithWhitespace: "Simulator\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 246
-    y: 73
+    x: 247
+    y: 19
     width: 823
     height: 397
   m_SerializedDataModeController:
@@ -1484,7 +1484,7 @@ MonoBehaviour:
   m_UseMipMap: 0
   m_SimulatorState:
     controlPanelVisible: 0
-    controlPanelWidth: 0
+    controlPanelWidth: NaN
     controlPanelFoldoutKeys:
     - UnityEditor.AdaptivePerformance.Editor.AdaptivePerformanceUIExtension
     - UnityEditor.AdaptivePerformance.Samsung.Android.Editor.AdaptivePerformanceGoogleUIExtension
@@ -1498,7 +1498,7 @@ MonoBehaviour:
     - '{"m_SerializationStates":{"thermalFoldout":false,"performanceFoldout":false,"developerFoldout":false,"indexerFoldout":false,"scalersFoldout":false,"deviceSettingsFoldout":false}}'
     - '{"m_SerializationStates":{"androidSystemFoldout":false}}'
     - '{}'
-    scale: 32
+    scale: 10
     fitToScreenEnabled: 1
     rotationDegree: 270
     highlightSafeAreaEnabled: 0

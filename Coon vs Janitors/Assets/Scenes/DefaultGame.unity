@@ -1319,6 +1319,7 @@ GameObject:
   m_Component:
   - component: {fileID: 269942152}
   - component: {fileID: 269942153}
+  - component: {fileID: 269942154}
   m_Layer: 3
   m_Name: PostPross
   m_TagString: Untagged
@@ -1335,7 +1336,7 @@ Transform:
   m_GameObject: {fileID: 269942151}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -28.2, y: 0, z: 33.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1358,6 +1359,27 @@ MonoBehaviour:
   blendDistance: 0
   weight: 1
   priority: 0
+--- !u!65 &269942154
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 269942151}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 144.60486, y: 58.15332, z: 316.53323}
+  m_Center: {x: 11.3268585, y: 0, z: 65.5294}
 --- !u!1 &282165111
 GameObject:
   m_ObjectHideFlags: 3
@@ -1369,7 +1391,7 @@ GameObject:
   - component: {fileID: 282165112}
   - component: {fileID: 282165115}
   - component: {fileID: 282165116}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: cm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3409,7 +3431,7 @@ GameObject:
   m_Component:
   - component: {fileID: 682833696}
   - component: {fileID: 682833695}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Virtual Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4938,7 +4960,7 @@ MonoBehaviour:
       colorBlindnessType: 0
       colorBlindnessStrength: 1
   m_Resources: {fileID: 11400000, guid: d82512f9c8e5d4a4d938b575d47f88d4, type: 2}
-  m_ShowToolkit: 0
+  m_ShowToolkit: 1
   m_ShowCustomSorter: 1
   breakBeforeColorGrading: 0
   m_BeforeTransparentBundles: []

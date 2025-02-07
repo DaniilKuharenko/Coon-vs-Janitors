@@ -5653,7 +5653,7 @@ MonoBehaviour:
   _playerBody: {fileID: 678191069}
   _movementJoystick: {fileID: 1483552106}
   _camera: {fileID: 95377004}
-  _baseSpeed: 10
+  _baseSpeed: 4
   _maxSpeed: 6
   _accelerationTime: 2
 --- !u!1001 &680689528

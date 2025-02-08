@@ -9,8 +9,8 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: fc87d8606580d564b9c29e39238e695c
   - enabled: 1
-    path: Assets/Scenes/DeveloperAera.unity
-    guid: c850ee8c3b14cc8459e7e186857cf567
+    path: Assets/Scenes/Game.unity
+    guid: 21b5560a95361c948aa8f51e365b1a90
   m_configObjects:
     com.unity.adaptiveperformance.google.android.provider_settings: {fileID: 11400000,
       guid: 27b0e95bbbfcb124a93824bc5ba202e9, type: 2}

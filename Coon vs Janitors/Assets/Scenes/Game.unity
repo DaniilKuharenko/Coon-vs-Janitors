@@ -484,7 +484,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &26803426
 Transform:
   m_ObjectHideFlags: 0
@@ -2348,7 +2348,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 678191065}
   m_Lens:
-    FieldOfView: 100
+    FieldOfView: 71
     OrthographicSize: 2.16
     NearClipPlane: 0.1
     FarClipPlane: 60
@@ -2375,7 +2375,7 @@ Transform:
   m_GameObject: {fileID: 75771004}
   serializedVersion: 2
   m_LocalRotation: {x: 0.28320482, y: -0.29032728, z: 0.1017118, w: 0.90838313}
-  m_LocalPosition: {x: 1.4095389, y: 1.9107316, z: -2.0130305}
+  m_LocalPosition: {x: 7.9793854, y: 2.4843082, z: -2.6840408}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3435,7 +3435,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 60
-  field of view: 100
+  field of view: 71
   orthographic: 0
   orthographic size: 2.16
   m_Depth: -1
@@ -3462,7 +3462,7 @@ Transform:
   m_GameObject: {fileID: 95377002}
   serializedVersion: 2
   m_LocalRotation: {x: 0.28320482, y: -0.29032728, z: 0.1017118, w: 0.90838313}
-  m_LocalPosition: {x: 1.4095389, y: 1.9107316, z: -2.0130305}
+  m_LocalPosition: {x: 7.9793854, y: 2.4843082, z: -2.6840408}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -24119,7 +24119,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: ffc0a4f4a3ee3bc46bed6cdac1dbe664,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 6.1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ffc0a4f4a3ee3bc46bed6cdac1dbe664,
         type: 3}
@@ -39569,7 +39569,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1076636549
 Transform:
   m_ObjectHideFlags: 0
@@ -45285,7 +45285,7 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
-  m_Mesh: {fileID: 954479958}
+  m_Mesh: {fileID: 637439736}
 --- !u!33 &1269139571
 MeshFilter:
   m_ObjectHideFlags: 10
@@ -48246,7 +48246,7 @@ MonoBehaviour:
   m_TargetMovementOnly: 1
   m_ScreenX: 0.5
   m_ScreenY: 0.5
-  m_CameraDistance: 3
+  m_CameraDistance: 4
   m_DeadZoneWidth: 0
   m_DeadZoneHeight: 0
   m_DeadZoneDepth: 0

@@ -1,4 +1,3 @@
-
 namespace Raccons_House_Games
 {
     public interface IState

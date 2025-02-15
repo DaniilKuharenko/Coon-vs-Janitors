@@ -7,6 +7,15 @@
       "dependencies": {},
       "hash": "aa567cbd59df8bf2be883a61f202a40b6b6731af"
     },
+    "com.unity.2d.tilemap": {
+      "version": "1.0.0",
+      "depth": 0,
+      "source": "builtin",
+      "dependencies": {
+        "com.unity.modules.tilemap": "1.0.0",
+        "com.unity.modules.uielements": "1.0.0"
+      }
+    },
     "com.unity.adaptiveperformance": {
       "version": "5.1.0",
       "depth": 1,
